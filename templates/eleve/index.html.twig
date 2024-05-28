@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Eleve index
+{% endblock %}
+
+{% block body %}
+
+
+	<div
+		class="container-scroller">
+		<!-- partial:partials/_navbar.html -->
+
+		{% include "dashboard/nav_&_sidebar_&_footer/_nav.html.twig" %}
+
+
+		<!-- partial -->
+		<div
+			class="container-fluid page-body-wrapper">
+			<!-- partial:partials/_sidebar.html -->
+
+			{% include "dashboard/nav_&_sidebar_&_footer/_sidebar.html.twig" %}
+
+			<!-- partial -->
+			<div class="main-panel">
+				<div class="content-wrapper">
+
+					<div class="row">
+						<div class="col-md-12 grid-margin">
+							<div class="d-flex justify-content-between flex-wrap">
+								<div class="d-flex align-items-end flex-wrap">
+									<div class="mr-md-3 mr-xl-5">
+										<h2>Bienvenue
+											{{ nom_prenom_user }}</h2>
+										<!-- <p class="mb-md-0">Your analytics dashboard template.</p> -->
+									</div>
+									<div class="d-flex">
+										<i class="mdi mdi-account-multiple text-muted hover-cursor"></i>
+										<!-- <p class="text-muted mb-0 hover-cursor">&nbsp;/&nbsp;Dashboard&nbsp;/&nbsp;</p> -->
+										<p class="text-primary mb-0 hover-cursor">Eleve</p>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-md-12 grid-margin stretch-card">
+							<div class="card">
+								<div class="card-body">
+									<h4 class="card-title">Tableau d'Eleves</h4>
+
+									<div style="display: flex; justify-content: flex-end;">
+										<a type="button" href="{{ path('app_eleve_new') }}" class="btn btn-outline-primary btn-fw">
+											<b>Effectuer un nouvel enregistrement</b>
+										</a>
+									</div>
+
+
+									<div class="table-responsive">
+										<table class="table table-striped">
+											<thead>
+												<tr>
+													<th>Id</th>
+													<th>Nom</th>
+													<th>Prenom</th>
+													<th>Pseudo</th>
+													<th>Date_naissance</th>
+													<th>Sexe</th>
+													<th>Mot_de_passe</th>
+													<th>actions</th>
+												</tr>
+											</thead>
+
+											<tbody>
+												{% for eleve in eleves %}
+													<tr>
+														<td>{{ eleve.id }}</td>
+														<td>{{ eleve.nom }}</td>
+														<td>{{ eleve.prenom }}</td>
+														<td>{{ eleve.pseudo }}</td>
+														<td>{{ eleve.dateNaissance ? eleve.dateNaissance|date('Y-m-d') : '' }}</td>
+														<td>{{ eleve.sexe }}</td>
+														<td>{{ eleve.password }}</td>
+														<td>
+															<a href="{{ path('app_eleve_show', {'id': eleve.id}) }}" title="Show">
+																<button type="button" class="btn btn-secondary">Voir</button>
+															</a>
+
+															<a href="{{ path('app_eleve_edit', {'id': eleve.id}) }}" title="Edit">
+																<button type="button" class="btn btn-info">Modifier</button>
+															</a>
+														</td>
+													</tr>
+												{% else %}
+													<tr>
+														<td colspan="7">Aucun nouvel enregistrement trouvé !</td>
+													</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+
+
+					<!-- content-wrapper ends -->
+					<!-- partial:partials/_footer.html -->
+
+					{% include "dashboard/nav_&_sidebar_&_footer/_footer.html.twig" %}
+
+					<!-- partial -->
+				</div>
+				<!-- main-panel ends -->
+			</div>
+			<!-- page-body-wrapper ends -->
+		</div>
+		<!-- container-scroller -->
+
+
+	{% endblock %}

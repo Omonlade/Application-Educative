@@ -1,0 +1,176 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('app_dashboard') }}">
+              <i class="mdi mdi-home menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_user_index', 'app_user_new','app_user_show','app_user_edit', 'app_user_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-admin" aria-expanded="false" aria-controls="ui-basic-admin">
+              <i class="mdi mdi-account-circle menu-icon"></i>
+              <span class="menu-title">Administratreur</span>
+
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic-admin">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_user_index') }}">CRUD</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic-eleve" aria-expanded="false" aria-controls="ui-basic-eleve">
+              <i class="mdi mdi-account-multiple menu-icon"></i>
+              <span class="menu-title">Eleve</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic-eleve">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_eleve_index') }}">CRUD</a></li>
+              </ul>
+            </div>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic-equipement" aria-expanded="false" aria-controls="ui-basic-equipement">
+              <i class="mdi mdi-briefcase-check menu-icon"></i>
+              <span class="menu-title">Equipement</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic-equipement">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_equipement_index') }}">CRUD</a></li>
+              </ul>
+            </div>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic-tutoriel" aria-expanded="false" aria-controls="ui-basic-tutoriel">
+              <i class="mdi mdi-play-box-outline menu-icon"></i>
+              <span class="menu-title">Tutoriel</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic-tutoriel">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_tutoriel_index') }}">CRUD</a></li>
+              </ul>
+            </div>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic-projet" aria-expanded="false" aria-controls="ui-basic-projet">
+              <i class="mdi mdi-assistant menu-icon"></i>
+              <span class="menu-title">Projet</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic-projet">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_projet_index') }}">CRUD</a></li>
+              </ul>
+            </div>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic-quiz" aria-expanded="false" aria-controls="ui-basic-quiz">
+              <i class="mdi mdi-file-xml menu-icon"></i>
+              <span class="menu-title">Quiz</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic-quiz">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_quiz_index') }}">CRUD</a></li>
+              </ul>
+            </div>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic-question" aria-expanded="false" aria-controls="ui-basic-question">
+              <i class="mdi mdi-rename-box menu-icon"></i>
+              <span class="menu-title">Question</span>
+              <i class="menu-arrow"></i>
+            </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic-consulter" aria-expanded="false" aria-controls="ui-basic-consulter">
+              <i class="mdi mdi-calendar-text menu-icon"></i>
+              <span class="menu-title">Consulter</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic-consulter">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_consulter_index') }}">CRUD</a></li>
+              </ul>
+            </div>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic-reponse" aria-expanded="false" aria-controls="ui-basic-reponse">
+              <i class="mdi mdi-comment-check-outline menu-icon"></i>
+              <span class="menu-title">Reponse</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic-reponse">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_reponse_index') }}">CRUD</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic-utiliser" aria-expanded="false" aria-controls="ui-basic-utiliser">
+              <i class="mdi mdi-subdirectory-arrow-right menu-icon"></i>
+              <span class="menu-title">Utiliser</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic-utiliser">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_utiliser_index') }}">CRUD</a></li>
+              </ul>
+            </div>
+          </li>
+
+
+
+          
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic-creer" aria-expanded="false" aria-controls="ui-basic-creer">
+              <i class="mdi mdi-calendar-plus menu-icon"></i>
+              <span class="menu-title">Creer</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic-creer">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_creer_index') }}">CRUD</a></li>
+              </ul>
+            </div>
+          </li>
+
+
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic-jouer" aria-expanded="false" aria-controls="ui-basic-jouer">
+              <i class="mdi mdi-account-card-details menu-icon"></i>
+              <span class="menu-title">Jouer</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic-jouer">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_jouer_index') }}">CRUD</a></li>
+              </ul>
+            </div>
+          </li>
+
+
+        </ul>
+      </nav>

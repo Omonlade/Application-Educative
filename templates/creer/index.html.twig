@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creer index{% endblock %}
+
+{% block body %}
+    <h1>Creer index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date_creation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for creer in creers %}
+            <tr>
+                <td>{{ creer.id }}</td>
+                <td>{{ creer.dateCreation ? creer.dateCreation|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_creer_show', {'id': creer.id}) }}">show</a>
+                    <a href="{{ path('app_creer_edit', {'id': creer.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_creer_new') }}">Create new</a>
+{% endblock %}

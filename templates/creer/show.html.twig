@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creer{% endblock %}
+
+{% block body %}
+    <h1>Creer</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ creer.id }}</td>
+            </tr>
+            <tr>
+                <th>Date_creation</th>
+                <td>{{ creer.dateCreation ? creer.dateCreation|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_creer_index') }}">back to list</a>
+
+    <a href="{{ path('app_creer_edit', {'id': creer.id}) }}">edit</a>
+
+    {{ include('creer/_delete_form.html.twig') }}
+{% endblock %}

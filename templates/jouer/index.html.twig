@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Jouer index{% endblock %}
+
+{% block body %}
+    <h1>Jouer index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Score</th>
+                <th>Date_jeu</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for jouer in jouers %}
+            <tr>
+                <td>{{ jouer.id }}</td>
+                <td>{{ jouer.score }}</td>
+                <td>{{ jouer.dateJeu ? jouer.dateJeu|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_jouer_show', {'id': jouer.id}) }}">show</a>
+                    <a href="{{ path('app_jouer_edit', {'id': jouer.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_jouer_new') }}">Create new</a>
+{% endblock %}

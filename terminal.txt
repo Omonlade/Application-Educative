@@ -1,0 +1,674 @@
+(cpu_env) gbado@gbado-lnx:~/WORKSPACE/Kenneth Almeida symfony app/apiSymphony$ symfony console make:entity
+
+ Class name of the entity to create or update (e.g. AgreeablePizza):
+ > reponse
+
+ Mark this class as an API Platform resource (expose a CRUD API for it) (yes/no) [no]:
+ > yes
+
+ Add the ability to broadcast entity updates using Symfony UX Turbo? (yes/no) [no]:
+ > 
+
+ created: src/Entity/Reponse.php
+ created: src/Repository/ReponseRepository.php
+ 
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ New property name (press <return> to stop adding fields):
+ > contenu
+
+ Field type (enter ? to see all types) [string]:
+ > text
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > 
+
+ updated: src/Entity/Reponse.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > est_correcte
+
+ Field type (enter ? to see all types) [string]:
+ > boolean
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > 
+
+ updated: src/Entity/Reponse.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > id_question
+
+ Field type (enter ? to see all types) [string]:
+ > relation
+
+ What class should this entity be related to?:
+ > question
+
+What type of relationship is this?
+ ------------ ------------------------------------------------------------------------ 
+  Type         Description                                                             
+ ------------ ------------------------------------------------------------------------ 
+  ManyToOne    Each Reponse relates to (has) one question.                             
+               Each question can relate to (can have) many Reponse objects.            
+                                                                                       
+  OneToMany    Each Reponse can relate to (can have) many question objects.            
+               Each question relates to (has) one Reponse.                             
+                                                                                       
+  ManyToMany   Each Reponse can relate to (can have) many question objects.            
+               Each question can also relate to (can also have) many Reponse objects.  
+                                                                                       
+  OneToOne     Each Reponse relates to (has) exactly one question.                     
+               Each question also relates to (has) exactly one Reponse.                
+ ------------ ------------------------------------------------------------------------ 
+
+ Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
+ > ManyToOne
+
+ Is the Reponse.id_question property allowed to be null (nullable)? (yes/no) [yes]:
+ > no
+
+ Do you want to add a new property to question so that you can access/update Reponse objects from it - e.g. $question->getReponses()? (yes/no) [yes]:
+ > 
+
+ A new property will also be added to the question class so that you can access the related Reponse objects from it.
+
+ New field name inside question [reponses]:
+ > 
+
+ Do you want to activate orphanRemoval on your relationship?
+ A Reponse is "orphaned" when it is removed from its related question.
+ e.g. $question->removeReponse($reponse)
+ 
+ NOTE: If a Reponse may *change* from one question to another, answer "no".
+
+ Do you want to automatically delete orphaned App\Entity\Reponse objects (orphanRemoval)? (yes/no) [no]:
+ > 
+
+ updated: src/Entity/Reponse.php
+ updated: src/Entity/Question.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > 
+
+
+           
+  Success! 
+           
+
+ Next: When you're ready, create a migration with symfony console make:migration
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+************************************** 
+ 
+(cpu_env) gbado@gbado-lnx:~/WORKSPACE/Kenneth Almeida symfony app/apiSymphony$ symfony console make:entity
+
+ Class name of the entity to create or update (e.g. AgreeableElephant):
+ > creer
+
+ Mark this class as an API Platform resource (expose a CRUD API for it) (yes/no) [no]:
+ > yes
+
+ Add the ability to broadcast entity updates using Symfony UX Turbo? (yes/no) [no]:
+ > 
+
+ created: src/Entity/Creer.php
+ created: src/Repository/CreerRepository.php
+ 
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ New property name (press <return> to stop adding fields):
+ > id_user^C^C^C^C^C^C^C
+(cpu_env) gbado@gbado-lnx:~/WORKSPACE/Kenneth Almeida symfony app/apiSymphony$ symfony console make:entity
+jouer
+ Class name of the entity to create or update (e.g. TinyGnome):
+ > jouer
+
+ Mark this class as an API Platform resource (expose a CRUD API for it) (yes/no) [no]:
+ > yes
+
+ Add the ability to broadcast entity updates using Symfony UX Turbo? (yes/no) [no]:
+ > 
+
+ created: src/Entity/Jouer.php
+ created: src/Repository/JouerRepository.php
+ 
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ New property name (press <return> to stop adding fields):
+ > id_eleve
+
+ Field type (enter ? to see all types) [string]:
+ > relation
+
+ What class should this entity be related to?:
+ > eleve
+
+What type of relationship is this?
+ ------------ ------------------------------------------------------------------- 
+  Type         Description                                                        
+ ------------ ------------------------------------------------------------------- 
+  ManyToOne    Each Jouer relates to (has) one eleve.                             
+               Each eleve can relate to (can have) many Jouer objects.            
+                                                                                  
+  OneToMany    Each Jouer can relate to (can have) many eleve objects.            
+               Each eleve relates to (has) one Jouer.                             
+                                                                                  
+  ManyToMany   Each Jouer can relate to (can have) many eleve objects.            
+               Each eleve can also relate to (can also have) many Jouer objects.  
+                                                                                  
+  OneToOne     Each Jouer relates to (has) exactly one eleve.                     
+               Each eleve also relates to (has) exactly one Jouer.                
+ ------------ ------------------------------------------------------------------- 
+
+ Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
+ > ManyToOne
+
+ Is the Jouer.id_eleve property allowed to be null (nullable)? (yes/no) [yes]:
+ > no
+
+ Do you want to add a new property to eleve so that you can access/update Jouer objects from it - e.g. $eleve->getJouers()? (yes/no) [yes]:
+ > 
+
+ A new property will also be added to the eleve class so that you can access the related Jouer objects from it.
+
+ New field name inside eleve [jouers]:
+ > 
+
+ Do you want to activate orphanRemoval on your relationship?
+ A Jouer is "orphaned" when it is removed from its related eleve.
+ e.g. $eleve->removeJouer($jouer)
+ 
+ NOTE: If a Jouer may *change* from one eleve to another, answer "no".
+
+ Do you want to automatically delete orphaned App\Entity\Jouer objects (orphanRemoval)? (yes/no) [no]:
+ > 
+
+ updated: src/Entity/Jouer.php
+ updated: src/Entity/Eleve.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > id_quiz
+
+ Field type (enter ? to see all types) [string]:
+ > relation
+
+ What class should this entity be related to?:
+ > quiz
+
+What type of relationship is this?
+ ------------ ------------------------------------------------------------------ 
+  Type         Description                                                       
+ ------------ ------------------------------------------------------------------ 
+  ManyToOne    Each Jouer relates to (has) one quiz.                             
+               Each quiz can relate to (can have) many Jouer objects.            
+                                                                                 
+  OneToMany    Each Jouer can relate to (can have) many quiz objects.            
+               Each quiz relates to (has) one Jouer.                             
+                                                                                 
+  ManyToMany   Each Jouer can relate to (can have) many quiz objects.            
+               Each quiz can also relate to (can also have) many Jouer objects.  
+                                                                                 
+  OneToOne     Each Jouer relates to (has) exactly one quiz.                     
+               Each quiz also relates to (has) exactly one Jouer.                
+ ------------ ------------------------------------------------------------------ 
+
+ Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
+ > ManyToOne
+
+ Is the Jouer.id_quiz property allowed to be null (nullable)? (yes/no) [yes]:
+ > no
+
+ Do you want to add a new property to quiz so that you can access/update Jouer objects from it - e.g. $quiz->getJouers()? (yes/no) [yes]:
+ > 
+
+ A new property will also be added to the quiz class so that you can access the related Jouer objects from it.
+
+ New field name inside quiz [jouers]:
+ > 
+
+ Do you want to activate orphanRemoval on your relationship?
+ A Jouer is "orphaned" when it is removed from its related quiz.
+ e.g. $quiz->removeJouer($jouer)
+ 
+ NOTE: If a Jouer may *change* from one quiz to another, answer "no".
+
+ Do you want to automatically delete orphaned App\Entity\Jouer objects (orphanRemoval)? (yes/no) [no]:
+ > 
+
+ updated: src/Entity/Jouer.php
+ updated: src/Entity/Quiz.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > score
+
+ Field type (enter ? to see all types) [string]:
+ > integer
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > no
+
+ updated: src/Entity/Jouer.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > 
+
+
+           
+  Success! 
+           
+
+ Next: When you're ready, create a migration with symfony console make:migration
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+**************************************  
+ 
+(cpu_env) gbado@gbado-lnx:~/WORKSPACE/Kenneth Almeida symfony app/apiSymphony$ symfony console make:entity
+
+ Class name of the entity to create or update (e.g. BraveKangaroo):
+ > jouer
+
+ Your entity already exists! So let's add some new fields!
+
+ New property name (press <return> to stop adding fields):
+ > date_jeu
+
+ Field type (enter ? to see all types) [string]:
+ > date
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > 
+
+ updated: src/Entity/Jouer.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > 
+
+
+           
+  Success! 
+           
+
+ Next: When you're ready, create a migration with symfony console make:migration
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+************************************** 
+ 
+(cpu_env) gbado@gbado-lnx:~/WORKSPACE/Kenneth Almeida symfony app/apiSymphony$ symfony console make:user
+
+ The name of the security user class (e.g. User) [User]:
+ > 
+
+ Do you want to store user data in the database (via Doctrine)? (yes/no) [yes]:
+ > 
+
+ Enter a property name that will be the unique "display" name for the user (e.g. email, username, uuid) [email]:
+ > 
+
+ Will this app need to hash/check user passwords? Choose No if passwords are not needed or will be checked/hashed by some other system (e.g. a single sign-on server).
+
+ Does this app need to hash/check user passwords? (yes/no) [yes]:
+ > 
+
+ created: src/Entity/User.php
+ created: src/Repository/UserRepository.php
+ updated: src/Entity/User.php
+ updated: config/packages/security.yaml
+
+           
+  Success! 
+           
+
+ Next Steps:
+   - Review your new App\Entity\User class.
+   - Use make:entity to add more fields to your User entity and then run make:migration.
+   - Create a way to authenticate! See https://symfony.com/doc/current/security.html
+(cpu_env) gbado@gbado-lnx:~/WORKSPACE/Kenneth Almeida symfony app/apiSymphony$ symfony console make:entity      
+
+ Class name of the entity to create or update (e.g. GentleChef):
+ > user
+
+ Your entity already exists! So let's add some new fields!
+
+ New property name (press <return> to stop adding fields):
+ > nom
+
+ Field type (enter ? to see all types) [string]:
+ > 
+
+ Field length [255]:
+ > 
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > 
+
+ updated: src/Entity/User.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > prenom
+
+ Field type (enter ? to see all types) [string]:
+ > 
+
+ Field length [255]:
+ > 
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > 
+
+ updated: src/Entity/User.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > 
+
+
+           
+  Success! 
+           
+
+ Next: When you're ready, create a migration with symfony console make:migration
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+************************************** 
+ 
+(cpu_env) gbado@gbado-lnx:~/WORKSPACE/Kenneth Almeida symfony app/apiSymphony$ symfony console make:entity      
+
+ Class name of the entity to create or update (e.g. DeliciousPopsicle):
+ > creer
+
+ Your entity already exists! So let's add some new fields!
+
+ New property name (press <return> to stop adding fields):
+ > id_user
+
+ Field type (enter ? to see all types) [string]:
+ > relation
+
+ What class should this entity be related to?:
+ > user
+
+What type of relationship is this?
+ ------------ ------------------------------------------------------------------ 
+  Type         Description                                                       
+ ------------ ------------------------------------------------------------------ 
+  ManyToOne    Each Creer relates to (has) one user.                             
+               Each user can relate to (can have) many Creer objects.            
+                                                                                 
+  OneToMany    Each Creer can relate to (can have) many user objects.            
+               Each user relates to (has) one Creer.                             
+                                                                                 
+  ManyToMany   Each Creer can relate to (can have) many user objects.            
+               Each user can also relate to (can also have) many Creer objects.  
+                                                                                 
+  OneToOne     Each Creer relates to (has) exactly one user.                     
+               Each user also relates to (has) exactly one Creer.                
+ ------------ ------------------------------------------------------------------ 
+
+ Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
+ > ManyToOne
+
+ Is the Creer.id_user property allowed to be null (nullable)? (yes/no) [yes]:
+ > 
+
+ Do you want to add a new property to user so that you can access/update Creer objects from it - e.g. $user->getCreers()? (yes/no) [yes]:
+ > 
+
+ A new property will also be added to the user class so that you can access the related Creer objects from it.
+
+ New field name inside user [creers]:
+ > 
+
+ updated: src/Entity/Creer.php
+ updated: src/Entity/User.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > id_quiz
+
+ Field type (enter ? to see all types) [string]:
+ > relation
+
+ What class should this entity be related to?:
+ > quiz
+
+What type of relationship is this?
+ ------------ ------------------------------------------------------------------ 
+  Type         Description                                                       
+ ------------ ------------------------------------------------------------------ 
+  ManyToOne    Each Creer relates to (has) one quiz.                             
+               Each quiz can relate to (can have) many Creer objects.            
+                                                                                 
+  OneToMany    Each Creer can relate to (can have) many quiz objects.            
+               Each quiz relates to (has) one Creer.                             
+                                                                                 
+  ManyToMany   Each Creer can relate to (can have) many quiz objects.            
+               Each quiz can also relate to (can also have) many Creer objects.  
+                                                                                 
+  OneToOne     Each Creer relates to (has) exactly one quiz.                     
+               Each quiz also relates to (has) exactly one Creer.                
+ ------------ ------------------------------------------------------------------ 
+
+ Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
+ > ManyToOne
+
+ Is the Creer.id_quiz property allowed to be null (nullable)? (yes/no) [yes]:
+ > no
+
+ Do you want to add a new property to quiz so that you can access/update Creer objects from it - e.g. $quiz->getCreers()? (yes/no) [yes]:
+ > 
+
+ A new property will also be added to the quiz class so that you can access the related Creer objects from it.
+
+ New field name inside quiz [creers]:
+ > 
+
+ Do you want to activate orphanRemoval on your relationship?
+ A Creer is "orphaned" when it is removed from its related quiz.
+ e.g. $quiz->removeCreer($creer)
+ 
+ NOTE: If a Creer may *change* from one quiz to another, answer "no".
+
+ Do you want to automatically delete orphaned App\Entity\Creer objects (orphanRemoval)? (yes/no) [no]:
+ > 
+
+ updated: src/Entity/Creer.php
+ updated: src/Entity/Quiz.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > date_creation
+
+ Field type (enter ? to see all types) [string]:
+ > date
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ >   
+
+ updated: src/Entity/Creer.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > 
+
+
+           
+  Success! 
+           
+
+ Next: When you're ready, create a migration with symfony console make:migration
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+**************************************  
+ 
+(cpu_env) gbado@gbado-lnx:~/WORKSPACE/Kenneth Almeida symfony app/apiSymphony$ symfony console make:entity      
+
+ Class name of the entity to create or update (e.g. BraveKangaroo):
+ > creer
+
+ Your entity already exists! So let's add some new fields!
+
+ New property name (press <return> to stop adding fields):
+ > id_user
+
+
+                                                                                                                        
+ [ERROR] The "id_user" property already exists.                                                                         
+                                                                                                                        
+
+ New property name (press <return> to stop adding fields):
+ > ^C^C^C
+(cpu_env) gbado@gbado-lnx:~/WORKSPACE/Kenneth Almeida symfony app/apiSymphony$ symfony console make:migration
+
+In InvalidDirectory.php line 15:
+                                                                                                                                              
+  Cannot load migrations from "/home/gbado/WORKSPACE/Kenneth Almeida symfony app/apiSymphony/migrations" because it is not a valid directory  
+                                                                                                                                              
+
+make:migration [--formatted] [--configuration [CONFIGURATION]]
+
+(cpu_env) gbado@gbado-lnx:~/WORKSPACE/Kenneth Almeida symfony app/apiSymphony$ symfony console make:migration
+
+In InvalidDirectory.php line 15:
+                                                                                                                                              
+  Cannot load migrations from "/home/gbado/WORKSPACE/Kenneth Almeida symfony app/apiSymphony/migrations" because it is not a valid directory  
+                                                                                                                                              
+
+make:migration [--formatted] [--configuration [CONFIGURATION]]
+
+(cpu_env) gbado@gbado-lnx:~/WORKSPACE/Kenneth Almeida symfony app/apiSymphony$ symfony console make:migration
+ created: migrations/Version20240525042243.php
+
+           
+  Success! 
+           
+
+ Review the new migration then run it with symfony console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+(cpu_env) gbado@gbado-lnx:~/WORKSPACE/Kenneth Almeida symfony app/apiSymphony$ symfony console doctrine:migration:migrate
+
+ WARNING! You are about to execute a migration in database "Kidsparklabs_db" that could result in schema changes and data loss. Are you sure you wish to continue? (yes/no) [yes]:
+ > 
+
+[notice] Migrating up to DoctrineMigrations\Version20240525042243
+[notice] finished in 33439.3ms, used 26M memory, 1 migrations executed, 33 sql queries
+                                                                                                                        
+ [OK] Successfully migrated to version: DoctrineMigrations\Version20240525042243                                        
+                                                                                                                        
+
+
+
+
+
+
+
+
+
+
+
+
+************************************** 
+
+(cpu_env) gbado@gbado-lnx:~/WORKSPACE/Kenneth Almeida symfony app/apiSymphony$ symfony console make:auth
+
+ !                                                                                                                      
+ ! [CAUTION] "make:auth" is deprecated, use any of the "make:security" commands instead.                                
+ !                                                                                                                      
+
+ What style of authentication do you want? [Empty authenticator]:
+  [0] Empty authenticator
+  [1] Login form authenticator
+ > 1
+
+ The class name of the authenticator to create (e.g. AppCustomAuthenticator):
+ > 
+
+
+                                                                                                                        
+ [ERROR] This value cannot be blank.                                                                                    
+                                                                                                                        
+
+ The class name of the authenticator to create (e.g. AppCustomAuthenticator):
+ > 
+
+
+                                                                                                                        
+ [ERROR] This value cannot be blank.                                                                                    
+                                                                                                                        
+
+ The class name of the authenticator to create (e.g. AppCustomAuthenticator):
+ > userAuthenticator
+
+ Choose a name for the controller class (e.g. SecurityController) [SecurityController]:
+ > 
+
+ Do you want to generate a '/logout' URL? (yes/no) [yes]:
+ > 
+
+ Do you want to support remember me? (yes/no) [yes]:
+ > 
+
+ How should remember me be activated? [Activate when the user checks a box]:
+  [0] Activate when the user checks a box
+  [1] Always activate remember me
+ > 0
+
+ created: src/Security/UserAuthenticator.php
+ updated: config/packages/security.yaml
+ created: src/Controller/SecurityController.php
+ created: templates/security/login.html.twig
+
+           
+  Success! 
+           
+
+ Next:
+ - Customize your new authenticator.
+ - Finish the redirect "TODO" in the App\Security\UserAuthenticator::onAuthenticationSuccess() method.
+ - Review & adapt the login template: templates/security/login.html.twig.
+(cpu_env) gbado@gbado-lnx:~/WORKSPACE/Kenneth Alme
+(cpu_env) gbado@gbado-lnx:~/WORKSPACE/Kenneth Almeida symfony app/apiSymphony$ 

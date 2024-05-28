@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utiliser index{% endblock %}
+
+{% block body %}
+    <h1>Utiliser index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for utiliser in utilisers %}
+            <tr>
+                <td>{{ utiliser.id }}</td>
+                <td>
+                    <a href="{{ path('app_utiliser_show', {'id': utiliser.id}) }}">show</a>
+                    <a href="{{ path('app_utiliser_edit', {'id': utiliser.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_utiliser_new') }}">Create new</a>
+{% endblock %}

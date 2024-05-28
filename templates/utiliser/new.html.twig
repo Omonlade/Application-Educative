@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Utiliser{% endblock %}
+
+{% block body %}
+    <h1>Create new Utiliser</h1>
+
+    {{ include('utiliser/_form.html.twig') }}
+
+    <a href="{{ path('app_utiliser_index') }}">back to list</a>
+{% endblock %}
