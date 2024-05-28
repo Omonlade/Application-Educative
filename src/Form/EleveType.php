@@ -87,8 +87,8 @@ class EleveType extends AbstractType
                         'message' => 'Entrez un mot de passe',
                     ]),
                     new Length([
-                        'min' => 8,
-                        'minMessage' => 'Entrez au moins 8 caractères',
+                        'min' => 6,
+                        'minMessage' => 'Entrez au moins 6 caractères',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),

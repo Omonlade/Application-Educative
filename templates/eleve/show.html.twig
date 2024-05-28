@@ -49,23 +49,24 @@
 
 					<div class="row">
 						<div class="col-md-12 grid-margin stretch-card">
-							<div
-								class="card">
-								{# Affichage de l'alerte de succès si le paramètre 'deleteSuccess' est défini et est vrai #}
-								{% if deleteSuccess is defined and deleteSuccess %}
-									<div class="alert alert-success" role="alert">
-										User deleted successfully!
-									</div>
-								{% endif %}
+							<div class="card">
 
-								{# Affichage de l'alerte d'erreur si le paramètre 'deleteError' est défini et est vrai #}
-								{% if deleteError is defined and deleteError %}
-									<div class="alert alert-danger" role="alert">
-										Error deleting user. Please try again.
-									</div>
-								{% endif %}
+								<div
+									class="card-body">
+									{# Affichage de l'alerte de succès si le paramètre 'deleteSuccess' est défini et est vrai #}
+									{% if deleteSuccess is defined and deleteSuccess %}
+										<div class="alert alert-success" role="alert">
+											User deleted successfully!
+										</div>
+									{% endif %}
 
-								<div class="card-body">
+									{# Affichage de l'alerte d'erreur si le paramètre 'deleteError' est défini et est vrai #}
+									{% if deleteError is defined and deleteError %}
+										<div class="alert alert-danger" role="alert">
+											Error deleting user. Please try again.
+										</div>
+									{% endif %}
+
 									<h4 class="card-title">Informations :</h4>
 
 									<div style="display: flex; justify-content: flex-end;">
@@ -109,33 +110,34 @@
 											</tbody>
 										</table>
 
-                                        <br>
-<div class="container">
-    <div class="row d-flex justify-content-between">
-        <!-- Premier bouton à gauche -->
-        <div class="col-auto">
-            <a href="{{ path('app_eleve_index') }}">
-                <button type="button" class="btn btn-secondary">Revenir à la Liste</button>
-            </a>
-        </div>
-        
-        <!-- Deuxième bouton à droite -->
-        <div class="col-auto">
-            <a href="{{ path('app_eleve_edit', {'id': eleve.id}) }}">
-                <button type="button" class="btn btn-primary">Modifier</button>
-            </a>
-        </div>
-    </div>
-</div>
+										<br>
+										<div class="container">
+											<div
+												class="row d-flex justify-content-between">
+												<!-- Premier bouton à gauche -->
+												<div class="col-auto">
+													<a href="{{ path('app_eleve_index') }}">
+														<button type="button" class="btn btn-secondary">Revenir à la Liste</button>
+													</a>
+												</div>
+
+												<!-- Deuxième bouton à droite -->
+												<div class="col-auto">
+													<a href="{{ path('app_eleve_edit', {'id': eleve.id}) }}">
+														<button type="button" class="btn btn-primary">Modifier</button>
+													</a>
+												</div>
+											</div>
+										</div>
 
 
 									</div>
 								</div>
 
-                                <div style="text-align: center; justify-content:center">
-                                        {{ include('eleve/_delete_form.html.twig') }}
-                                        <br>
-                                </div>
+								<div style="text-align: center; justify-content:center">
+									{{ include('eleve/_delete_form.html.twig') }}
+									<br>
+								</div>
 							</div>
 						</div>
 

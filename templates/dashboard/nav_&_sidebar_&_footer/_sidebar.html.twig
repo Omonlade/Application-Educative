@@ -22,7 +22,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic-eleve" aria-expanded="false" aria-controls="ui-basic-eleve">
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_eleve_index', 'app_eleve_new','app_eleve_show','app_eleve_edit', 'app_eleve_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-eleve" aria-expanded="false" aria-controls="ui-basic-eleve">
               <i class="mdi mdi-account-multiple menu-icon"></i>
               <span class="menu-title">Eleve</span>
               <i class="menu-arrow"></i>
@@ -36,7 +36,7 @@
 
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic-equipement" aria-expanded="false" aria-controls="ui-basic-equipement">
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_equipement_index', 'app_equipement_new','app_equipement_show','app_equipement_edit', 'app_equipement_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-equipement" aria-expanded="false" aria-controls="ui-basic-equipement">
               <i class="mdi mdi-briefcase-check menu-icon"></i>
               <span class="menu-title">Equipement</span>
               <i class="menu-arrow"></i>

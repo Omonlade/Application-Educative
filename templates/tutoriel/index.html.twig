@@ -3,10 +3,60 @@
 {% block title %}Tutoriel index{% endblock %}
 
 {% block body %}
-    <h1>Tutoriel index</h1>
 
-    <table class="table">
-        <thead>
+
+    <div class="container-scroller">
+		<!-- partial:partials/_navbar.html -->
+
+		{% include "dashboard/nav_&_sidebar_&_footer/_nav.html.twig" %}
+
+
+		<!-- partial -->
+		<div class="container-fluid page-body-wrapper">
+			<!-- partial:partials/_sidebar.html -->
+
+			{% include "dashboard/nav_&_sidebar_&_footer/_sidebar.html.twig" %}
+
+			<!-- partial -->
+			<div class="main-panel">
+				<div class="content-wrapper">
+
+					<div class="row">
+						<div class="col-md-12 grid-margin">
+							<div class="d-flex justify-content-between flex-wrap">
+								<div class="d-flex align-items-end flex-wrap">
+									<div class="mr-md-3 mr-xl-5">
+										<h2>Bienvenue  {{ nom_prenom_user }}</h2>
+										<!-- <p class="mb-md-0">Your analytics dashboard template.</p> -->
+									</div>
+									<div class="d-flex">
+										<i class="mdi mdi-account-circle text-muted hover-cursor"></i>
+										<!-- <p class="text-muted mb-0 hover-cursor">&nbsp;/&nbsp;Dashboard&nbsp;/&nbsp;</p> -->
+										<p class="text-primary mb-0 hover-cursor">Administratreur</p>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-md-12 grid-margin stretch-card">
+							<div class="card">
+								<div class="card-body">
+									<h4 class="card-title">Tableau des equipements</h4>
+										
+                                      <div style="display: flex; justify-content: flex-end;">
+                                            <a type="button" href="{{ path('app_tutoriel_new') }}" class="btn btn-outline-primary btn-fw">
+                                                <b>Effectuer un nouvel enregistrement</b>
+                                            </a>
+                                        </div>
+
+
+									<div class="table-responsive">
+										<table class="table table-striped">
+											<thead>
             <tr>
                 <th>Id</th>
                 <th>Titre</th>
@@ -15,27 +65,63 @@
                 <th>Date_ajout</th>
                 <th>actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for tutoriel in tutoriels %}
-            <tr>
+                                            </thead>
+
+											<tbody>
+                                                {% for tutoriel in tutoriels %}
+                                                    <tr>
                 <td>{{ tutoriel.id }}</td>
                 <td>{{ tutoriel.titre }}</td>
                 <td>{{ tutoriel.description }}</td>
-                <td>{{ tutoriel.video }}</td>
-                <td>{{ tutoriel.dateAjout ? tutoriel.dateAjout|date('Y-m-d') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_tutoriel_show', {'id': tutoriel.id}) }}">show</a>
-                    <a href="{{ path('app_tutoriel_edit', {'id': tutoriel.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <td>
+            <video controls style="max-width: 300px; max-height: 300px;">
+                <source src="{{ asset('Uploaded-Video/' ~ equipement.video ~ '.mp4') }}" type="video/mp4">
+                <source src="{{ asset('Uploaded-Video/' ~ equipement.video ~ '.avi') }}" type="video/avi">
+                <source src="{{ asset('Uploaded-Video/' ~ equipement.video ~ '.mpeg') }}" type="video/mpeg">
+                <source src="{{ asset('Uploaded-Video/' ~ equipement.video ~ '.mov') }}" type="video/quicktime">
+                Your browser does not support the video tag.
+            </video>
+        </td>
+                        <td>{{ tutoriel.dateAjout ? tutoriel.dateAjout|date('Y-m-d') : '' }}</td>
+                
+                
+                                                        <td>
+                                                            <a href="{{ path('app_tutoriel_show', {'id': tutoriel.id}) }}" title="Show">
+                                                                <button type="button" class="btn btn-secondary">Voir</button>
+                                                            </a>
 
-    <a href="{{ path('app_tutoriel_new') }}">Create new</a>
+                                                            <a href="{{ path('app_tutoriel_edit', {'id': tutoriel.id}) }}" title="Edit">
+                                                                <button type="button" class="btn btn-info">Modifier</button>
+                                                            </a>
+                                    
+                                                    </tr>
+                                                {% else %}
+                                                    <tr>
+                                                        <td colspan="7">Aucun nouvel enregistrement trouvé !</td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+
+
+					<!-- content-wrapper ends -->
+					<!-- partial:partials/_footer.html -->
+
+					{% include "dashboard/nav_&_sidebar_&_footer/_footer.html.twig" %}
+
+					<!-- partial -->
+				</div>
+				<!-- main-panel ends -->
+			</div>
+			<!-- page-body-wrapper ends -->
+		</div>
+		<!-- container-scroller -->
+
 {% endblock %}
