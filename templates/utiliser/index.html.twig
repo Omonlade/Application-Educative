@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Date_utiliser</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -16,6 +17,7 @@
         {% for utiliser in utilisers %}
             <tr>
                 <td>{{ utiliser.id }}</td>
+                <td>{{ utiliser.dateUtiliser ? utiliser.dateUtiliser|date('Y-m-d') : '' }}</td>
                 <td>
                     <a href="{{ path('app_utiliser_show', {'id': utiliser.id}) }}">show</a>
                     <a href="{{ path('app_utiliser_edit', {'id': utiliser.id}) }}">edit</a>
@@ -23,7 +25,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="2">no records found</td>
+                <td colspan="3">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

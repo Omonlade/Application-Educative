@@ -2,9 +2,9 @@
 
 namespace App\Entity;
 
-use App\Entity\ProjetEntity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\UtiliserRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: UtiliserRepository::class)]
@@ -16,39 +16,54 @@ class Utiliser
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(targetEntity: Projet::class, inversedBy: 'utilisers')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?projet $id_projet = null;
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $date_utiliser = null;
 
-    #[ORM\ManyToOne(targetEntity: Equipement::class, inversedBy: 'utilisers')]
+    #[ORM\ManyToOne(inversedBy: 'utilisers')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?equipement $id_equipement = null;
+    private ?projet $projet = null;
+
+    #[ORM\ManyToOne(inversedBy: 'utilisers')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?eleve $eleve = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIdProjet(): ?projet
+    public function getDateUtiliser(): ?\DateTimeInterface
     {
-        return $this->id_projet;
+        return $this->date_utiliser;
     }
 
-    public function setIdProjet(?projet $id_projet): static
+    public function setDateUtiliser(\DateTimeInterface $date_utiliser): static
     {
-        $this->id_projet = $id_projet;
+        $this->date_utiliser = $date_utiliser;
 
         return $this;
     }
 
-    public function getIdEquipement(): ?equipement
+    public function getProjet(): ?projet
     {
-        return $this->id_equipement;
+        return $this->projet;
     }
 
-    public function setIdEquipement(?equipement $id_equipement): static
+    public function setProjet(?projet $projet): static
     {
-        $this->id_equipement = $id_equipement;
+        $this->projet = $projet;
+
+        return $this;
+    }
+
+    public function getEleve(): ?eleve
+    {
+        return $this->eleve;
+    }
+
+    public function setEleve(?eleve $eleve): static
+    {
+        $this->eleve = $eleve;
 
         return $this;
     }

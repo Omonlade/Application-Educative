@@ -55,10 +55,17 @@ class Eleve implements PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $image = null;
 
+    /**
+     * @var Collection<int, Utiliser>
+     */
+    #[ORM\OneToMany(targetEntity: Utiliser::class, mappedBy: 'eleve')]
+    private Collection $utilisers;
+
     public function __construct()
     {
         $this->consulters = new ArrayCollection();
         $this->jouers = new ArrayCollection();
+        $this->utilisers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -208,6 +215,36 @@ class Eleve implements PasswordAuthenticatedUserInterface
     public function setImage(?string $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Utiliser>
+     */
+    public function getUtilisers(): Collection
+    {
+        return $this->utilisers;
+    }
+
+    public function addUtiliser(Utiliser $utiliser): static
+    {
+        if (!$this->utilisers->contains($utiliser)) {
+            $this->utilisers->add($utiliser);
+            $utiliser->setEleve($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUtiliser(Utiliser $utiliser): static
+    {
+        if ($this->utilisers->removeElement($utiliser)) {
+            // set the owning side to null (unless already changed)
+            if ($utiliser->getEleve() === $this) {
+                $utiliser->setEleve(null);
+            }
+        }
 
         return $this;
     }

@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Utiliser;
-use App\Entity\equipement;
+use App\Entity\eleve;
 use App\Entity\projet;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -15,12 +15,15 @@ class UtiliserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('id_projet', EntityType::class, [
+            ->add('date_utiliser', null, [
+                'widget' => 'single_text'
+            ])
+            ->add('projet', EntityType::class, [
                 'class' => projet::class,
 'choice_label' => 'id',
             ])
-            ->add('id_equipement', EntityType::class, [
-                'class' => equipement::class,
+            ->add('eleve', EntityType::class, [
+                'class' => eleve::class,
 'choice_label' => 'id',
             ])
         ;

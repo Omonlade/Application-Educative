@@ -36,16 +36,11 @@ class Equipement
     #[ORM\OneToMany(targetEntity: Projet::class, mappedBy: 'id_equipement')]
     private Collection $projets;
 
-    /**
-     * @var Collection<int, Utiliser>
-     */
-    #[ORM\OneToMany(targetEntity: Utiliser::class, mappedBy: 'id_equipement')]
-    private Collection $utilisers;
+
 
     public function __construct()
     {
         $this->projets = new ArrayCollection();
-        $this->utilisers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -131,33 +126,8 @@ class Equipement
         return $this;
     }
 
-    /**
-     * @return Collection<int, Utiliser>
-     */
-    public function getUtilisers(): Collection
-    {
-        return $this->utilisers;
-    }
 
-    public function addUtiliser(Utiliser $utiliser): static
-    {
-        if (!$this->utilisers->contains($utiliser)) {
-            $this->utilisers->add($utiliser);
-            $utiliser->setIdEquipement($this);
-        }
 
-        return $this;
-    }
 
-    public function removeUtiliser(Utiliser $utiliser): static
-    {
-        if ($this->utilisers->removeElement($utiliser)) {
-            // set the owning side to null (unless already changed)
-            if ($utiliser->getIdEquipement() === $this) {
-                $utiliser->setIdEquipement(null);
-            }
-        }
 
-        return $this;
-    }
 }

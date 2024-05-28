@@ -11,6 +11,10 @@
                 <th>Id</th>
                 <td>{{ utiliser.id }}</td>
             </tr>
+            <tr>
+                <th>Date_utiliser</th>
+                <td>{{ utiliser.dateUtiliser ? utiliser.dateUtiliser|date('Y-m-d') : '' }}</td>
+            </tr>
         </tbody>
     </table>
 

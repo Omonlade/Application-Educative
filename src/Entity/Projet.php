@@ -45,14 +45,16 @@ class Projet
     /**
      * @var Collection<int, Utiliser>
      */
-    #[ORM\OneToMany(targetEntity: Utiliser::class, mappedBy: 'id_projet')]
+    #[ORM\OneToMany(targetEntity: Utiliser::class, mappedBy: 'projet')]
     private Collection $utilisers;
 
     public function __construct()
     {
-        $this->consulters = new ArrayCollection();
         $this->utilisers = new ArrayCollection();
     }
+
+
+
 
     public function getId(): ?int
     {
@@ -163,7 +165,7 @@ class Projet
     {
         if (!$this->utilisers->contains($utiliser)) {
             $this->utilisers->add($utiliser);
-            $utiliser->setIdProjet($this);
+            $utiliser->setProjet($this);
         }
 
         return $this;
@@ -173,11 +175,12 @@ class Projet
     {
         if ($this->utilisers->removeElement($utiliser)) {
             // set the owning side to null (unless already changed)
-            if ($utiliser->getIdProjet() === $this) {
-                $utiliser->setIdProjet(null);
+            if ($utiliser->getProjet() === $this) {
+                $utiliser->setProjet(null);
             }
         }
 
         return $this;
     }
+
 }
