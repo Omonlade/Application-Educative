@@ -1,8 +1,10 @@
+# config/packages/api_platform.yaml
 api_platform:
     title: Kidsparklabs API Platform
     version: 1.0.0
     formats:
         jsonld: ['application/ld+json']
+        json: ['application/json']  # Ajouté ici
     docs_formats:
         jsonld: ['application/ld+json']
         jsonopenapi: ['application/vnd.openapi+json']

@@ -155,10 +155,10 @@ class TutorielController extends AbstractController
             {
                         //on veut uploader les images
                                 $video = $form->get('video')->getData();
-                                if($image)
+                                if($video)
                                 {
                                     $uploaded=$uploader->upload($video);
-                                    $tutoriel->setImage($uploaded);
+                                    $tutoriel->setVideo($uploaded);
                                 }
                 
                         //fin upload

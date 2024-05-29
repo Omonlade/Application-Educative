@@ -11,8 +11,9 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\File;
+
 
 class TutorielType extends AbstractType
 {
@@ -43,21 +44,23 @@ class TutorielType extends AbstractType
                 ]
             ])
             
-            ->add('video', FileType::class,[
-                "required" =>false,
-                "attr" =>[
+            ->add('video', FileType::class, [
+                "required" => false,
+                "attr" => [
                     "class" => "form-control file-upload-info",
                 ],
-                "constraints" => new File([
-                    'maxSize' => '2048M',  // Assurez-vous que cette valeur est suffisamment grande
-                    "mimeTypes" => [
-                        'video/mp4',
-                        'video/avi', 
-                        'video/mpeg', 
-                        'video/quicktime',
-                    ],
-                    "mimeTypesMessage" => "Seules les video mp4, avi, mpeg, quicktime sont autorisées"
-                ]),
+                "constraints" => [
+                    new File([
+                        'maxSize' => '500M', // Assurez-vous que cette valeur est suffisamment grande
+                        'mimeTypes' => [
+                            'video/mp4',
+                            'video/avi',
+                            'video/mpeg',
+                            'video/quicktime',
+                        ],
+                        'mimeTypesMessage' => 'Seules les video mp4, avi, mpeg, quicktime sont autorisées',
+                    ])
+                ],
                 'data_class' => null
             ])
 
