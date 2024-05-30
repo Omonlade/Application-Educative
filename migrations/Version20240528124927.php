@@ -31,7 +31,6 @@ final class Version20240528124927 extends AbstractMigration
         $this->addSql('ALTER TABLE creer ADD CONSTRAINT FK_311B14AE5BA17805 FOREIGN KEY (id_quiz_id) REFERENCES quiz (id)');
         $this->addSql('ALTER TABLE jouer ADD CONSTRAINT FK_825E5AED5AB72B27 FOREIGN KEY (id_eleve_id) REFERENCES eleve (id)');
         $this->addSql('ALTER TABLE jouer ADD CONSTRAINT FK_825E5AED5BA17805 FOREIGN KEY (id_quiz_id) REFERENCES quiz (id)');
-        $this->addSql('ALTER TABLE projet DROP status');
         $this->addSql('ALTER TABLE projet ADD CONSTRAINT FK_50159CA964A4004C FOREIGN KEY (id_tutoriel_id) REFERENCES tutoriel (id)');
         $this->addSql('ALTER TABLE projet ADD CONSTRAINT FK_50159CA93E47DE39 FOREIGN KEY (id_equipement_id) REFERENCES equipement (id)');
         $this->addSql('ALTER TABLE question ADD CONSTRAINT FK_B6F7494E853CD175 FOREIGN KEY (quiz_id) REFERENCES quiz (id)');
@@ -70,6 +69,5 @@ final class Version20240528124927 extends AbstractMigration
         $this->addSql('ALTER TABLE consulter DROP FOREIGN KEY FK_69A83B7580F43E55');
         $this->addSql('ALTER TABLE consulter DROP date_consulter');
         $this->addSql('ALTER TABLE projet DROP FOREIGN KEY FK_50159CA964A4004C');
-        $this->addSql('ALTER TABLE projet ADD status VARCHAR(255) NOT NULL');
     }
 }

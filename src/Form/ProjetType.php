@@ -20,7 +20,6 @@ class ProjetType extends AbstractType
             ->add('date_creation', null, [
                 'widget' => 'single_text'
             ])
-            ->add('status')
             ->add('id_tutoriel', EntityType::class, [
                 'class' => tutoriel::class,
 'choice_label' => 'id',
