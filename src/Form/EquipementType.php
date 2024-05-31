@@ -14,6 +14,12 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
+
+use App\Entity\Projet;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 
 class EquipementType extends AbstractType
 {
@@ -51,17 +57,19 @@ class EquipementType extends AbstractType
                 'data_class' => null
             ])
 
-            ->add('description', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de saisir une description valide',
                     ]),
                 ],
                 'attr' => [
-                    'class' => 'form-control form-group ', // Ajoutez vos classes CSS ici
-                    'style' => 'background-color: #f0f0f0;' // Ajoutez du style CSS directement
+                    'class' => 'form-control form-group', // Assurez-vous que vos classes CSS sont correctes
+                    'style' => 'background-color: #f0f0f0;', // Vous pouvez ajouter du style CSS directement ici
+                    'rows' => 5, // Nombre de lignes dans le textarea
                 ]
             ])
+            
             ->add('date_ajout', DateType::class, [
                 'constraints' => [
                     new NotBlank([
@@ -69,6 +77,15 @@ class EquipementType extends AbstractType
                     ]),
                 ],
                 'widget' => 'single_text',
+                'attr' => [
+                    'class' => 'form-control form-group ', // Ajoutez vos classes CSS ici
+                    'style' => 'background-color: #f0f0f0;' // Ajoutez du style CSS directement
+                ]
+            ])
+
+            ->add('projet', EntityType::class, [
+                'class' => Projet::class,
+                'choice_label' => 'id',
                 'attr' => [
                     'class' => 'form-control form-group ', // Ajoutez vos classes CSS ici
                     'style' => 'background-color: #f0f0f0;' // Ajoutez du style CSS directement

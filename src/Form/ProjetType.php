@@ -12,23 +12,25 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProjetType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
+    public function buildForm(
+        FormBuilderInterface $builder,
+        array $options
+    ): void {
         $builder
             ->add('nom')
             ->add('description')
             ->add('date_creation', null, [
-                'widget' => 'single_text'
+                'widget' => 'single_text',
             ])
+
             ->add('id_tutoriel', EntityType::class, [
                 'class' => tutoriel::class,
-'choice_label' => 'id',
+                'choice_label' => 'id',
             ])
             ->add('id_equipement', EntityType::class, [
                 'class' => equipement::class,
-'choice_label' => 'id',
-            ])
-        ;
+                'choice_label' => 'id',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

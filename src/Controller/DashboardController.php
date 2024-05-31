@@ -8,10 +8,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
+use Symfony\Component\HttpFoundation\Session\SessionInterface; 
+// C'est ce qui permet d'utiliser les variables de SESSIONS
+
+
 class DashboardController extends AbstractController
 {
     #[Route('/dashboard', name: 'app_dashboard')]
-    public function index(EleveRepository $eleveRepo): Response
+    public function index(EleveRepository $eleveRepo, SessionInterface $session): Response
     {
         // Vérifiez que l'utilisateur a le rôle admin
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
@@ -28,10 +33,18 @@ class DashboardController extends AbstractController
         $nom = $user->getNom();
         $prenom = $user->getPrenom();
 
+
+        // Stockez le nom et le prénom de l'utilisateur dans la session
+        $session->set('nom_prenom_user', $nom. ' '. $prenom);
+
+        // Récupérez la variable de session
+        $nomPrenomUser = $session->get('nom_prenom_user');
+        
+
         // Passez les données nécessaires au template
         return $this->render('dashboard/base.html.twig', [
             'nbrEleve' => sizeof($eleveRepo->findAll()),
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 }

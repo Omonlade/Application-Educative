@@ -29,7 +29,7 @@ class EleveController extends AbstractController
 
         return $this->render('eleve/index.html.twig', [
             'eleves' => $eleveRepository->findAll(),
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 
@@ -63,21 +63,21 @@ class EleveController extends AbstractController
                     'eleve' => $eleve,
                     'form' => $form,
                     'success' => true,
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             } catch (\Doctrine\ORM\OptimisticLockException $oe) {
                 return $this->render('eleve/new.html.twig', [
                     'eleve' => $eleve,
                     'form' => $form,
                     'error' => 'Une erreur optimiste de verrouillage a eu lieu.',
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             } catch (\Exception $e) {
                 return $this->render('eleve/new.html.twig', [
                     'eleve' => $eleve,
                     'form' => $form,
                     'error' => 'Une erreur inattendue est survenue.',
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             }
         }
@@ -85,7 +85,7 @@ class EleveController extends AbstractController
         return $this->render('eleve/new.html.twig', [
             'eleve' => $eleve,
             'form' => $form,
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 
@@ -107,7 +107,7 @@ class EleveController extends AbstractController
 
         return $this->render('eleve/show.html.twig', [
             'eleve' => $eleve,
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 
@@ -141,7 +141,7 @@ class EleveController extends AbstractController
                     'eleve' => $eleve,
                     'form' => $form,
                     'editSuccess' => true, // Indique que la mise à jour a été réussie
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             } catch (\Exception $e) {
                 // En cas d'échec de la mise à jour, afficher un message d'erreur
@@ -150,7 +150,7 @@ class EleveController extends AbstractController
                     'eleve' => $eleve,
                     'form' => $form,
                     'editError' => true, // Indique que la mise à jour a échoué
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             }
         }
@@ -158,7 +158,7 @@ class EleveController extends AbstractController
         return $this->render('eleve/edit.html.twig', [
             'eleve' => $eleve,
             'form' => $form,
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 

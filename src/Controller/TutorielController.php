@@ -32,7 +32,7 @@ class TutorielController extends AbstractController
 
         return $this->render('tutoriel/index.html.twig', [
             'tutoriels' => $tutorielRepository->findAll(),
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 
@@ -76,7 +76,7 @@ class TutorielController extends AbstractController
                     'tutoriel' => $tutoriel,
                     'form' => $form,
                     'success' => true,
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             } 
             catch (\Doctrine\ORM\OptimisticLockException $oe) 
@@ -87,7 +87,7 @@ class TutorielController extends AbstractController
                     'tutoriel' => $tutoriel,
                     'form' => $form,
                     'error' => 'Une erreur optimiste de verrouillage a eu lieu.',
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             } catch (\Exception $e) {
                 // Pour capturer d'autres types d'exceptions
@@ -95,7 +95,7 @@ class TutorielController extends AbstractController
                     'tutoriel' => $tutoriel,
                     'form' => $form,
                     'error' => 'Une erreur inattendue est survenue.',
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             }
 
@@ -105,7 +105,7 @@ class TutorielController extends AbstractController
         return $this->render('tutoriel/new.html.twig', [
             'tutoriel' => $tutoriel,
             'form' => $form,
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 
@@ -126,7 +126,7 @@ class TutorielController extends AbstractController
 
         return $this->render('tutoriel/show.html.twig', [
             'tutoriel' => $tutoriel,
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 
@@ -170,7 +170,7 @@ class TutorielController extends AbstractController
                     'tutoriel' => $tutoriel,
                     'form' => $form,
                     'editSuccess' => true, // Indique que la mise à jour a été réussie
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             } catch (\Exception $e) {
                 // En cas d'échec de la mise à jour, afficher un message d'erreur
@@ -179,7 +179,7 @@ class TutorielController extends AbstractController
                     'tutoriel' => $tutoriel,
                     'form' => $form,
                     'editError' => true, // Indique que la mise à jour a échoué
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             }
             return $this->redirectToRoute('app_tutoriel_index', [], Response::HTTP_SEE_OTHER);
@@ -188,7 +188,7 @@ class TutorielController extends AbstractController
         return $this->render('tutoriel/edit.html.twig', [
             'tutoriel' => $tutoriel,
             'form' => $form,
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 

@@ -12,6 +12,7 @@
                 <th>Nom</th>
                 <th>Description</th>
                 <th>Date_creation</th>
+
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                 <td>{{ projet.nom }}</td>
                 <td>{{ projet.description }}</td>
                 <td>{{ projet.dateCreation ? projet.dateCreation|date('Y-m-d') : '' }}</td>
+
                 <td>
                     <a href="{{ path('app_projet_show', {'id': projet.id}) }}">show</a>
                     <a href="{{ path('app_projet_edit', {'id': projet.id}) }}">edit</a>

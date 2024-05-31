@@ -12,52 +12,36 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
+use Symfony\Component\HttpFoundation\Session\SessionInterface; 
+// C'est ce qui permet d'utiliser les variables de SESSIONS
+
 #[Route('/user')]
 class UserController extends AbstractController
 {
     #[Route('/', name: 'app_user_index', methods: ['GET'])]
-    public function index(UserRepository $userRepository): Response
+    public function index(UserRepository $userRepository, SessionInterface $session): Response
     {
-                // Récupérez l'utilisateur connecté
-                $user = $this->getUser();
-
-                // Assurez-vous que l'utilisateur est connecté
-                if (!$user) {
-                    throw $this->createAccessDeniedException('Vous devez être connecté pour accéder à cette page.');
-                }
-        
-                // Récupérez le nom et le prénom de l'utilisateur connecté
-                $nom = $user->getNom();
-                $prenom = $user->getPrenom();
+        // Récupérez la variable de session
+        $nomPrenomUser = $session->get('nom_prenom_user');
 
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 
     #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher, SessionInterface $session): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
-    
 
-        // Récupérez l'utilisateur connecté
-        $userConnect = $this->getUser();
-
-        // Assurez-vous que l'utilisateur est connecté
-        if (!$userConnect) {
-            throw $this->createAccessDeniedException('Vous devez être connecté pour accéder à cette page.');
-        }
         
-        // Récupérez le nom et le prénom de l'utilisateur connecté
-        $nom = $userConnect->getNom();
-        $prenom = $userConnect->getPrenom();
-
+        // Récupérez la variable de session
+        $nomPrenomUser = $session->get('nom_prenom_user');
 
         if ($form->isSubmitted() && $form->isValid())
         {
@@ -75,7 +59,7 @@ class UserController extends AbstractController
                     'user' => $user,
                     'form' => $form,
                     'success' => true,
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
 
                 ]);
             } 
@@ -87,7 +71,7 @@ class UserController extends AbstractController
                     'user' => $user,
                     'form' => $form,
                     'error' => 'Une erreur optimiste de verrouillage a eu lieu.',
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             } catch (\Exception $e) {
                 // Pour capturer d'autres types d'exceptions
@@ -95,7 +79,7 @@ class UserController extends AbstractController
                     'user' => $user,
                     'form' => $form,
                     'error' => 'Une erreur inattendue est survenue.',
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             }
         }
@@ -103,50 +87,31 @@ class UserController extends AbstractController
         return $this->render('user/new.html.twig', [
             'user' => $user,
             'form' => $form,
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
     
 
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
-    public function show(User $user): Response
+    public function show(User $user, SessionInterface $session): Response
     {
-        // Récupérez l'utilisateur connecté
-        $userConnect = $this->getUser();
-
-        // Assurez-vous que l'utilisateur est connecté
-        if (!$userConnect) {
-            throw $this->createAccessDeniedException('Vous devez être connecté pour accéder à cette page.');
-        }
-        
-        // Récupérez le nom et le prénom de l'utilisateur connecté
-        $nom = $userConnect->getNom();
-        $prenom = $userConnect->getPrenom();
-
+        // Récupérez la variable de session
+        $nomPrenomUser = $session->get('nom_prenom_user');
 
         return $this->render('user/show.html.twig', [
             'user' => $user,
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 
     #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, User $user, EntityManagerInterface $entityManager, SessionInterface $session): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
-        // Récupérez l'utilisateur connecté
-        $userConnect = $this->getUser();
-
-        // Assurez-vous que l'utilisateur est connecté
-        if (!$userConnect) {
-            throw $this->createAccessDeniedException('Vous devez être connecté pour accéder à cette page.');
-        }
-        
-        // Récupérez le nom et le prénom de l'utilisateur connecté
-        $nom = $userConnect->getNom();
-        $prenom = $userConnect->getPrenom();
+        // Récupérez la variable de session
+        $nomPrenomUser = $session->get('nom_prenom_user');
 
 
         if ($form->isSubmitted() && $form->isValid())
@@ -160,7 +125,7 @@ class UserController extends AbstractController
                     'user' => $user,
                     'form' => $form,
                     'editSuccess' => true, // Indique que la mise à jour a été réussie
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             } catch (\Exception $e) {
                 // En cas d'échec de la mise à jour, afficher un message d'erreur
@@ -169,7 +134,7 @@ class UserController extends AbstractController
                     'user' => $user,
                     'form' => $form,
                     'editError' => true, // Indique que la mise à jour a échoué
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             }
         }
@@ -177,7 +142,7 @@ class UserController extends AbstractController
         return $this->render('user/edit.html.twig', [
             'user' => $user,
             'form' => $form,
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 

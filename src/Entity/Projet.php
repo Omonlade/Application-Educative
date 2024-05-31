@@ -32,9 +32,7 @@ class Projet
     #[ORM\JoinColumn(nullable: false)]
     private ?tutoriel $id_tutoriel = null;
 
-    #[ORM\ManyToOne(targetEntity: Equipement::class, inversedBy: 'projets')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?equipement $id_equipement = null;
+
 
     /**
      * @var Collection<int, Consulter>
@@ -45,12 +43,19 @@ class Projet
     /**
      * @var Collection<int, Utiliser>
      */
-    #[ORM\OneToMany(targetEntity: Utiliser::class, mappedBy: 'projet')]
+    #[ORM\OneToMany(targetEntity: Utiliser::class, mappedBy: 'id_projet')]
     private Collection $utilisers;
+
+    /**
+     * @var Collection<int, Equipement>
+     */
+    #[ORM\OneToMany(targetEntity: Equipement::class, mappedBy: 'id_projet')]
+    private Collection $equipements;
 
     public function __construct()
     {
         $this->utilisers = new ArrayCollection();
+        $this->equipements = new ArrayCollection();
     }
 
 
@@ -111,17 +116,6 @@ class Projet
         return $this;
     }
 
-    public function getIdEquipement(): ?equipement
-    {
-        return $this->id_equipement;
-    }
-
-    public function setIdEquipement(?equipement $id_equipement): static
-    {
-        $this->id_equipement = $id_equipement;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Consulter>
@@ -177,6 +171,36 @@ class Projet
             // set the owning side to null (unless already changed)
             if ($utiliser->getProjet() === $this) {
                 $utiliser->setProjet(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Equipement>
+     */
+    public function getEquipements(): Collection
+    {
+        return $this->equipements;
+    }
+
+    public function addEquipement(Equipement $equipement): static
+    {
+        if (!$this->equipements->contains($equipement)) {
+            $this->equipements->add($equipement);
+            $equipement->setProjet($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEquipement(Equipement $equipement): static
+    {
+        if ($this->equipements->removeElement($equipement)) {
+            // set the owning side to null (unless already changed)
+            if ($equipement->getProjet() === $this) {
+                $equipement->setProjet(null);
             }
         }
 

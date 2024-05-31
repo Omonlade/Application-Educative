@@ -21,11 +21,11 @@ class JouerType extends AbstractType
             ])
             ->add('id_eleve', EntityType::class, [
                 'class' => eleve::class,
-'choice_label' => 'id',
+                'choice_label' => 'id',
             ])
             ->add('id_quiz', EntityType::class, [
                 'class' => quiz::class,
-'choice_label' => 'id',
+                'choice_label' => 'id',
             ])
         ;
     }

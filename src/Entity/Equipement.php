@@ -30,18 +30,13 @@ class Equipement
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date_ajout = null;
 
-    /**
-     * @var Collection<int, Projet>
-     */
-    #[ORM\OneToMany(targetEntity: Projet::class, mappedBy: 'id_equipement')]
-    private Collection $projets;
+    #[ORM\ManyToOne(targetEntity: Projet::class,inversedBy: 'equipements')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?projet $projet = null;
 
 
 
-    public function __construct()
-    {
-        $this->projets = new ArrayCollection();
-    }
+
 
     public function getId(): ?int
     {
@@ -96,32 +91,14 @@ class Equipement
         return $this;
     }
 
-    /**
-     * @return Collection<int, Projet>
-     */
-    public function getProjets(): Collection
+    public function getProjet(): ?projet
     {
-        return $this->projets;
+        return $this->projet;
     }
 
-    public function addProjet(Projet $projet): static
+    public function setProjet(?projet $projet): static
     {
-        if (!$this->projets->contains($projet)) {
-            $this->projets->add($projet);
-            $projet->setIdEquipement($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProjet(Projet $projet): static
-    {
-        if ($this->projets->removeElement($projet)) {
-            // set the owning side to null (unless already changed)
-            if ($projet->getIdEquipement() === $this) {
-                $projet->setIdEquipement(null);
-            }
-        }
+        $this->projet = $projet;
 
         return $this;
     }

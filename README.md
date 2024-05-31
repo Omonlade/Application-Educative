@@ -17,7 +17,7 @@ Appllication mobile Kidsparklabs
 		Kidsparklabs_db = pour le nom de la base de donnée.
 	*/
 
-3 -> Dans le terminal taper : symfony console doctrine:database:create 
+3 -> Dans le terminal taper : symfony console doctrine:database:create
 
 4 -> composer require symfony/security symfony/twig-bundle symfony/orm-pack doctrine/annotations symfony/form symfony/validator symfony/maker-bundle symfony/asset symfony/webpack-encore-bundle
 

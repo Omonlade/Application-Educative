@@ -34,7 +34,7 @@ class EquipementController extends AbstractController
                 
         return $this->render('equipement/index.html.twig', [
             'equipements' => $equipementRepository->findAll(),
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 
@@ -80,7 +80,7 @@ class EquipementController extends AbstractController
                     'equipement' => $equipement,
                     'form' => $form,
                     'success' => true,
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             } 
             catch (\Doctrine\ORM\OptimisticLockException $oe) 
@@ -91,7 +91,7 @@ class EquipementController extends AbstractController
                     'equipement' => $equipement,
                     'form' => $form,
                     'error' => 'Une erreur optimiste de verrouillage a eu lieu.',
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             } catch (\Exception $e) {
                 // Pour capturer d'autres types d'exceptions
@@ -99,7 +99,7 @@ class EquipementController extends AbstractController
                     'equipement' => $equipement,
                     'form' => $form,
                     'error' => 'Une erreur inattendue est survenue.',
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             }
 
@@ -109,7 +109,7 @@ class EquipementController extends AbstractController
         return $this->render('equipement/new.html.twig', [
             'equipement' => $equipement,
             'form' => $form,
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 
@@ -130,7 +130,7 @@ class EquipementController extends AbstractController
         
         return $this->render('equipement/show.html.twig', [
             'equipement' => $equipement,
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 
@@ -172,7 +172,7 @@ class EquipementController extends AbstractController
                     'equipement' => $equipement,
                     'form' => $form,
                     'editSuccess' => true, // Indique que la mise à jour a été réussie
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             } catch (\Exception $e) {
                 // En cas d'échec de la mise à jour, afficher un message d'erreur
@@ -181,7 +181,7 @@ class EquipementController extends AbstractController
                     'equipement' => $equipement,
                     'form' => $form,
                     'editError' => true, // Indique que la mise à jour a échoué
-                    'nom_prenom_user' => $nom . ' ' . $prenom,
+                    'nom_prenom_user' => $nomPrenomUser,
                 ]);
             }
             return $this->redirectToRoute('app_equipement_index', [], Response::HTTP_SEE_OTHER);
@@ -190,7 +190,7 @@ class EquipementController extends AbstractController
         return $this->render('equipement/edit.html.twig', [
             'equipement' => $equipement,
             'form' => $form,
-            'nom_prenom_user' => $nom . ' ' . $prenom,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 
