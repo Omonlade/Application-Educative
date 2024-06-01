@@ -22,7 +22,7 @@ class TutorielType extends AbstractType
             ->add('titre', TextType::class, [
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Merci de saisir un nom titre',
+                        'message' => 'Merci de saisir un  titre',
                     ]),
                 ],
                 'attr' => [

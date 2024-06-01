@@ -152,4 +152,10 @@ class Quiz
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        // Utilisez la propriété $libelle pour représenter l'objet Quiz sous forme de chaîne.
+        return $this->libelle?? '';
+    }
 }

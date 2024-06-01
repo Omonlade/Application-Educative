@@ -4,6 +4,35 @@
 
 {% block body %}
 
+	{# Affichage de l'alerte de succès si le paramètre 'editSuccess' est défini et est vrai #}
+	{% if editSuccess is defined and editSuccess %}
+		<div class="alert alert-success" role="alert">
+			Equipement updated successfully!
+		</div>
+	{% endif %}
+
+	{# Affichage de l'alerte d'erreur si le paramètre 'editError' est défini et est vrai #}
+	{% if editError is defined and editError %}
+		<div class="alert alert-danger" role="alert">
+			Error updating equipement. Please try again.
+		</div>
+	{% endif %}
+
+
+	{# Affichage de l'alerte de succès si le paramètre 'deleteSuccess' est défini et est vrai #}
+	{% if deleteSuccess is defined and deleteSuccess %}
+		<div class="alert alert-success" role="alert">
+			Equipement deleted successfully!
+		</div>
+	{% endif %}
+
+	{# Affichage de l'alerte d'erreur si le paramètre 'deleteError' est défini et est vrai #}
+	{% if deleteError is defined and deleteError %}
+		<div class="alert alert-danger" role="alert">
+			Error deleting equipement. Please try again.
+		</div>
+	{% endif %}
+
 
 	<div class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
@@ -63,14 +92,14 @@
                                 {# Affichage de l'alerte de succès si le paramètre 'editSuccess' est défini et est vrai #}
                                 {% if editSuccess is defined and editSuccess %}
                                     <div class="alert alert-success" role="alert">
-                                        User updated successfully!
+                                        Equipement updated successfully!
                                     </div>
                                 {% endif %}
 
                                 {# Affichage de l'alerte d'erreur si le paramètre 'editError' est défini et est vrai #}
                                 {% if editError is defined and editError %}
                                     <div class="alert alert-danger" role="alert">
-                                        Error updating user. Please try again.
+                                        Error updating equipement. Please try again.
                                     </div>
                                 {% endif %}
 

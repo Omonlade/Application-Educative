@@ -176,8 +176,7 @@ What type of relationship is this?
                                                                                   
   OneToOne     Each Jouer relates to (has) exactly one eleve.                     
                Each eleve also relates to (has) exactly one Jouer.                
- ------------ ------------------------------------------------------------------- 
-
+ ------------ ---------------------------------------------------------------
  Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
  > ManyToOne
 

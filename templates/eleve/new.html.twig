@@ -5,12 +5,12 @@
 
 {% block body %}
 
-	<h1>Create new User</h1>
+	<h1>Create new Eleve</h1>
 
 	{# Affichage de l'alerte de succès si le paramètre 'success' est défini et est vrai #}
 	{% if success is defined and success %}
 		<div class="alert alert-success" role="alert">
-			User insert successfully!
+			Eleve insert successfully!
 		</div>
 	{% endif %}
 
@@ -82,7 +82,7 @@
 										</div>
 									{% endif %}
 
-									<h4 class="card-title" _msttexthash="455338" _msthash="40">Formulaire de D'Enregistrement</h4>
+									<h4 class="card-title" _msttexthash="455338" _msthash="40">Formulaire de D'Enregistrement d'un eleve</h4>
 
 
 									{{ include('eleve/_form.html.twig', {'button_label': 'Save'}) }}

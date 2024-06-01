@@ -11,14 +11,20 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
+
+use Symfony\Component\HttpFoundation\Session\SessionInterface; 
+// C'est ce qui permet d'utiliser les variables de SESSIONS
 #[Route('/consulter')]
 class ConsulterController extends AbstractController
 {
     #[Route('/', name: 'app_consulter_index', methods: ['GET'])]
-    public function index(ConsulterRepository $consulterRepository): Response
+    public function index(ConsulterRepository $consulterRepository, SessionInterface $session): Response
     {
+                        // Récupérez la variable de session
+                        $nomPrenomUser = $session->get('nom_prenom_user');
         return $this->render('consulter/index.html.twig', [
             'consulters' => $consulterRepository->findAll(),
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 

@@ -30,16 +30,6 @@ class Tutoriel
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date_ajout = null;
 
-    /**
-     * @var Collection<int, Projet>
-     */
-    #[ORM\OneToMany(targetEntity: Projet::class, mappedBy: 'id_tutoriel')]
-    private Collection $projets;
-
-    public function __construct()
-    {
-        $this->projets = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -94,33 +84,4 @@ class Tutoriel
         return $this;
     }
 
-    /**
-     * @return Collection<int, Projet>
-     */
-    public function getProjets(): Collection
-    {
-        return $this->projets;
-    }
-
-    public function addProjet(Projet $projet): static
-    {
-        if (!$this->projets->contains($projet)) {
-            $this->projets->add($projet);
-            $projet->setIdTutoriel($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProjet(Projet $projet): static
-    {
-        if ($this->projets->removeElement($projet)) {
-            // set the owning side to null (unless already changed)
-            if ($projet->getIdTutoriel() === $this) {
-                $projet->setIdTutoriel(null);
-            }
-        }
-
-        return $this;
-    }
 }

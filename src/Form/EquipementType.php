@@ -69,7 +69,6 @@ class EquipementType extends AbstractType
                     'rows' => 5, // Nombre de lignes dans le textarea
                 ]
             ])
-            
             ->add('date_ajout', DateType::class, [
                 'constraints' => [
                     new NotBlank([

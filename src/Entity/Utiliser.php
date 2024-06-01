@@ -21,11 +21,11 @@ class Utiliser
 
     #[ORM\ManyToOne(inversedBy: 'utilisers')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?projet $projet = null;
+    private ?Projet $projet = null;
 
     #[ORM\ManyToOne(inversedBy: 'utilisers')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?eleve $eleve = null;
+    private ?Eleve $eleve = null;
 
     public function getId(): ?int
     {

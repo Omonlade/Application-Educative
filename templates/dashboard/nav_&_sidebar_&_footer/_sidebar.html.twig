@@ -3,20 +3,20 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ path('app_dashboard') }}">
               <i class="mdi mdi-home menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
+              <span class="menu-title">TABLEAU DE BORD</span>
             </a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link {% if app.request.attributes.get('_route') in ['app_user_index', 'app_user_new','app_user_show','app_user_edit', 'app_user_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-admin" aria-expanded="false" aria-controls="ui-basic-admin">
               <i class="mdi mdi-account-circle menu-icon"></i>
-              <span class="menu-title">Administratreur</span>
+              <span class="menu-title">ADMINISTRATEUR</span>
 
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic-admin">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_user_index') }}">CRUD</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_user_index') }}">Affiche &nbsp; <i class ="mdi mdi-format-indent-increase"></i> </a></li>
               </ul>
             </div>
           </li>
@@ -24,153 +24,128 @@
           <li class="nav-item">
             <a class="nav-link {% if app.request.attributes.get('_route') in ['app_eleve_index', 'app_eleve_new','app_eleve_show','app_eleve_edit', 'app_eleve_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-eleve" aria-expanded="false" aria-controls="ui-basic-eleve">
               <i class="mdi mdi-account-multiple menu-icon"></i>
-              <span class="menu-title">Eleve</span>
+              <span class="menu-title">ELEVE</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic-eleve">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_eleve_index') }}">CRUD</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_eleve_index') }}">Affiche &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
               </ul>
             </div>
           </li>
 
 
-          <li class="nav-item">
-            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_equipement_index', 'app_equipement_new','app_equipement_show','app_equipement_edit', 'app_equipement_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-equipement" aria-expanded="false" aria-controls="ui-basic-equipement">
-              <i class="mdi mdi-briefcase-check menu-icon"></i>
-              <span class="menu-title">Equipement</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic-equipement">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_equipement_index') }}">CRUD</a></li>
-              </ul>
-            </div>
-          </li>
+
+
 
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic-tutoriel" aria-expanded="false" aria-controls="ui-basic-tutoriel">
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_tutoriel_index', 'app_tutoriel_new','app_tutoriel_show','app_tutoriel_edit', 'app_tutoriel_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-tutoriel" aria-expanded="false" aria-controls="ui-basic-tutoriel">
               <i class="mdi mdi-play-box-outline menu-icon"></i>
-              <span class="menu-title">Tutoriel</span>
+              <span class="menu-title">TUTORIEL</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic-tutoriel">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_tutoriel_index') }}">CRUD</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_tutoriel_index') }}">Affiche &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
               </ul>
             </div>
           </li>
 
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic-projet" aria-expanded="false" aria-controls="ui-basic-projet">
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_projet_index', 'app_projet_new','app_projet_show','app_projet_edit', 'app_projet_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-projet" aria-expanded="false" aria-controls="ui-basic-projet">
               <i class="mdi mdi-assistant menu-icon"></i>
-              <span class="menu-title">Projet</span>
+              <span class="menu-title">PROJET</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic-projet">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_projet_index') }}">CRUD</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_projet_index') }}">Affiche  &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
               </ul>
             </div>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_equipement_index', 'app_equipement_new','app_equipement_show','app_equipement_edit', 'app_equipement_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-equipement" aria-expanded="false" aria-controls="ui-basic-equipement">
+              <i class="mdi mdi-briefcase-check menu-icon"></i>
+              <span class="menu-title">EQUIPEMENT</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic-equipement">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_equipement_index') }}">Affiche &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
+              </ul>
+            </div>
+          </li>
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic-quiz" aria-expanded="false" aria-controls="ui-basic-quiz">
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_quiz_index', 'app_quiz_new','app_quiz_show','app_quiz_edit', 'app_quiz_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-quiz" aria-expanded="false" aria-controls="ui-basic-quiz">
               <i class="mdi mdi-file-xml menu-icon"></i>
-              <span class="menu-title">Quiz</span>
+              <span class="menu-title">QUIZ</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic-quiz">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_quiz_index') }}">CRUD</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_quiz_index') }}">Affiche &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
               </ul>
             </div>
           </li>
 
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic-question" aria-expanded="false" aria-controls="ui-basic-question">
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_question_index', 'app_question_new','app_question_show','app_question_edit', 'app_question_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-question" aria-expanded="false" aria-controls="ui-basic-question">
               <i class="mdi mdi-rename-box menu-icon"></i>
-              <span class="menu-title">Question</span>
+              <span class="menu-title">QUESTION</span>
               <i class="menu-arrow"></i>
             </a>
-          </li>
-
-
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic-consulter" aria-expanded="false" aria-controls="ui-basic-consulter">
-              <i class="mdi mdi-calendar-text menu-icon"></i>
-              <span class="menu-title">Consulter</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic-consulter">
+            <div class="collapse" id="ui-basic-question">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_consulter_index') }}">CRUD</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_question_index') }}">Affiche &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
               </ul>
             </div>
           </li>
 
-
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic-reponse" aria-expanded="false" aria-controls="ui-basic-reponse">
-              <i class="mdi mdi-comment-check-outline menu-icon"></i>
-              <span class="menu-title">Reponse</span>
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_reponse_index', 'app_reponse_new','app_reponse_show','app_reponse_edit', 'app_reponse_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-reponse" aria-expanded="false" aria-controls="ui-basic-reponse">
+              <i class="mdi mdi-comment-check-outline menu-icon"> </i>
+              <span class="menu-title">REPONSE</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic-reponse">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_reponse_index') }}">CRUD</a></li>
+             <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_reponse_index') }}">Affiche &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
               </ul>
             </div>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic-utiliser" aria-expanded="false" aria-controls="ui-basic-utiliser">
-              <i class="mdi mdi-subdirectory-arrow-right menu-icon"></i>
-              <span class="menu-title">Utiliser</span>
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_jouer_index', 'app_creer_index','app_utiliser_index','app_consulter_index' ] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-historique" aria-expanded="false" aria-controls="ui-basic-historique">
+              <i class="mdi mdi-view-grid menu-icon"></i>
+              <span class="menu-title">HISTORIQUE</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic-utiliser">
+            <div class="collapse" id="ui-basic-historique">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_utiliser_index') }}">CRUD</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_jouer_index') }}">JOUER</a></li>
+              </ul>
+            </div>
+                        <div class="collapse" id="ui-basic-historique">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_creer_index') }}">CREER</a></li>
+              </ul>
+            </div>
+             <div class="collapse" id="ui-basic-historique">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_utiliser_index') }}">UTILISER</a></li>
+              </ul>
+            </div>
+            <div class="collapse" id="ui-basic-historique">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_consulter_index') }}">CONSULTER</a></li>
               </ul>
             </div>
           </li>
-
-
-
-          
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic-creer" aria-expanded="false" aria-controls="ui-basic-creer">
-              <i class="mdi mdi-calendar-plus menu-icon"></i>
-              <span class="menu-title">Creer</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic-creer">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_creer_index') }}">CRUD</a></li>
-              </ul>
-            </div>
-          </li>
-
-
-
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic-jouer" aria-expanded="false" aria-controls="ui-basic-jouer">
-              <i class="mdi mdi-account-card-details menu-icon"></i>
-              <span class="menu-title">Jouer</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic-jouer">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_jouer_index') }}">CRUD</a></li>
-              </ul>
-            </div>
-          </li>
-
 
         </ul>
       </nav>

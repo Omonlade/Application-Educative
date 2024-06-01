@@ -10,4 +10,35 @@
     <a href="{{ path('app_consulter_index') }}">back to list</a>
 
     {{ include('consulter/_delete_form.html.twig') }}
+
+        {# Affichage de l'alerte de succès si le paramètre 'editSuccess' est défini et est vrai #}
+	{% if editSuccess is defined and editSuccess %}
+		<div class="alert alert-success" role="alert">
+			Consulter updated successfully!
+		</div>
+	{% endif %}
+
+	{# Affichage de l'alerte d'erreur si le paramètre 'editError' est défini et est vrai #}
+	{% if editError is defined and editError %}
+		<div class="alert alert-danger" role="alert">
+			Error updating consulter. Please try again.
+		</div>
+	{% endif %}
+
+
+	{# Affichage de l'alerte de succès si le paramètre 'deleteSuccess' est défini et est vrai #}
+	{% if deleteSuccess is defined and deleteSuccess %}
+		<div class="alert alert-success" role="alert">
+			Consulter deleted successfully!
+		</div>
+	{% endif %}
+
+	{# Affichage de l'alerte d'erreur si le paramètre 'deleteError' est défini et est vrai #}
+	{% if deleteError is defined and deleteError %}
+		<div class="alert alert-danger" role="alert">
+			Error deleting consulter. Please try again.
+		</div>
+	{% endif %}
+
+
 {% endblock %}

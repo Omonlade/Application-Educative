@@ -3,31 +3,103 @@
 {% block title %}Consulter index{% endblock %}
 
 {% block body %}
-    <h1>Consulter index</h1>
 
-    <table class="table">
-        <thead>
+<div
+		class="container-scroller">
+		<!-- partial:partials/_navbar.html -->
+
+		{% include "dashboard/nav_&_sidebar_&_footer/_nav.html.twig" %}
+
+
+		<!-- partial -->
+		<div
+			class="container-fluid page-body-wrapper">
+			<!-- partial:partials/_sidebar.html -->
+
+			{% include "dashboard/nav_&_sidebar_&_footer/_sidebar.html.twig" %}
+
+			<!-- partial -->
+			<div class="main-panel">
+				<div class="content-wrapper">
+
+					<div class="row">
+						<div class="col-md-12 grid-margin">
+							<div class="d-flex justify-content-between flex-wrap">
+								<div class="d-flex align-items-end flex-wrap">
+									<div class="mr-md-3 mr-xl-5">
+										<h2>Bienvenue
+											{{ nom_prenom_user }}</h2>
+										<!-- <p class="mb-md-0">Your analytics dashboard template.</p> -->
+									</div>
+									<div class="d-flex">
+										<i class="mdi mdi-account-multiple text-muted hover-cursor"></i>
+										<!-- <p class="text-muted mb-0 hover-cursor">&nbsp;/&nbsp;Dashboard&nbsp;/&nbsp;</p> -->
+										<p class="text-primary mb-0 hover-cursor">Administrateur</p>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-md-12 grid-margin stretch-card">
+							<div class="card">
+								<div class="card-body">
+									<h4 class="card-title">Tableau des Projets Consulter</h4>
+
+									<div class="table-responsive">
+										<table class="table table-striped">
+											<thead>
             <tr>
                 <th>Id</th>
+				<th>Elève</th>
+				<th>Projet</th>
+				<th>Date</th>
                 <th>actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for consulter in consulters %}
+											</thead>
+
+											<tbody>
+											{% for consulter in consulters %}
             <tr>
-                <td>{{ consulter.id }}</td>
+ <td>{{ consulter.id }}</td>
                 <td>
-                    <a href="{{ path('app_consulter_show', {'id': consulter.id}) }}">show</a>
-                    <a href="{{ path('app_consulter_edit', {'id': consulter.id}) }}">edit</a>
+                    <a href="{{ path('app_consulter_show', {'id': consulter.id}) }}">
+                    <button type="button" class="btn btn-secondary">Voir</button>
+                    </a>
+                    <a href="{{ path('app_consulter_edit', {'id': consulter.id}) }}">
+                    <button type="button" class="btn btn-info">Modifier</button>
+                    </a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="2">no records found</td>
+                <td colspan="5">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
-        </tbody>
-    </table>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
 
-    <a href="{{ path('app_consulter_new') }}">Create new</a>
+
+					</div>
+
+
+					<!-- content-wrapper ends -->
+					<!-- partial:partials/_footer.html -->
+
+					{% include "dashboard/nav_&_sidebar_&_footer/_footer.html.twig" %}
+
+					<!-- partial -->
+				</div>
+				<!-- main-panel ends -->
+			</div>
+			<!-- page-body-wrapper ends -->
+		</div>
+		<!-- container-scroller -->
 {% endblock %}

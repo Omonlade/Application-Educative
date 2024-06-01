@@ -17,19 +17,29 @@ class ConsulterType extends AbstractType
         $builder
             ->add('id_eleve', EntityType::class, [
                 'class' => eleve::class,
-'choice_label' => 'id',
+                'choice_label' => 'id',
+                'attr' => [
+                    'class' => 'form-control form-group ', // Ajoutez vos classes CSS ici
+                    'style' => 'background-color: #f0f0f0;' // Ajoutez du style CSS directement
+                ]
             ])
             ->add('id_projet', EntityType::class, [
                 'class' => projet::class,
-'choice_label' => 'id',
-            ])
-        ;
+                'choice_label' => 'id',
+                'attr' => [
+                    'class' => 'form-control form-group ', // Ajoutez vos classes CSS ici
+                    'style' => 'background-color: #f0f0f0;' // Ajoutez du style CSS directement
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Consulter::class,
+            'attr' => [
+                'class' => 'forms-sample',
+            ],
         ]);
     }
 }

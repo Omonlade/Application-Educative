@@ -28,38 +28,31 @@ class Projet
     private ?\DateTimeInterface $date_creation = null;
 
 
-    #[ORM\ManyToOne(targetEntity: Tutoriel::class, inversedBy: 'projets')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?tutoriel $id_tutoriel = null;
 
-
-
-    /**
+    /** 
      * @var Collection<int, Consulter>
      */
     #[ORM\OneToMany(targetEntity: Consulter::class, mappedBy: 'id_projet')]
     private Collection $consulters;
 
-    /**
+    /** 
      * @var Collection<int, Utiliser>
      */
     #[ORM\OneToMany(targetEntity: Utiliser::class, mappedBy: 'id_projet')]
     private Collection $utilisers;
 
-    /**
-     * @var Collection<int, Equipement>
-     */
-    #[ORM\OneToMany(targetEntity: Equipement::class, mappedBy: 'id_projet')]
-    private Collection $equipements;
+    #[ORM\OneToOne(targetEntity: Tutoriel::class, cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Tutoriel $id_tutoriel = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $image = null;
 
     public function __construct()
     {
+        $this->consulters = new ArrayCollection();
         $this->utilisers = new ArrayCollection();
-        $this->equipements = new ArrayCollection();
     }
-
-
-
 
     public function getId(): ?int
     {
@@ -74,7 +67,6 @@ class Projet
     public function setNom(string $nom): static
     {
         $this->nom = $nom;
-
         return $this;
     }
 
@@ -86,7 +78,6 @@ class Projet
     public function setDescription(string $description): static
     {
         $this->description = $description;
-
         return $this;
     }
 
@@ -98,21 +89,6 @@ class Projet
     public function setDateCreation(\DateTimeInterface $date_creation): static
     {
         $this->date_creation = $date_creation;
-
-        return $this;
-    }
-
-
-
-    public function getIdTutoriel(): ?tutoriel
-    {
-        return $this->id_tutoriel;
-    }
-
-    public function setIdTutoriel(?tutoriel $id_tutoriel): static
-    {
-        $this->id_tutoriel = $id_tutoriel;
-
         return $this;
     }
 
@@ -131,7 +107,6 @@ class Projet
             $this->consulters->add($consulter);
             $consulter->setIdProjet($this);
         }
-
         return $this;
     }
 
@@ -143,7 +118,6 @@ class Projet
                 $consulter->setIdProjet(null);
             }
         }
-
         return $this;
     }
 
@@ -161,7 +135,6 @@ class Projet
             $this->utilisers->add($utiliser);
             $utiliser->setProjet($this);
         }
-
         return $this;
     }
 
@@ -173,38 +146,30 @@ class Projet
                 $utiliser->setProjet(null);
             }
         }
+        return $this;
+    }
+
+    public function getIdTutoriel(): ?Tutoriel
+    {
+        return $this->id_tutoriel;
+    }
+
+    public function setIdTutoriel(Tutoriel $id_tutoriel): static
+    {
+        $this->id_tutoriel = $id_tutoriel;
 
         return $this;
     }
 
-    /**
-     * @return Collection<int, Equipement>
-     */
-    public function getEquipements(): Collection
+    public function getImage(): ?string
     {
-        return $this->equipements;
+        return $this->image;
     }
 
-    public function addEquipement(Equipement $equipement): static
+    public function setImage(string $image): static
     {
-        if (!$this->equipements->contains($equipement)) {
-            $this->equipements->add($equipement);
-            $equipement->setProjet($this);
-        }
+        $this->image = $image;
 
         return $this;
     }
-
-    public function removeEquipement(Equipement $equipement): static
-    {
-        if ($this->equipements->removeElement($equipement)) {
-            // set the owning side to null (unless already changed)
-            if ($equipement->getProjet() === $this) {
-                $equipement->setProjet(null);
-            }
-        }
-
-        return $this;
-    }
-
 }

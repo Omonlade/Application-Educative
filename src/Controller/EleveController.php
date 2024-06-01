@@ -12,20 +12,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route; // Assurez-vous que c'est la bonne annotation importée
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
+use Symfony\Component\HttpFoundation\Session\SessionInterface; 
+// C'est ce qui permet d'utiliser les variables de SESSIONS
 #[Route('/eleve')]
 class EleveController extends AbstractController
 {
     #[Route('/', name: 'app_eleve_index', methods: ['GET'])]
-    public function index(EleveRepository $eleveRepository): Response
+    public function index(EleveRepository $eleveRepository, SessionInterface $session): Response
     {
-        $userConnect = $this->getUser();
-
-        if (!$userConnect) {
-            throw $this->createAccessDeniedException('Vous devez être connecté pour accéder à cette page.');
-        }
-
-        $nom = $userConnect->getNom();
-        $prenom = $userConnect->getPrenom();
+        // Récupérez la variable de session
+        $nomPrenomUser = $session->get('nom_prenom_user');
 
         return $this->render('eleve/index.html.twig', [
             'eleves' => $eleveRepository->findAll(),
@@ -34,20 +30,14 @@ class EleveController extends AbstractController
     }
 
     #[Route('/new', name: 'app_eleve_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher,SessionInterface $session): Response
     {
         $eleve = new Eleve();
         $form = $this->createForm(EleveType::class, $eleve);
         $form->handleRequest($request);
 
-        $userConnect = $this->getUser();
-
-        if (!$userConnect) {
-            throw $this->createAccessDeniedException('Vous devez être connecté pour accéder à cette page.');
-        }
-
-        $nom = $userConnect->getNom();
-        $prenom = $userConnect->getPrenom();
+        // Récupérez la variable de session
+        $nomPrenomUser = $session->get('nom_prenom_user');
 
         if ($form->isSubmitted() && $form->isValid()) 
         {
@@ -90,20 +80,10 @@ class EleveController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_eleve_show', methods: ['GET'])]
-    public function show(Eleve $eleve): Response
+    public function show(Eleve $eleve,SessionInterface $session): Response
     {
-        // Récupérez l'utilisateur connecté
-        $userConnect = $this->getUser();
-
-        // Assurez-vous que l'utilisateur est connecté
-        if (!$userConnect) {
-            throw $this->createAccessDeniedException('Vous devez être connecté pour accéder à cette page.');
-        }
-        
-        // Récupérez le nom et le prénom de l'utilisateur connecté
-        $nom = $userConnect->getNom();
-        $prenom = $userConnect->getPrenom();
-
+                // Récupérez la variable de session
+                $nomPrenomUser = $session->get('nom_prenom_user');
 
         return $this->render('eleve/show.html.twig', [
             'eleve' => $eleve,
@@ -112,24 +92,14 @@ class EleveController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_eleve_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Eleve $eleve, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Eleve $eleve, EntityManagerInterface $entityManager,SessionInterface $session): Response
     {
         $form = $this->createForm(EleveType::class, $eleve);
         $form->handleRequest($request);
 
 
-        // Récupérez l'utilisateur connecté
-        $userConnect = $this->getUser();
-
-        // Assurez-vous que l'utilisateur est connecté
-        if (!$userConnect) {
-            throw $this->createAccessDeniedException('Vous devez être connecté pour accéder à cette page.');
-        }
-        
-        // Récupérez le nom et le prénom de l'utilisateur connecté
-        $nom = $userConnect->getNom();
-        $prenom = $userConnect->getPrenom();
-
+        // Récupérez la variable de session
+        $nomPrenomUser = $session->get('nom_prenom_user',);
 
         if ($form->isSubmitted() && $form->isValid()) {
             try
