@@ -1,17 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tutoriel{% endblock %}
+{% block title %}Tutoriel
+{% endblock %}
 
 {% block body %}
 
-    <div class="container-scroller">
+	<div
+		class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
 
 		{% include "dashboard/nav_&_sidebar_&_footer/_nav.html.twig" %}
 
 
 		<!-- partial -->
-		<div class="container-fluid page-body-wrapper">
+		<div
+			class="container-fluid page-body-wrapper">
 			<!-- partial:partials/_sidebar.html -->
 
 			{% include "dashboard/nav_&_sidebar_&_footer/_sidebar.html.twig" %}
@@ -25,7 +28,8 @@
 							<div class="d-flex justify-content-between flex-wrap">
 								<div class="d-flex align-items-end flex-wrap">
 									<div class="mr-md-3 mr-xl-5">
-										<h2>Bienvenue  {{ nom_prenom_user }}</h2>
+										<h2>Bienvenue
+											{{ nom_prenom_user }}</h2>
 										<!-- <p class="mb-md-0">Your analytics dashboard template.</p> -->
 									</div>
 									<div class="d-flex">
@@ -42,58 +46,59 @@
 
 					<div class="row">
 						<div class="col-md-12 grid-margin stretch-card">
-							<div class="card">
-                                {# Affichage de l'alerte de succès si le paramètre 'deleteSuccess' est défini et est vrai #}
-                                {% if deleteSuccess is defined and deleteSuccess %}
-                                    <div class="alert alert-success" role="alert">
-                                        Tutoriel deleted successfully!
-                                    </div>
-                                {% endif %}
+							<div
+								class="card">
+								{# Affichage de l'alerte de succès si le paramètre 'deleteSuccess' est défini et est vrai #}
+								{% if deleteSuccess is defined and deleteSuccess %}
+									<div class="alert alert-success" role="alert">
+										Tutoriel deleted successfully!
+									</div>
+								{% endif %}
 
-                                {# Affichage de l'alerte d'erreur si le paramètre 'deleteError' est défini et est vrai #}
-                                {% if deleteError is defined and deleteError %}
-                                    <div class="alert alert-danger" role="alert">
-                                        Error deleting tutoriel. Please try again.
-                                    </div>
-                                {% endif %}
+								{# Affichage de l'alerte d'erreur si le paramètre 'deleteError' est défini et est vrai #}
+								{% if deleteError is defined and deleteError %}
+									<div class="alert alert-danger" role="alert">
+										Error deleting tutoriel. Please try again.
+									</div>
+								{% endif %}
 
 								<div class="card-body">
 									<h4 class="card-title">Informations :</h4>
-										
-                                      <div style="display: flex; justify-content: flex-end;">
-                                            <a type="button" href="{{ path('app_tutoriel_new') }}" class="btn btn-outline-primary btn-fw">
-                                                <b>Effectuer un nouvel enregistrement</b>
-                                            </a>
-                                        </div>
-                                    <br>
+
+									<div style="display: flex; justify-content: flex-end;">
+										<a type="button" href="{{ path('app_tutoriel_new') }}" class="btn btn-outline-primary btn-fw">
+											<b>Effectuer un nouvel enregistrement</b>
+										</a>
+									</div>
+									<br>
 
 									<div class="table-responsive">
 										<table class="table table-striped">
 
-											        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ tutoriel.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ tutoriel.titre }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ tutoriel.description }}</td>
-            </tr>
-            <tr>
-                <th>Video</th>
-                <td>{{ tutoriel.video }}</td>
-            </tr>
-            <tr>
-                <th>Date_ajout</th>
-                <td>{{ tutoriel.dateAjout ? tutoriel.dateAjout|date('Y-m-d') : '' }}</td>
-            </tr>
-        </tbody>
+											<tbody>
+												<tr>
+													<th>Id</th>
+													<td>{{ tutoriel.id }}</td>
+												</tr>
+												<tr>
+													<th>Titre</th>
+													<td>{{ tutoriel.titre }}</td>
+												</tr>
+												<tr>
+													<th>Description</th>
+													<td>{{ tutoriel.description }}</td>
+												</tr>
+												<tr>
+													<th>Video</th>
+													<td>{{ tutoriel.video }}</td>
+												</tr>
+												<tr>
+													<th>Date_ajout</th>
+													<td>{{ tutoriel.dateAjout ? tutoriel.dateAjout|date('Y-m-d') : '' }}</td>
+												</tr>
+											</tbody>
 										</table>
-                                        
+
 										<br>
 										<div class="container">
 											<div
@@ -115,8 +120,8 @@
 										</div>
 									</div>
 								</div>
-									<div style="text-align: center; justify-content:center">
-										{{ include('tutoriel/_delete_form.html.twig') }}
+								<div style="text-align: center; justify-content:center">
+									{{ include('tutoriel/_delete_form.html.twig') }}
 									<br>
 								</div>
 							</div>
@@ -138,4 +143,5 @@
 			<!-- page-body-wrapper ends -->
 		</div>
 		<!-- container-scroller -->
-{% endblock %}
+	{% endblock %}
+

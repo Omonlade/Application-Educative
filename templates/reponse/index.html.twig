@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Reponse index{% endblock %}
+{% block title %}Reponse index
+{% endblock %}
 
 {% block body %}
 
-    <div
+	<div
 		class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
 
@@ -59,36 +60,36 @@
 									<div class="table-responsive">
 										<table class="table table-striped">
 											<thead>
-			<tr>
-                <th>Id</th>
-				<th>Question</th>
-                <th>Contenu</th>
-				<th>Reponse</th>
-                <th>Actions</th>
-            </tr>
+												<tr>
+													<th>Id</th>
+													<th>Question</th>
+													<th>Reponse</th>
+													<th>Est correct ?</th>
+													<th>Actions</th>
+												</tr>
 											</thead>
 
 											<tbody>
-											 {% for reponse in reponses %}
-            <tr>
-               <td>{{ reponse.id }}</td>
-			   <td>{{ reponse.question }}</td>
-                <td>{{ reponse.contenu }}</td>
-                <td>{{ reponse.estCorrecte ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('app_reponse_show', {'id': reponse.id}) }}">
-                    <button type="button" class="btn btn-secondary">Voir</button>
-                    </a>
-                    <a href="{{ path('app_reponse_edit', {'id': reponse.id}) }}">
-                    <button type="button" class="btn btn-info">Modifier</button>
-                    </a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">Aucun enregistrement trouvé</td>
-            </tr>
-        {% endfor %}
+												{% for reponse in reponses %}
+													<tr>
+														<td>{{ reponse.id }}</td>
+														<td>{{ reponse.question.questionnaire }}</td>
+														<td>{{ reponse.contenu }}</td>
+														<td>{{ reponse.estCorrecte ? 'Yes' : 'No' }}</td>
+														<td>
+															<a href="{{ path('app_reponse_show', {'id': reponse.id}) }}">
+																<button type="button" class="btn btn-secondary">Voir</button>
+															</a>
+															<a href="{{ path('app_reponse_edit', {'id': reponse.id}) }}">
+																<button type="button" class="btn btn-info">Modifier</button>
+															</a>
+														</td>
+													</tr>
+												{% else %}
+													<tr>
+														<td colspan="7">Aucun enregistrement trouvé</td>
+													</tr>
+												{% endfor %}
 											</tbody>
 										</table>
 									</div>
@@ -112,4 +113,5 @@
 			<!-- page-body-wrapper ends -->
 		</div>
 		<!-- container-scroller -->
-{% endblock %}
+	{% endblock %}
+

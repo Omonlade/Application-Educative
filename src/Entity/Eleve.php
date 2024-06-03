@@ -40,17 +40,8 @@ class Eleve implements PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $password = null;
 
-    /**
-     * @var Collection<int, Consulter>
-     */
-    #[ORM\OneToMany(targetEntity: Consulter::class, mappedBy: 'id_eleve')]
-    private Collection $consulters;
 
-    /**
-     * @var Collection<int, Jouer>
-     */
-    #[ORM\OneToMany(targetEntity: Jouer::class, mappedBy: 'id_eleve')]
-    private Collection $jouers;
+
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $image = null;
@@ -61,11 +52,23 @@ class Eleve implements PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Utiliser::class, mappedBy: 'eleve')]
     private Collection $utilisers;
 
+    /**
+     * @var Collection<int, Jouer>
+     */
+    #[ORM\OneToMany(targetEntity: Jouer::class, mappedBy: 'eleve')]
+    private Collection $jouers;
+
+    /**
+     * @var Collection<int, Consulter>
+     */
+    #[ORM\OneToMany(targetEntity: Consulter::class, mappedBy: 'eleve')]
+    private Collection $consulters;
+
     public function __construct()
     {
-        $this->consulters = new ArrayCollection();
-        $this->jouers = new ArrayCollection();
         $this->utilisers = new ArrayCollection();
+        $this->jouers = new ArrayCollection();
+        $this->consulters = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -147,66 +150,7 @@ class Eleve implements PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection<int, Consulter>
-     */
-    public function getConsulters(): Collection
-    {
-        return $this->consulters;
-    }
-
-    public function addConsulter(Consulter $consulter): static
-    {
-        if (!$this->consulters->contains($consulter)) {
-            $this->consulters->add($consulter);
-            $consulter->setIdEleve($this);
-        }
-
-        return $this;
-    }
-
-    public function removeConsulter(Consulter $consulter): static
-    {
-        if ($this->consulters->removeElement($consulter)) {
-            // set the owning side to null (unless already changed)
-            if ($consulter->getIdEleve() === $this) {
-                $consulter->setIdEleve(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Jouer>
-     */
-    public function getJouers(): Collection
-    {
-        return $this->jouers;
-    }
-
-    public function addJouer(Jouer $jouer): static
-    {
-        if (!$this->jouers->contains($jouer)) {
-            $this->jouers->add($jouer);
-            $jouer->setIdEleve($this);
-        }
-
-        return $this;
-    }
-
-    public function removeJouer(Jouer $jouer): static
-    {
-        if ($this->jouers->removeElement($jouer)) {
-            // set the owning side to null (unless already changed)
-            if ($jouer->getIdEleve() === $this) {
-                $jouer->setIdEleve(null);
-            }
-        }
-
-        return $this;
-    }
-
+    
     public function getImage(): ?string
     {
         return $this->image;
@@ -243,6 +187,66 @@ class Eleve implements PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($utiliser->getEleve() === $this) {
                 $utiliser->setEleve(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Jouer>
+     */
+    public function getJouers(): Collection
+    {
+        return $this->jouers;
+    }
+
+    public function addJouer(Jouer $jouer): static
+    {
+        if (!$this->jouers->contains($jouer)) {
+            $this->jouers->add($jouer);
+            $jouer->setEleve($this);
+        }
+
+        return $this;
+    }
+
+    public function removeJouer(Jouer $jouer): static
+    {
+        if ($this->jouers->removeElement($jouer)) {
+            // set the owning side to null (unless already changed)
+            if ($jouer->getEleve() === $this) {
+                $jouer->setEleve(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Consulter>
+     */
+    public function getConsulters(): Collection
+    {
+        return $this->consulters;
+    }
+
+    public function addConsulter(Consulter $consulter): static
+    {
+        if (!$this->consulters->contains($consulter)) {
+            $this->consulters->add($consulter);
+            $consulter->setEleve($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConsulter(Consulter $consulter): static
+    {
+        if ($this->consulters->removeElement($consulter)) {
+            // set the owning side to null (unless already changed)
+            if ($consulter->getEleve() === $this) {
+                $consulter->setEleve(null);
             }
         }
 

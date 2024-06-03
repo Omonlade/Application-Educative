@@ -1,17 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Projet{% endblock %}
+{% block title %}New Projet
+{% endblock %}
 
 {% block body %}
 
-    <div class="container-scroller">
+	<div
+		class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
 
 		{% include "dashboard/nav_&_sidebar_&_footer/_nav.html.twig" %}
 
 
 		<!-- partial -->
-		<div class="container-fluid page-body-wrapper">
+		<div
+			class="container-fluid page-body-wrapper">
 			<!-- partial:partials/_sidebar.html -->
 
 			{% include "dashboard/nav_&_sidebar_&_footer/_sidebar.html.twig" %}
@@ -59,35 +62,33 @@
 									</div>
 								{% endif %}
 
-								        {# Affichage de l'alerte de succès si le paramètre 'success' est défini et est vrai #}
-        {% if success is defined and success %}
-            <div class="alert alert-success" role="alert">
-                Equipement insert successfully!
-            </div>
-        {% endif %}
+								{# Affichage de l'alerte de succès si le paramètre 'success' est défini et est vrai #}
+								{% if success is defined and success %}
+									<div class="alert alert-success" role="alert">
+										Equipement insert successfully!
+									</div>
+								{% endif %}
 
-        {# Affichage de l'alerte d'erreur si le paramètre 'error' est défini et est vrai #}
-        {% if error is defined and error %}
-            <div class="alert alert-danger" role="alert">
-                {{ error  }}
-            </div>
-        {% endif %}
-
+								{# Affichage de l'alerte d'erreur si le paramètre 'error' est défini et est vrai #}
+								{% if error is defined and error %}
+									<div class="alert alert-danger" role="alert">
+										{{ error  }}
+									</div>
+								{% endif %}
 
 
 								<div class="card-body">
 									<h4 class="card-title" _msttexthash="455338" _msthash="40">Formulaire d'enregistrement d'un projet</h4>
 
 
+									{{ include('projet/_form.html.twig', {'button_label': 'Save'}) }}
 
-                                        {{ include('projet/_form.html.twig', {'button_label': 'Save'}) }}
-
-	                                <br>
-                                        <a href="{{ path('app_projet_index') }}">
-                                             <button type="button" class="btn btn-outline-secondary btn-fw " _msttexthash="154141" _msthash="43">Revenir à la Liste</button>
-                                        </a>
-                                    <br>
-                                    <br>
+									<br>
+									<a href="{{ path('app_projet_index') }}">
+										<button type="button" class="btn btn-outline-secondary btn-fw " _msttexthash="154141" _msthash="43">Revenir à la Liste</button>
+									</a>
+									<br>
+									<br>
 
 								</div>
 							</div>
@@ -109,4 +110,5 @@
 			<!-- page-body-wrapper ends -->
 		</div>
 		<!-- container-scroller -->
-{% endblock %}
+	{% endblock %}
+

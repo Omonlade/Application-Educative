@@ -3,8 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Jouer;
-use App\Entity\eleve;
-use App\Entity\quiz;
+use App\Entity\Eleve;
+use App\Entity\Quiz;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -41,16 +41,16 @@ class JouerType extends AbstractType
                     'style' => 'background-color: #f0f0f0;' // Ajoutez du style CSS directement
                 ]
             ])
-            ->add('id_eleve', EntityType::class, [
-                'class' => eleve::class,
+            ->add('eleve', EntityType::class, [
+                'class' => Eleve::class,
                 'choice_label' => 'id','choice_label' => 'id',
                 'attr' => [
                     'class' => 'form-control form-group ', // Ajoutez vos classes CSS ici
                     'style' => 'background-color: #f0f0f0;' // Ajoutez du style CSS directement
                 ]
             ])
-            ->add('id_quiz', EntityType::class, [
-                'class' => quiz::class,
+            ->add('quiz', EntityType::class, [
+                'class' => Quiz::class,
                 'choice_label' => 'id',
                 'attr' => [
                     'class' => 'form-control form-group ', // Ajoutez vos classes CSS ici

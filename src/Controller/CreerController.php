@@ -22,11 +22,13 @@ class CreerController extends AbstractController
     {
         // Récupérez la variable de session
         $nomPrenomUser = $session->get('nom_prenom_user');
+        
         return $this->render('creer/index.html.twig', [
             'creers' => $creerRepository->findAll(),
             'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
+
 
     #[Route('/new', name: 'app_creer_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
@@ -49,11 +51,14 @@ class CreerController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_creer_show', methods: ['GET'])]
-    public function show(Creer $creer): Response
+    public function show(Creer $creer, SessionInterface $session): Response
     {
+        // Récupérez la variable de session
+        $nomPrenomUser = $session->get('nom_prenom_user');
 
         return $this->render('creer/show.html.twig', [
             'creer' => $creer,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 

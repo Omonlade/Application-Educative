@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Consulter index{% endblock %}
+{% block title %}Consulter index
+{% endblock %}
 
 {% block body %}
 
-<div
+	<div
 		class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
 
@@ -52,33 +53,36 @@
 									<div class="table-responsive">
 										<table class="table table-striped">
 											<thead>
-            <tr>
-                <th>Id</th>
-				<th>Elève</th>
-				<th>Projet</th>
-				<th>Date</th>
-                <th>actions</th>
-            </tr>
+												<tr>
+													<th>Id</th>
+													<th>Eleve</th>
+													<th>Projet</th>
+													<th>Date</th>
+													<th>actions</th>
+												</tr>
 											</thead>
 
 											<tbody>
-											{% for consulter in consulters %}
-            <tr>
- <td>{{ consulter.id }}</td>
-                <td>
-                    <a href="{{ path('app_consulter_show', {'id': consulter.id}) }}">
-                    <button type="button" class="btn btn-secondary">Voir</button>
-                    </a>
-                    <a href="{{ path('app_consulter_edit', {'id': consulter.id}) }}">
-                    <button type="button" class="btn btn-info">Modifier</button>
-                    </a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">Aucun enregistrement trouvé</td>
-            </tr>
-        {% endfor %}
+												{% for consulter in consulters %}
+													<tr>
+														<td>{{ consulter.id }}</td>
+														<td>{{ consulter.eleve.nom }}
+															{{ consulter.eleve.prenom }}</td>
+														<td>{{ consulter.projet.nom }}</td>
+														<td>{{ consulter.dateConsulter ? consulter.dateConsulter|date('Y-m-d') : '' }}</td>
+
+														<td>
+															<a href="{{ path('app_consulter_show', {'id': consulter.id}) }}">
+																<button type="button" class="btn btn-secondary">Voir</button>
+															</a>
+															
+														</td>
+													</tr>
+												{% else %}
+													<tr>
+														<td colspan="5">Aucun enregistrement trouvé</td>
+													</tr>
+												{% endfor %}
 											</tbody>
 										</table>
 									</div>
@@ -102,4 +106,5 @@
 			<!-- page-body-wrapper ends -->
 		</div>
 		<!-- container-scroller -->
-{% endblock %}
+	{% endblock %}
+

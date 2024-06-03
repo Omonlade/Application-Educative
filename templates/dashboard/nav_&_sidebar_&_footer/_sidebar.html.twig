@@ -8,144 +8,158 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_user_index', 'app_user_new','app_user_show','app_user_edit', 'app_user_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-admin" aria-expanded="false" aria-controls="ui-basic-admin">
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_user_index', 'app_user_new','app_user_show','app_user_edit', 'app_user_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-admin" aria-expanded="{% if app.request.attributes.get('_route') in ['app_user_index', 'app_user_new','app_user_show','app_user_edit', 'app_user_delete'] %} true {% else %} false {% endif %}" aria-controls="ui-basic-admin">
               <i class="mdi mdi-account-circle menu-icon"></i>
               <span class="menu-title">ADMINISTRATEUR</span>
 
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic-admin">
+
+            <div class="collapse {% if app.request.attributes.get('_route') in ['app_user_index', 'app_user_new','app_user_show','app_user_edit', 'app_user_delete'] %} show {% endif %}" id="ui-basic-admin">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_user_index') }}">Affiche &nbsp; <i class ="mdi mdi-format-indent-increase"></i> </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_user_index') }}">Gestions &nbsp; <i class ="mdi mdi-format-indent-increase"></i> </a></li>
               </ul>
             </div>
           </li>
 
+
           <li class="nav-item">
-            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_eleve_index', 'app_eleve_new','app_eleve_show','app_eleve_edit', 'app_eleve_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-eleve" aria-expanded="false" aria-controls="ui-basic-eleve">
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_eleve_index', 'app_eleve_new','app_eleve_show','app_eleve_edit', 'app_eleve_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-eleve" aria-expanded=" {% if app.request.attributes.get('_route') in ['app_eleve_index', 'app_eleve_new','app_eleve_show','app_eleve_edit', 'app_eleve_delete'] %} true {% else %} false {% endif %}" aria-controls="ui-basic-eleve">
               <i class="mdi mdi-account-multiple menu-icon"></i>
               <span class="menu-title">ELEVE</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic-eleve">
+
+            <div class="collapse {% if app.request.attributes.get('_route') in ['app_eleve_index', 'app_eleve_new','app_eleve_show','app_eleve_edit', 'app_eleve_delete'] %} show {% endif %}" id="ui-basic-eleve">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_eleve_index') }}">Affiche &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_eleve_index') }}">Gestions &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
               </ul>
             </div>
           </li>
 
 
-
-
-
-
           <li class="nav-item">
-            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_tutoriel_index', 'app_tutoriel_new','app_tutoriel_show','app_tutoriel_edit', 'app_tutoriel_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-tutoriel" aria-expanded="false" aria-controls="ui-basic-tutoriel">
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_tutoriel_index', 'app_tutoriel_new','app_tutoriel_show','app_tutoriel_edit', 'app_tutoriel_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-tutoriel " aria-expanded="{% if app.request.attributes.get('_route') in ['app_tutoriel_index', 'app_tutoriel_new','app_tutoriel_show','app_tutoriel_edit', 'app_tutoriel_delete'] %} true {% else %} false {% endif %}" aria-controls="ui-basic-tutoriel">
               <i class="mdi mdi-play-box-outline menu-icon"></i>
               <span class="menu-title">TUTORIEL</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic-tutoriel">
+            <div class="collapse {% if app.request.attributes.get('_route') in ['app_tutoriel_index', 'app_tutoriel_new','app_tutoriel_show','app_tutoriel_edit', 'app_tutoriel_delete'] %} show {% endif %}" id="ui-basic-tutoriel">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_tutoriel_index') }}">Affiche &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_tutoriel_index') }}">Gestions &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
               </ul>
             </div>
           </li>
 
 
           <li class="nav-item">
-            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_projet_index', 'app_projet_new','app_projet_show','app_projet_edit', 'app_projet_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-projet" aria-expanded="false" aria-controls="ui-basic-projet">
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_projet_index', 'app_projet_new','app_projet_show','app_projet_edit', 'app_projet_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-projet " aria-expanded="{% if app.request.attributes.get('_route') in ['app_projet_index', 'app_projet_new','app_projet_show','app_projet_edit', 'app_projet_delete'] %} true {% else %} false {% endif %}" aria-controls="ui-basic-projet">
               <i class="mdi mdi-assistant menu-icon"></i>
               <span class="menu-title">PROJET</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic-projet">
+
+            <div class="collapse {% if app.request.attributes.get('_route') in ['app_projet_index', 'app_projet_new','app_projet_show','app_projet_edit', 'app_projet_delete'] %} show {% endif %}" id="ui-basic-projet">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_projet_index') }}">Affiche  &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_projet_index') }}">Gestions  &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
               </ul>
             </div>
           </li>
 
+
           <li class="nav-item">
-            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_equipement_index', 'app_equipement_new','app_equipement_show','app_equipement_edit', 'app_equipement_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-equipement" aria-expanded="false" aria-controls="ui-basic-equipement">
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_equipement_index', 'app_equipement_new','app_equipement_show','app_equipement_edit', 'app_equipement_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-equipement  " aria-expanded="{% if app.request.attributes.get('_route') in ['app_equipement_index', 'app_equipement_new','app_equipement_show','app_equipement_edit', 'app_equipement_delete'] %} true {% else %} false {% endif %}" aria-controls="ui-basic-equipement">
               <i class="mdi mdi-briefcase-check menu-icon"></i>
               <span class="menu-title">EQUIPEMENT</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic-equipement">
+
+            <div class="collapse {% if app.request.attributes.get('_route') in ['app_equipement_index', 'app_equipement_new','app_equipement_show','app_equipement_edit', 'app_equipement_delete'] %} show {% endif %}" id="ui-basic-equipement">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_equipement_index') }}">Affiche &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_equipement_index') }}">Gestions &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
               </ul>
             </div>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_quiz_index', 'app_quiz_new','app_quiz_show','app_quiz_edit', 'app_quiz_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-quiz" aria-expanded="false" aria-controls="ui-basic-quiz">
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_quiz_index', 'app_quiz_new','app_quiz_show','app_quiz_edit', 'app_quiz_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-quiz " aria-expanded="{% if app.request.attributes.get('_route') in ['app_quiz_index', 'app_quiz_new','app_quiz_show','app_quiz_edit', 'app_quiz_delete'] %} true {% else %} false {% endif %}" aria-controls="ui-basic-quiz">
               <i class="mdi mdi-file-xml menu-icon"></i>
               <span class="menu-title">QUIZ</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic-quiz">
+            
+            <div class="collapse {% if app.request.attributes.get('_route') in ['app_quiz_index', 'app_quiz_new','app_quiz_show','app_quiz_edit', 'app_quiz_delete'] %} show {% endif %}" id="ui-basic-quiz">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_quiz_index') }}">Affiche &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_quiz_index') }}">Gestions &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
               </ul>
             </div>
           </li>
 
 
           <li class="nav-item">
-            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_question_index', 'app_question_new','app_question_show','app_question_edit', 'app_question_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-question" aria-expanded="false" aria-controls="ui-basic-question">
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_question_index', 'app_question_new','app_question_show','app_question_edit', 'app_question_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-question " aria-expanded="{% if app.request.attributes.get('_route') in ['app_question_index', 'app_question_new','app_question_show','app_question_edit', 'app_question_delete'] %} true {% else %} false {% endif %}" aria-controls="ui-basic-question">
               <i class="mdi mdi-rename-box menu-icon"></i>
               <span class="menu-title">QUESTION</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic-question">
+
+            <div class="collapse {% if app.request.attributes.get('_route') in ['app_question_index', 'app_question_new','app_question_show','app_question_edit', 'app_question_delete'] %} show {% endif %}" id="ui-basic-question">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_question_index') }}">Affiche &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_question_index') }}">Gestions &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
               </ul>
             </div>
           </li>
 
+
           <li class="nav-item">
-            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_reponse_index', 'app_reponse_new','app_reponse_show','app_reponse_edit', 'app_reponse_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-reponse" aria-expanded="false" aria-controls="ui-basic-reponse">
+            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_reponse_index', 'app_reponse_new','app_reponse_show','app_reponse_edit', 'app_reponse_delete'] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-reponse " aria-expanded="{% if app.request.attributes.get('_route') in ['app_reponse_index', 'app_reponse_new','app_reponse_show','app_reponse_edit', 'app_reponse_delete'] %} true {% else %} false {% endif %}" aria-controls="ui-basic-reponse">
               <i class="mdi mdi-comment-check-outline menu-icon"> </i>
               <span class="menu-title">REPONSE</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic-reponse">
+
+            <div class="collapse {% if app.request.attributes.get('_route') in ['app_reponse_index', 'app_reponse_new','app_reponse_show','app_reponse_edit', 'app_reponse_delete'] %} show {% endif %}" id="ui-basic-reponse">
              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_reponse_index') }}">Affiche &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ path('app_reponse_index') }}">Gestions &nbsp; <i class ="mdi mdi-format-indent-increase"></i></a></li>
               </ul>
             </div>
           </li>
 
+
+
           <li class="nav-item">
-            <a class="nav-link {% if app.request.attributes.get('_route') in ['app_jouer_index', 'app_creer_index','app_utiliser_index','app_consulter_index' ] %} active {% endif %}" data-toggle="collapse" href="#ui-basic-historique" aria-expanded="false" aria-controls="ui-basic-historique">
+            {% set activeRoutes = [
+              'app_jouer_index', 'app_jouer_new', 'app_jouer_show', 'app_jouer_edit', 'app_jouer_delete',
+              'app_creer_index', 'app_creer_new', 'app_creer_show', 'app_creer_edit', 'app_creer_delete',
+              'app_utiliser_index', 'app_utiliser_new', 'app_utiliser_show', 'app_utiliser_edit', 'app_utiliser_delete',
+              'app_consulter_index', 'app_consulter_new', 'app_consulter_show', 'app_consulter_edit', 'app_consulter_delete'
+            ] %}
+            {% set isActive = app.request.attributes.get('_route') in activeRoutes %}
+
+            <a class="nav-link {% if isActive %} active {% endif %}" data-toggle="collapse" href="#ui-basic-historique" aria-expanded="{{ isActive ? 'true' : 'false' }}" aria-controls="ui-basic-historique">
               <i class="mdi mdi-view-grid menu-icon"></i>
               <span class="menu-title">HISTORIQUE</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic-historique">
+
+            <div class="collapse {% if isActive %} show {% endif %}" id="ui-basic-historique">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_jouer_index') }}">JOUER</a></li>
-              </ul>
-            </div>
-                        <div class="collapse" id="ui-basic-historique">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_creer_index') }}">CREER</a></li>
-              </ul>
-            </div>
-             <div class="collapse" id="ui-basic-historique">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_utiliser_index') }}">UTILISER</a></li>
-              </ul>
-            </div>
-            <div class="collapse" id="ui-basic-historique">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ path('app_consulter_index') }}">CONSULTER</a></li>
+                <li class="nav-item">
+                  <a class="nav-link {% if app.request.attributes.get('_route') in ['app_jouer_index', 'app_jouer_new', 'app_jouer_show', 'app_jouer_edit', 'app_jouer_delete'] %} active {% endif %}" href="{{ path('app_jouer_index') }}">JOUER</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {% if app.request.attributes.get('_route') in ['app_creer_index', 'app_creer_new', 'app_creer_show', 'app_creer_edit', 'app_creer_delete'] %} active {% endif %}" href="{{ path('app_creer_index') }}">CREER</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {% if app.request.attributes.get('_route') in ['app_utiliser_index', 'app_utiliser_new', 'app_utiliser_show', 'app_utiliser_edit', 'app_utiliser_delete'] %} active {% endif %}" href="{{ path('app_utiliser_index') }}">UTILISER</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {% if app.request.attributes.get('_route') in ['app_consulter_index', 'app_consulter_new', 'app_consulter_show', 'app_consulter_edit', 'app_consulter_delete'] %} active {% endif %}" href="{{ path('app_consulter_index') }}">CONSULTER</a>
+                </li>
               </ul>
             </div>
           </li>
+
 
         </ul>
       </nav>

@@ -1,17 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Jouer index{% endblock %}
+{% block title %}Jouer index
+{% endblock %}
 
 {% block body %}
 
-    <div class="container-scroller">
+	<div
+		class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
 
 		{% include "dashboard/nav_&_sidebar_&_footer/_nav.html.twig" %}
 
 
 		<!-- partial -->
-		<div class="container-fluid page-body-wrapper">
+		<div
+			class="container-fluid page-body-wrapper">
 			<!-- partial:partials/_sidebar.html -->
 
 			{% include "dashboard/nav_&_sidebar_&_footer/_sidebar.html.twig" %}
@@ -25,7 +28,8 @@
 							<div class="d-flex justify-content-between flex-wrap">
 								<div class="d-flex align-items-end flex-wrap">
 									<div class="mr-md-3 mr-xl-5">
-										<h2>Bienvenue  {{ nom_prenom_user }}</h2>
+										<h2>Bienvenue
+											{{ nom_prenom_user }}</h2>
 										<!-- <p class="mb-md-0">Your analytics dashboard template.</p> -->
 									</div>
 									<div class="d-flex">
@@ -49,39 +53,38 @@
 									<div class="table-responsive">
 										<table class="table table-striped">
 											<thead>
-            <tr>
-                <th>Id</th>
-				<th>Nom de l'élève</th>
-				<th>Nom du quiz</th>
-                <th>Score</th>
-                <th>Date_jeu</th>
-                <th>Actions</th>
-            </tr>
-                                            </thead>
+												<tr>
+													<th>Id</th>
+													<th>Nom de l'élève</th>
+													<th>Nom du quiz</th>
+													<th>Score</th>
+													<th>Date_jeu</th>
+													<th>Actions</th>
+												</tr>
+											</thead>
 
 											<tbody>
-                                                       {% for jouer in jouers %}
-                                                    <tr>
-                <td>{{ jouer.id }}</td>
-                <td>{{ jouer.score }}</td>
-                <td>{{ jouer.dateJeu ? jouer.dateJeu|date('Y-m-d') : '' }}</td>
-                
-                                                        <td>
-                                                            <a href="{{ path('app_jouer_show', {'id': jouer.id}) }}" title="Show">
-                                                                <button type="button" class="btn btn-secondary">Voir</button>
-                                                            </a>
+												{% for jouer in jouers %}
+													<tr>
+														<td>{{ jouer.id }}</td>
+														<td>{{ jouer.eleve.nom }}</td>
+														<td>{{ jouer.quiz.libelle }}</td>
+														<td>{{ jouer.score }}</td>
+														<td>{{ jouer.dateJeu ? jouer.dateJeu|date('Y-m-d') : '' }}</td>
 
-                                                            <a href="{{ path('app_jouer_edit', {'id': jouer.id}) }}" title="Edit">
-                                                                <button type="button" class="btn btn-info">Modifier</button>
-                                                            </a>
-                                    
-                                                    </tr>
-                                                {% else %}
-                                                    <tr>
-                                                        <td colspan="7">Aucun nouvel enregistrement trouvé !</td>
-                                                    </tr>
-                                                {% endfor %}
-                                            </tbody>
+														<td>
+															<a href="{{ path('app_jouer_show', {'id': jouer.id}) }}" title="Show">
+																<button type="button" class="btn btn-secondary">Voir</button>
+															</a>
+
+														</td>
+													</tr>
+												{% else %}
+													<tr>
+														<td colspan="7">Aucun nouvel enregistrement trouvé !</td>
+													</tr>
+												{% endfor %}
+											</tbody>
 										</table>
 									</div>
 								</div>
@@ -105,4 +108,4 @@
 		</div>
 		<!-- container-scroller -->
 
-{% endblock %}
+	{% endblock %}

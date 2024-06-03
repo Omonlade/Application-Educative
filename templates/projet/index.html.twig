@@ -1,17 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Projet index{% endblock %}
+{% block title %}Projet index
+{% endblock %}
 
 {% block body %}
 
-	<div class="container-scroller">
+	<div
+		class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
 
 		{% include "dashboard/nav_&_sidebar_&_footer/_nav.html.twig" %}
 
 
 		<!-- partial -->
-		<div class="container-fluid page-body-wrapper">
+		<div
+			class="container-fluid page-body-wrapper">
 			<!-- partial:partials/_sidebar.html -->
 
 			{% include "dashboard/nav_&_sidebar_&_footer/_sidebar.html.twig" %}
@@ -25,7 +28,8 @@
 							<div class="d-flex justify-content-between flex-wrap">
 								<div class="d-flex align-items-end flex-wrap">
 									<div class="mr-md-3 mr-xl-5">
-										<h2>Bienvenue  {{ nom_prenom_user }}</h2>
+										<h2>Bienvenue
+											{{ nom_prenom_user }}</h2>
 										<!-- <p class="mb-md-0">Your analytics dashboard template.</p> -->
 									</div>
 									<div class="d-flex">
@@ -45,64 +49,66 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="card-title">Tableau des projets</h4>
-                                      <div style="display: flex; justify-content: flex-end;">
-                                            <a type="button" href="{{ path('app_projet_new') }}" class="btn btn-outline-primary btn-fw">
-                                                <b>Effectuer un nouvel enregistrement</b>
-                                            </a>
-                                        </div>
+									<div style="display: flex; justify-content: flex-end;">
+										<a type="button" href="{{ path('app_projet_new') }}" class="btn btn-outline-primary btn-fw">
+											<b>Effectuer un nouvel enregistrement</b>
+										</a>
+									</div>
 
 
 									<div class="table-responsive">
 										<table class="table table-striped">
 											<thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Description</th>
-				<th>Image</th>
-				<th>Tutoriel</th>
-                <th>Date_creation</th>
-                <th>Actions</th>
-            </tr>
-                                            </thead>
+												<tr>
+													<th>Id</th>
+													<th>Nom</th>
+													<th>Description</th>
+													<th>Image</th>
+													<th>Tutoriel</th>
+													<th>Date_creation</th>
+													<th>Actions</th>
+												</tr>
+											</thead>
 
 											<tbody>
-                                                {% for projet in projets %}
-                                                    <tr>
-                <td>{{ projet.id }}</td>
-                <td>{{ projet.nom }}</td>
-                <td>{{ projet.description }}</td>
-				<td>
-                    <img src="{{ asset('Uploaded-Image/' ~ projet.image) }}" alt="Image Projet" style="max-width: 100px; max-height: 100px;">
-                </td>
-				        <td>
-            {# <video controls style="max-width: 300px; max-height: 300px;">
-                <source src="{{ asset('Uploaded-Video/' ~ projet.video ~ '.mp4') }}" type="video/mp4">
-                <source src="{{ asset('Uploaded-Video/' ~ projet.video ~ '.avi') }}" type="video/avi">
-                <source src="{{ asset('Uploaded-Video/' ~ projet.video ~ '.mpeg') }}" type="video/mpeg">
-                <source src="{{ asset('Uploaded-Video/' ~ projet.video ~ '.mov') }}" type="video/quicktime">
-                Your browser does not support the video tag.
-            </video> #}
-        </td>
+												{% for projet in projets %}
+													<tr>
+														<td>{{ projet.id }}</td>
+														<td>{{ projet.nom }}</td>
+														<td>{{ projet.description }}</td>
+														<td>
+															<img src="{{ asset('Uploaded-Image/' ~ projet.image) }}" alt="Image Projet" style="width: 100px; height: 100px;">
+														</td>
 
-                <td>{{ projet.dateCreation ? projet.dateCreation|date('Y-m-d') : '' }}</td>
-                
-                                                        <td>
-                                                            <a href="{{ path('app_projet_show', {'id': projet.id}) }}" title="Show">
-                                                                <button type="button" class="btn btn-secondary">Voir</button>
-                                                            </a>
+														<td>
+															<video controls style="max-width: 300px; max-height: 300px; border-radius:16px">
+																<source src="{{ asset('Uploaded-Video/' ~ projet.tutoriel.video ) }}" type="video/mp4">
+																<source src="{{ asset('Uploaded-Video/' ~ projet.tutoriel.video ) }}" type="video/avi">
+																<source src="{{ asset('Uploaded-Video/' ~ projet.tutoriel.video ) }}" type="video/mpeg">
+																<source src="{{ asset('Uploaded-Video/' ~ projet.tutoriel.video ) }}" type="video/quicktime">
+																Your browser does not support the video tag.
+															</video>
+														</td>
 
-                                                            <a href="{{ path('app_projet_edit', {'id': projet.id})  }}" title="Edit">
-                                                                <button type="button" class="btn btn-info">Modifier</button>
-                                                            </a>
-                                    
-                                                    </tr>
-                                                {% else %}
-                                                    <tr>
-                                                        <td colspan="7">Aucun nouvel enregistrement trouvé !</td>
-                                                    </tr>
-                                                {% endfor %}
-                                            </tbody>
+
+														<td>{{ projet.dateCreation ? projet.dateCreation|date('Y-m-d') : '' }}</td>
+
+														<td>
+															<a href="{{ path('app_projet_show', {'id': projet.id}) }}" title="Show">
+																<button type="button" class="btn btn-secondary">Voir</button>
+															</a>
+
+															<a href="{{ path('app_projet_edit', {'id': projet.id}) }}" title="Edit">
+																<button type="button" class="btn btn-info">Modifier</button>
+															</a>
+														</td>
+													</tr>
+												{% else %}
+													<tr>
+														<td colspan="7">Aucun nouvel enregistrement trouvé !</td>
+													</tr>
+												{% endfor %}
+											</tbody>
 										</table>
 									</div>
 								</div>
@@ -126,4 +132,5 @@
 		</div>
 		<!-- container-scroller -->
 
-{% endblock %}
+	{% endblock %}
+

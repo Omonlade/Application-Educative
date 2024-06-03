@@ -1,17 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Utiliser index{% endblock %}
+{% block title %}Utiliser index
+{% endblock %}
 
 {% block body %}
 
-    <div class="container-scroller">
+	<div
+		class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
 
 		{% include "dashboard/nav_&_sidebar_&_footer/_nav.html.twig" %}
 
 
 		<!-- partial -->
-		<div class="container-fluid page-body-wrapper">
+		<div
+			class="container-fluid page-body-wrapper">
 			<!-- partial:partials/_sidebar.html -->
 
 			{% include "dashboard/nav_&_sidebar_&_footer/_sidebar.html.twig" %}
@@ -25,7 +28,8 @@
 							<div class="d-flex justify-content-between flex-wrap">
 								<div class="d-flex align-items-end flex-wrap">
 									<div class="mr-md-3 mr-xl-5">
-										<h2>Bienvenue  {{ nom_prenom_user }}</h2>
+										<h2>Bienvenue
+											{{ nom_prenom_user }}</h2>
 										<!-- <p class="mb-md-0">Your analytics dashboard template.</p> -->
 									</div>
 									<div class="d-flex">
@@ -50,36 +54,36 @@
 									<div class="table-responsive">
 										<table class="table table-striped">
 											<thead>
-            <tr>
-                <th>Id</th>
-				<th>Eleve</th>
-				<th>Equipement</th>
-                <th>Date d'utilisation</th>
-                <th>Actions</th>
-            </tr>
-                                            </thead>
+												<tr>
+													<th>Id</th>
+													<th>Eleve</th>
+													<th>Projet</th>
+													<th>Date d'utilisation</th>
+													<th>Actions</th>
+												</tr>
+											</thead>
 
 											<tbody>
-                                                {% for utiliser in utilisers %}
-                                                    <tr>
-                <td>{{ utiliser.id }}</td>
-                <td>{{ utiliser.dateUtiliser ? utiliser.dateUtiliser|date('Y-m-d') : '' }}</td>
-                                                        <td>
-                                                            <a href="{{ path('app_utiliser_show', {'id': utiliser.id}) }}" title="Show">
-                                                                <button type="button" class="btn btn-secondary">Voir</button>
-                                                            </a>
+												{% for utiliser in utilisers %}
+													<tr>
+														<td>{{ utiliser.id }}</td>
+														<td>{{ utiliser.eleve.nom }} {{ utiliser.eleve.prenom }}</td>
+														<td>{{ utiliser.projet.nom }}</td>
+														<td>{{ utiliser.dateUtiliser ? utiliser.dateUtiliser|date('Y-m-d') : '' }}</td>
+														<td>
+															<a href="{{ path('app_utiliser_show', {'id': utiliser.id}) }}" title="Show">
+																<button type="button" class="btn btn-secondary">Voir</button>
+															</a>
 
-                                                            <a href="{{ path('app_utiliser_edit', {'id': utiliser.id}) }}" title="Edit">
-                                                                <button type="button" class="btn btn-info">Modifier</button>
-                                                            </a>
-                                    
-                                                    </tr>
-                                                {% else %}
-                                                    <tr>
-                                                        <td colspan="7">Aucun nouvel enregistrement trouvé !</td>
-                                                    </tr>
-                                                {% endfor %}
-                                            </tbody>
+															
+														</td>
+													</tr>
+												{% else %}
+													<tr>
+														<td colspan="7">Aucun nouvel enregistrement trouvé !</td>
+													</tr>
+												{% endfor %}
+											</tbody>
 										</table>
 									</div>
 								</div>
@@ -103,4 +107,5 @@
 		</div>
 		<!-- container-scroller -->
 
-{% endblock %}
+	{% endblock %}
+

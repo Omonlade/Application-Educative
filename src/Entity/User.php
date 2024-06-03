@@ -45,13 +45,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var Collection<int, Creer>
      */
-    #[ORM\OneToMany(targetEntity: Creer::class, mappedBy: 'id_user')]
+    #[ORM\OneToMany(targetEntity: Creer::class, mappedBy: 'user')]
     private Collection $creers;
 
     public function __construct()
     {
         $this->creers = new ArrayCollection();
     }
+
+
+
 
     public function getId(): ?int
     {
@@ -163,7 +166,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if (!$this->creers->contains($creer)) {
             $this->creers->add($creer);
-            $creer->setIdUser($this);
+            $creer->setUser($this);
         }
 
         return $this;
@@ -173,11 +176,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->creers->removeElement($creer)) {
             // set the owning side to null (unless already changed)
-            if ($creer->getIdUser() === $this) {
-                $creer->setIdUser(null);
+            if ($creer->getUser() === $this) {
+                $creer->setUser(null);
             }
         }
 
         return $this;
     }
+
 }

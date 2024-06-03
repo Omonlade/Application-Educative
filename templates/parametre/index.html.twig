@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le profil{% endblock %}
+
+{% block body %}
+
+    <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        {% include "dashboard/nav_&_sidebar_&_footer/_nav.html.twig" %}
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_sidebar.html -->
+            {% include "dashboard/nav_&_sidebar_&_footer/_sidebar.html.twig" %}
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% for label, messages in app.flashes %}
+                                <div class="alert alert-{{ label }} mt-2">
+                                    {% for message in messages %}
+                                        <p>{{ message }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="row" >
+                        <div class="col-md-12 grid-margin" >
+                            <div class="d-flex justify-content-between flex-wrap">
+                                <div class="d-flex align-items-end flex-wrap">
+                                    <div class="mr-md-3 mr-xl-5" >
+                                        <h2>Bienvenue, {{ nom_prenom_user }}</h2>
+                                        <p class="text-muted">Votre profil utilisateur</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <i class="mdi mdi-account-circle text-muted hover-cursor"></i>
+                                        <p class="text-primary mb-0 hover-cursor">&nbsp;/&nbsp;Profil&nbsp;/&nbsp;Administrateur</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" >
+                        <div class="col-md-4 stretch-card grid-margin" >
+                            <div class="card" style="border-radius: 26px !important;">
+                                <div class="card-body text-center">
+                                    <br><br><br><br><br>
+                                    <img src="{{ asset('assets/images/ADMIN.png') }}" class="img-lg rounded-circle mb-4" alt="profile image"/>
+                                    <h5>Administrateur</h5>
+                                    <br>
+                                    <h4>{{ app.user.prenom }} {{ app.user.nom }}</h4>
+                                    <p>{{ app.user.email }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8 grid-margin stretch-card" >
+                            <div class="card" style="border-radius: 26px !important;">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center">Informations Personnelles</h4>
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label for="nom">Nom</label>
+                                            <input type="text" class="form-control" id="nom" name="nom" value="{{ app.user.nom }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="prenom">Prénom</label>
+                                            <input type="text" class="form-control" id="prenom" name="prenom" value="{{ app.user.prenom }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="email" class="form-control" id="email" name="email" value="{{ app.user.email }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password">Mot de passe</label>
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="Entrer le nouveau mot de passe">
+                                        </div>
+                                        <button type="submit" name="submit" class="btn btn-success col-md-12">Enregistrer les modifications</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- content-wrapper ends -->
+                    <!-- partial:partials/_footer.html -->
+                    {% include "dashboard/nav_&_sidebar_&_footer/_footer.html.twig" %}
+                    <!-- partial -->
+                </div>
+                <!-- main-panel ends -->
+            </div>
+            <!-- page-body-wrapper ends -->
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function()
+        {
+            setTimeout(function()
+            {
+                var alerts = document.querySelectorAll('.alert');
+                alerts.forEach(function(alert) {
+                    alert.classList.add('fade-out');
+                });
+            }, 3000); // Délai de 3 secondes avant de commencer la disparition
+        });
+    </script>
+
+
+{% endblock %}

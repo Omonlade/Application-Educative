@@ -7,6 +7,7 @@
         <title>{% block title %} CONECTION! {% endblock %}</title>
         {% block stylesheets %}
             {# Ajoutez vos styles ici  #} 
+            
 
         {% endblock %}
 
@@ -30,6 +31,22 @@
             {
                 color: blue !important; /* Ou la couleur de votre choix */
             }
+
+
+            /* Dans votre fichier CSS principal */
+            @keyframes fadeOut {
+                from {
+                    opacity: 1;
+                }
+                to {
+                    opacity: 0;
+                }
+            }
+
+            .fade-out {
+                animation: fadeOut 2s forwards;
+            }
+
     </style>
 
     <body>
@@ -60,6 +77,9 @@
                 <script src="{{ asset('assets/js/dataTables.bootstrap4.js')}}"></script>
                 <!-- End custom js for this page-->
                 <script src="{{ asset('assets/js/jquery.cookie.js')}}" type="text/javascript"></script>
+
+                
+
         {% endblock %}
 
     </body>

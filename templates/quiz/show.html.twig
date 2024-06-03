@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Quiz{% endblock %}
+{% block title %}Quiz
+{% endblock %}
 
 {% block body %}
 
-    <div
+	<div
 		class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
 
@@ -66,7 +67,7 @@
 									<h4 class="card-title">Informations :</h4>
 
 									<div style="display: flex; justify-content: flex-end;">
-										<a type="button" href="{{ path('app_user_new') }}" class="btn btn-outline-primary btn-fw">
+										<a type="button" href="{{ path('app_quiz_new') }}" class="btn btn-outline-primary btn-fw">
 											<b>Effectuer un nouvel enregistrement</b>
 										</a>
 									</div>
@@ -75,62 +76,63 @@
 									<div class="table-responsive">
 										<table class="table table-striped">
 											<tbody>
-												
-                <th>Id</th>
-                <td>{{ quiz.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre du quiz</th>
-                <td>{{ quiz.libelle }}</td>
-            </tr>
+
+												<th>Id</th>
+												<td>{{ quiz.id }}</td>
 											</tbody>
-										</table>
+										</tr>
+										<tr>
+											<th>Titre du quiz</th>
+											<td>{{ quiz.libelle }}</td>
+										</tr>
+									</tbody>
+								</table>
 
-										<br>
-										<div class="container">
-											<div
-												class="row d-flex justify-content-between">
-												<!-- Premier bouton à gauche -->
-												<div class="col-auto">
-													<a href="{{ path('app_quiz_index') }}">
-														<button type="button" class="btn btn-secondary">Revenir à la Liste</button>
-													</a>
-												</div>
-
-												<!-- Deuxième bouton à droite -->
-												<div class="col-auto">
-													<a href="{{ path('app_quiz_edit', {'id': quiz.id}) }}">
-														<button type="button" class="btn btn-primary">Modifier</button>
-													</a>
-												</div>
-											</div>
+								<br>
+								<div class="container">
+									<div
+										class="row d-flex justify-content-between">
+										<!-- Premier bouton à gauche -->
+										<div class="col-auto">
+											<a href="{{ path('app_quiz_index') }}">
+												<button type="button" class="btn btn-secondary">Revenir à la Liste</button>
+											</a>
 										</div>
 
-
+										<!-- Deuxième bouton à droite -->
+										<div class="col-auto">
+											<a href="{{ path('app_quiz_edit', {'id': quiz.id}) }}">
+												<button type="button" class="btn btn-primary">Modifier</button>
+											</a>
+										</div>
 									</div>
 								</div>
 
-								<div style="text-align: center; justify-content:center">
-									{{ include('quiz/_delete_form.html.twig') }}
-									<br>
-								</div>
+
 							</div>
 						</div>
 
-
+						<div style="text-align: center; justify-content:center">
+							{{ include('quiz/_delete_form.html.twig') }}
+							<br>
+						</div>
 					</div>
-
-
-					<!-- content-wrapper ends -->
-					<!-- partial:partials/_footer.html -->
-
-					{% include "dashboard/nav_&_sidebar_&_footer/_footer.html.twig" %}
-
-					<!-- partial -->
 				</div>
-				<!-- main-panel ends -->
+
+
 			</div>
-			<!-- page-body-wrapper ends -->
+
+
+			<!-- content-wrapper ends -->
+			<!-- partial:partials/_footer.html -->
+
+			{% include "dashboard/nav_&_sidebar_&_footer/_footer.html.twig" %}
+
+			<!-- partial -->
 		</div>
-		<!-- container-scroller -->
-{% endblock %}
+		<!-- main-panel ends -->
+	</div>
+	<!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->{% endblock %}
+

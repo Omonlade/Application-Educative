@@ -24,7 +24,9 @@ class Reponse
 
     #[ORM\ManyToOne(targetEntity: Question::class, inversedBy: 'reponses')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?question $id_question = null;
+    private ?Question $question = null;
+
+
 
     public function getId(): ?int
     {
@@ -55,15 +57,17 @@ class Reponse
         return $this;
     }
 
-    public function getIdQuestion(): ?question
+    public function getQuestion(): ?Question
     {
-        return $this->id_question;
+        return $this->question;
     }
 
-    public function setIdQuestion(?question $id_question): static
+    public function setQuestion(?Question $question): static
     {
-        $this->id_question = $id_question;
+        $this->question = $question;
 
         return $this;
     }
+
+
 }

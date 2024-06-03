@@ -74,7 +74,7 @@ class ProjetController extends AbstractController
                 return $this->render('projet/new.html.twig', [
                     'projet' => $projet,
                     'form' => $form,
-                    'error' => 'Une erreur inattendue est survenue.',
+                    'error' => 'Une erreur inattendue est survenue, Un Tutoriel pour Un et un seul Projet: '. $e->getMessage(),
                     'nom_prenom_user' => $nomPrenomUser,
                 ]);
             }

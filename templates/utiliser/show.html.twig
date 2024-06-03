@@ -1,39 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Utiliser{% endblock %}
+{% block title %}Utiliser
+{% endblock %}
 
 {% block body %}
-    <h1>Utiliser</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ utiliser.id }}</td>
-            </tr>
-            <tr>
-                <th>Date_utiliser</th>
-                <td>{{ utiliser.dateUtiliser ? utiliser.dateUtiliser|date('Y-m-d') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_utiliser_index') }}">back to list</a>
-
-    <a href="{{ path('app_utiliser_edit', {'id': utiliser.id}) }}">edit</a>
-
-    {{ include('utiliser/_delete_form.html.twig') }}
 
 
-
-     <div class="container-scroller">
+	<div
+		class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
 
 		{% include "dashboard/nav_&_sidebar_&_footer/_nav.html.twig" %}
 
 
 		<!-- partial -->
-		<div class="container-fluid page-body-wrapper">
+		<div
+			class="container-fluid page-body-wrapper">
 			<!-- partial:partials/_sidebar.html -->
 
 			{% include "dashboard/nav_&_sidebar_&_footer/_sidebar.html.twig" %}
@@ -47,7 +29,8 @@
 							<div class="d-flex justify-content-between flex-wrap">
 								<div class="d-flex align-items-end flex-wrap">
 									<div class="mr-md-3 mr-xl-5">
-										<h2>Bienvenue  {{ nom_prenom_user }}</h2>
+										<h2>Bienvenue
+											{{ nom_prenom_user }}</h2>
 										<!-- <p class="mb-md-0">Your analytics dashboard template.</p> -->
 									</div>
 									<div class="d-flex">
@@ -64,84 +47,93 @@
 
 					<div class="row">
 						<div class="col-md-12 grid-margin stretch-card">
-							<div class="card">
-                                {# Affichage de l'alerte de succès si le paramètre 'deleteSuccess' est défini et est vrai #}
-                                {% if deleteSuccess is defined and deleteSuccess %}
-                                    <div class="alert alert-success" role="alert">
-                                        Utiliser deleted successfully!
-                                    </div>
-                                {% endif %}
+							<div
+								class="card">
+								{# Affichage de l'alerte de succès si le paramètre 'deleteSuccess' est défini et est vrai #}
+								{% if deleteSuccess is defined and deleteSuccess %}
+									<div class="alert alert-success" role="alert">
+										Utiliser deleted successfully!
+									</div>
+								{% endif %}
 
-                                {# Affichage de l'alerte d'erreur si le paramètre 'deleteError' est défini et est vrai #}
-                                {% if deleteError is defined and deleteError %}
-                                    <div class="alert alert-danger" role="alert">
-                                        Error deleting utiliser. Please try again.
-                                    </div>
-                                {% endif %}
+								{# Affichage de l'alerte d'erreur si le paramètre 'deleteError' est défini et est vrai #}
+								{% if deleteError is defined and deleteError %}
+									<div class="alert alert-danger" role="alert">
+										Error deleting utiliser. Please try again.
+									</div>
+								{% endif %}
 
 								<div class="card-body">
 									<h4 class="card-title">Informations :</h4>
-										
-                                      <div style="display: flex; justify-content: flex-end;">
-                                            <a type="button" href="{{ path('app_utiliser_new') }}" class="btn btn-outline-primary btn-fw">
-                                                <b>Effectuer un nouvel enregistrement</b>
-                                            </a>
-                                        </div>
-                                    <br>
+
+									<div style="display: flex; justify-content: flex-end;">
+										<a type="button" href="{{ path('app_utiliser_new') }}" class="btn btn-outline-primary btn-fw">
+											<b>Effectuer un nouvel enregistrement</b>
+										</a>
+									</div>
+									<br>
 
 									<div class="table-responsive">
 										<table class="table table-striped">
 
-            <tr>
-                <th>Id</th>
-                <td>{{ utiliser.id }}</td>
-            </tr>
-        </tbody>
-										</table>
-                                        
-										<br>
-										<div class="container">
-											<div
-												class="row d-flex justify-content-between">
-												<!-- Premier bouton à gauche -->
-												<div class="col-auto">
-													<a href="{{ path('app_utiliser_index') }}">
-														<button type="button" class="btn btn-secondary">Revenir à la Liste</button>
-													</a>
-												</div>
+											<tr>
+												<th>Id</th>
+												<td>{{ utiliser.id }}</td>
+											</tr>
+											<tr>
+												<th>Eleve</th>
+												<td>{{ utiliser.eleve.nom }} {{ utiliser.eleve.prenom }}</td>
+											</tr>
+											<tr>
+												<th>Projet</th>
+												<td>{{ utiliser.projet.nom }}</td>
+											</tr>
+											<tr>
+												<th>Date_utiliser</th>
+												<td>{{ utiliser.dateUtiliser ? utiliser.dateUtiliser|date('Y-m-d') : '' }}</td>
+											</tr>
+										</tbody>
+									</table>
 
-												<!-- Deuxième bouton à droite -->
-												<div class="col-auto">
-													<a href="{{ path('app_utiliser_edit', {'id': utiliser.id}) }}">
-														<button type="button" class="btn btn-primary">Modifier</button>
-													</a>
-												</div>
+									<br>
+									<div class="container">
+										<div
+											class="row d-flex justify-content-between">
+											<!-- Premier bouton à gauche -->
+											<div class="col-auto">
+												<a href="{{ path('app_utiliser_index') }}">
+													<button type="button" class="btn btn-secondary">Revenir à la Liste</button>
+												</a>
 											</div>
+
+											<!-- Deuxième bouton à droite -->
+											<div class="col-auto">
+													{{ include('utiliser/_delete_form.html.twig') }}
+												</div>
 										</div>
 									</div>
 								</div>
-									<div style="text-align: center; justify-content:center">
-										{{ include('utiliser/_delete_form.html.twig') }}
-									<br>
-								</div>
 							</div>
+							
 						</div>
-
-
 					</div>
 
 
-					<!-- content-wrapper ends -->
-					<!-- partial:partials/_footer.html -->
-
-					{% include "dashboard/nav_&_sidebar_&_footer/_footer.html.twig" %}
-
-					<!-- partial -->
 				</div>
-				<!-- main-panel ends -->
+
+
+				<!-- content-wrapper ends -->
+				<!-- partial:partials/_footer.html -->
+
+				{% include "dashboard/nav_&_sidebar_&_footer/_footer.html.twig" %}
+
+				<!-- partial -->
 			</div>
-			<!-- page-body-wrapper ends -->
+			<!-- main-panel ends -->
 		</div>
-		<!-- container-scroller -->
+		<!-- page-body-wrapper ends -->
+	</div>
+	<!-- container-scroller -->
 
 {% endblock %}
+

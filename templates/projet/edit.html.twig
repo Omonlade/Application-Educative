@@ -3,7 +3,6 @@
 {% block title %}Edit Projet{% endblock %}
 
 {% block body %}
-    <h1>Edit Projet</h1>
 
   	{# Affichage de l'alerte de succès si le paramètre 'editSuccess' est défini et est vrai #}
 	{% if editSuccess is defined and editSuccess %}
@@ -35,9 +34,7 @@
 	{% endif %}
 
 
-    <a href="{{ path('app_projet_index') }}">back to list</a>
 
-    {{ include('projet/_delete_form.html.twig') }}
 
     <div class="container-scroller">
 		<!-- partial:partials/_navbar.html -->

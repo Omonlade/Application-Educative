@@ -49,10 +49,15 @@ class ConsulterController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_consulter_show', methods: ['GET'])]
-    public function show(Consulter $consulter): Response
+    public function show(Consulter $consulter, SessionInterface $session): Response
     {
+
+        // Récupérez la variable de session
+        $nomPrenomUser = $session->get('nom_prenom_user');
+
         return $this->render('consulter/show.html.twig', [
             'consulter' => $consulter,
+            'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
 

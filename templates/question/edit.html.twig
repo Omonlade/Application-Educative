@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Question{% endblock %}
+{% block title %}Edit Question
+{% endblock %}
 
 {% block body %}
-    <h1>Edit Question</h1>
+	<h1>Edit Question</h1>
 
-        {# Affichage de l'alerte de succès si le paramètre 'editSuccess' est défini et est vrai #}
+	{# Affichage de l'alerte de succès si le paramètre 'editSuccess' est défini et est vrai #}
 	{% if editSuccess is defined and editSuccess %}
 		<div class="alert alert-success" role="alert">
 			Question updated successfully!
@@ -34,14 +35,16 @@
 		</div>
 	{% endif %}
 
-<div class="container-scroller">
+	<div
+		class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
 
 		{% include "dashboard/nav_&_sidebar_&_footer/_nav.html.twig" %}
 
 
 		<!-- partial -->
-		<div class="container-fluid page-body-wrapper">
+		<div
+			class="container-fluid page-body-wrapper">
 			<!-- partial:partials/_sidebar.html -->
 
 			{% include "dashboard/nav_&_sidebar_&_footer/_sidebar.html.twig" %}
@@ -99,16 +102,16 @@
 									</div>
 									<br>
 
-                                    {{ include('question/_form.html.twig', {'button_label': 'Update'}) }}
+									{{ include('question/_form.html.twig', {'button_label': 'Update'}) }}
 
-	                                    <br>
-                                            <a href="{{ path('app_question_index') }}">
-                                                <button type="button" class="btn btn-outline-secondary btn-fw " _msttexthash="154141" _msthash="43">Revenir à la Liste</button>
-                                            </a>
-                                        <br>
-                                        <br>
+									<br>
+									<a href="{{ path('app_question_index') }}">
+										<button type="button" class="btn btn-outline-secondary btn-fw " _msttexthash="154141" _msthash="43">Revenir à la Liste</button>
+									</a>
+									<br>
+									<br>
 
-                                    {{ include('question/_delete_form.html.twig') }}
+									{{ include('question/_delete_form.html.twig') }}
 								</div>
 							</div>
 						</div>
@@ -129,4 +132,5 @@
 			<!-- page-body-wrapper ends -->
 		</div>
 		<!-- container-scroller -->
-{% endblock %}
+	{% endblock %}
+

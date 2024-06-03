@@ -7,7 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -19,11 +19,12 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 use App\Entity\Projet;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
 
 
 class EquipementType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options, ): void
     {
         $builder
             ->add('nom', TextType::class, [
@@ -82,14 +83,23 @@ class EquipementType extends AbstractType
                 ]
             ])
 
+
             ->add('projet', EntityType::class, [
                 'class' => Projet::class,
-                'choice_label' => 'id',
+                'choice_label' => function (Projet $projet) {
+                    // Formatage clair avec un tiret pour séparer le nom et la description
+                    return 'NOM: ' .$projet->getNom() . '  ||  DESCRIPTION: ' . $projet->getDescription();
+                },
                 'attr' => [
-                    'class' => 'form-control form-group ', // Ajoutez vos classes CSS ici
-                    'style' => 'background-color: #f0f0f0;' // Ajoutez du style CSS directement
-                ]
+                    'class' => 'form-control form-group custom-select', // Ajoutez vos classes CSS ici
+                    'style' => 'background-color: #f0f0f0; height: 66px !important;' // Ajoutez du style CSS directement
+                ],
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('projet')
+                        ->orderBy('projet.id', 'DESC'); // Trie par ordre décroissant
+                }
             ])
+            
         ;
     }
 

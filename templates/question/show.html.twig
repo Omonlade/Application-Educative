@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Question{% endblock %}
+{% block title %}Question
+{% endblock %}
 
 {% block body %}
 
 
-    <div
+	<div
 		class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
 
@@ -67,7 +68,7 @@
 									<h4 class="card-title">Informations :</h4>
 
 									<div style="display: flex; justify-content: flex-end;">
-										<a type="button" href="{{ path('app_user_new') }}" class="btn btn-outline-primary btn-fw">
+										<a type="button" href="{{ path('app_question_new') }}" class="btn btn-outline-primary btn-fw">
 											<b>Effectuer un nouvel enregistrement</b>
 										</a>
 									</div>
@@ -76,14 +77,14 @@
 									<div class="table-responsive">
 										<table class="table table-striped">
 											<tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ question.id }}</td>
-            </tr>
-            <tr>
-                <th>Questionnaire</th>
-                <td>{{ question.questionnaire }}</td>
-            </tr>
+												<tr>
+													<th>Id</th>
+													<td>{{ question.id }}</td>
+												</tr>
+												<tr>
+													<th>Questionnaire</th>
+													<td>{{ question.questionnaire }}</td>
+												</tr>
 											</tbody>
 										</table>
 
@@ -136,4 +137,5 @@
 		<!-- container-scroller -->
 
 
-{% endblock %}
+	{% endblock %}
+

@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Question{% endblock %}
+{% block title %}New Question
+{% endblock %}
 
 {% block body %}
 
-    	{# Affichage de l'alerte de succès si le paramètre 'success' est défini et est vrai #}
+	{# Affichage de l'alerte de succès si le paramètre 'success' est défini et est vrai #}
 	{% if success is defined and success %}
 		<div class="alert alert-success" role="alert">
 			Question insert successfully!
@@ -18,7 +19,7 @@
 		</div>
 	{% endif %}
 
-      <div
+	<div
 		class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
 
@@ -111,4 +112,5 @@
 		</div>
 		<!-- container-scroller -->
 
-{% endblock %}
+	{% endblock %}
+

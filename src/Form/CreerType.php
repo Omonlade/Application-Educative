@@ -3,8 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Creer;
-use App\Entity\quiz;
-use App\Entity\user;
+use App\Entity\Quiz;
+use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -29,16 +29,16 @@ class CreerType extends AbstractType
                     'style' => 'background-color: #f0f0f0;' // Ajoutez du style CSS directement
                 ]
             ])
-            ->add('id_user', EntityType::class, [
-                'class' => user::class,
+            ->add('user', EntityType::class, [
+                'class' => User::class,
                 'choice_label' => 'id',
                 'attr' => [
                     'class' => 'form-control form-group ', // Ajoutez vos classes CSS ici
                     'style' => 'background-color: #f0f0f0;' // Ajoutez du style CSS directement
                 ]
             ])
-            ->add('id_quiz', EntityType::class, [
-                'class' => quiz::class,
+            ->add('quiz', EntityType::class, [
+                'class' => Quiz::class,
                 'choice_label' => 'id',
                 'attr' => [
                     'class' => 'form-control form-group ', // Ajoutez vos classes CSS ici

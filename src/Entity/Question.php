@@ -23,18 +23,21 @@ class Question
 
     #[ORM\ManyToOne(targetEntity: Quiz::class, inversedBy: 'questions')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?quiz $quiz = null;
+    private ?Quiz $quiz = null;
 
     /**
      * @var Collection<int, Reponse>
      */
-    #[ORM\OneToMany(targetEntity: Reponse::class, mappedBy: 'id_question')]
+    #[ORM\OneToMany(targetEntity: Reponse::class, mappedBy: 'question')]
     private Collection $reponses;
 
     public function __construct()
     {
         $this->reponses = new ArrayCollection();
     }
+
+
+
 
     public function getId(): ?int
     {
@@ -53,12 +56,12 @@ class Question
         return $this;
     }
 
-    public function getQuiz(): ?quiz
+    public function getQuiz(): ?Quiz
     {
         return $this->quiz;
     }
 
-    public function setQuiz(?quiz $quiz): static
+    public function setQuiz(?Quiz $quiz): static
     {
         $this->quiz = $quiz;
 
@@ -77,7 +80,7 @@ class Question
     {
         if (!$this->reponses->contains($reponse)) {
             $this->reponses->add($reponse);
-            $reponse->setIdQuestion($this);
+            $reponse->setQuestion($this);
         }
 
         return $this;
@@ -87,11 +90,13 @@ class Question
     {
         if ($this->reponses->removeElement($reponse)) {
             // set the owning side to null (unless already changed)
-            if ($reponse->getIdQuestion() === $this) {
-                $reponse->setIdQuestion(null);
+            if ($reponse->getQuestion() === $this) {
+                $reponse->setQuestion(null);
             }
         }
 
         return $this;
     }
+
+
 }

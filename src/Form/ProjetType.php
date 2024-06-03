@@ -14,6 +14,9 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
+use Doctrine\ORM\EntityRepository;
+
+
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProjetType extends AbstractType
@@ -77,14 +80,24 @@ class ProjetType extends AbstractType
                 ]
             ])
 
-            ->add('id_tutoriel', EntityType::class, [
+            ->add('tutoriel', EntityType::class, [
                 'class' => Tutoriel::class,
-                'choice_label' => 'id',
+                'choice_label' => function (Tutoriel $tutoriel) {
+                    return 'TITRE: ' . $tutoriel->getTitre() . '  ||  DESCRIPTION: ' . $tutoriel->getDescription();
+                },
                 'attr' => [
-                    'class' => 'form-control form-group ', // Ajoutez vos classes CSS ici
-                    'style' => 'background-color: #f0f0f0;' // Ajoutez du style CSS directement
-                ]
-            ]);
+                    'class' => 'form-control form-group',
+                    'style' => 'background-color: #f0f0f0; height: 66px !important;',
+                ],
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('tutoriel')
+                        ->leftJoin('App\Entity\Projet', 'projet', 'WITH', 'projet.tutoriel = tutoriel')
+                        ->where('projet.tutoriel IS NULL')
+                        ->orderBy('tutoriel.id', 'DESC');
+                }
+            ])
+
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

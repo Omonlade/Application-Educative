@@ -1,20 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Equipement index{% endblock %}
+{% block title %}Equipement index
+{% endblock %}
 
 {% block body %}
-    <h1>Equipement index</h1>
+	<h1>Equipement index</h1>
 
 
-
-	<div class="container-scroller">
+	<div
+		class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
 
 		{% include "dashboard/nav_&_sidebar_&_footer/_nav.html.twig" %}
 
 
 		<!-- partial -->
-		<div class="container-fluid page-body-wrapper">
+		<div
+			class="container-fluid page-body-wrapper">
 			<!-- partial:partials/_sidebar.html -->
 
 			{% include "dashboard/nav_&_sidebar_&_footer/_sidebar.html.twig" %}
@@ -28,7 +30,8 @@
 							<div class="d-flex justify-content-between flex-wrap">
 								<div class="d-flex align-items-end flex-wrap">
 									<div class="mr-md-3 mr-xl-5">
-										<h2>Bienvenue  {{ nom_prenom_user }}</h2>
+										<h2>Bienvenue
+											{{ nom_prenom_user }}</h2>
 										<!-- <p class="mb-md-0">Your analytics dashboard template.</p> -->
 									</div>
 									<div class="d-flex">
@@ -45,56 +48,59 @@
 
 					<div class="row">
 						<div class="col-md-12 grid-margin stretch-card">
-							<div class="card">
-								<div class="card-body">
+							<div class="card" style="border-radius:16px !important;">
+								<div class="card-body" style="border-radius:16px !important;">
 									<h4 class="card-title">Tableau des equipements</h4>
-                                      <div style="display: flex; justify-content: flex-end;">
-                                            <a type="button" href="{{ path('app_equipement_new') }}" class="btn btn-outline-primary btn-fw">
-                                                <b>Effectuer un nouvel enregistrement</b>
-                                            </a>
-                                        </div>
+									<div style="display: flex; justify-content: flex-end;">
+										<a type="button" href="{{ path('app_equipement_new') }}" class="btn btn-outline-primary btn-fw">
+											<b>Effectuer un nouvel enregistrement</b>
+										</a>
+									</div>
 
 
 									<div class="table-responsive">
 										<table class="table table-striped">
 											<thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Image</th>
-                <th>Description</th>
-                <th>Date_ajout</th>
-                <th>Actions</th>
-            </tr>
-                                            </thead>
+												<tr>
+													<th>Id</th>
+													<th>Nom</th>
+													<th>Image</th>
+													<th>Description</th>
+													<th>Date_ajout</th>
+													<th>Projet</th>
+													<th>Actions</th>
+												</tr>
+											</thead>
 
 											<tbody>
-                                                {% for equipement in equipements %}
-                                                    <tr>
-                <td>{{ equipement.id }}</td>
-                <td>{{ equipement.nom }}</td>
-                <td>
-                    <img src="{{ asset('Uploaded-Image/' ~ equipement.image) }}" alt="Image Equipement" style="max-width: 100px; max-height: 100px;">
-                </td>
-                <td>{{ equipement.description }}</td>
-                <td>{{ equipement.dateAjout ? equipement.dateAjout|date('Y-m-d') : '' }}</td>
-                
-                                                        <td>
-                                                            <a href="{{ path('app_equipement_show', {'id': equipement.id}) }}" title="Show">
-                                                                <button type="button" class="btn btn-secondary">Voir</button>
-                                                            </a>
+												{% for equipement in equipements %}
+													<tr>
+														<td>{{ equipement.id }}</td>
+														<td>{{ equipement.nom }}</td>
+														<td>
+															<img src="{{ asset('Uploaded-Image/' ~ equipement.image) }}" alt="Image Equipement" style="width: 100px; height: 100px;">
+														</td>
+														<td>{{ equipement.description }}</td>
+														<td>{{ equipement.dateAjout ? equipement.dateAjout|date('Y-m-d') : '' }}</td>
+														<td>{{ equipement.projet.nom }}</td>
 
-                                                            <a href="{{ path('app_equipement_edit', {'id': equipement.id}) }}" title="Edit">
-                                                                <button type="button" class="btn btn-info">Modifier</button>
-                                                            </a>
-                                    
-                                                    </tr>
-                                                {% else %}
-                                                    <tr>
-                                                        <td colspan="7">Aucun nouvel enregistrement trouvé !</td>
-                                                    </tr>
-                                                {% endfor %}
-                                            </tbody>
+
+														<td>
+															<a href="{{ path('app_equipement_show', {'id': equipement.id}) }}" title="Show">
+																<button type="button" class="btn btn-secondary">Voir</button>
+															</a>
+
+															<a href="{{ path('app_equipement_edit', {'id': equipement.id}) }}" title="Edit">
+																<button type="button" class="btn btn-info">Modifier</button>
+															</a>
+														</td>
+													</tr>
+												{% else %}
+													<tr>
+														<td colspan="7">Aucun nouvel enregistrement trouvé !</td>
+													</tr>
+												{% endfor %}
+											</tbody>
 										</table>
 									</div>
 								</div>
@@ -118,4 +124,5 @@
 		</div>
 		<!-- container-scroller -->
 
-{% endblock %}
+	{% endblock %}
+

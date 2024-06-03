@@ -30,28 +30,29 @@ class Projet
 
 
     /** 
-     * @var Collection<int, Consulter>
-     */
-    #[ORM\OneToMany(targetEntity: Consulter::class, mappedBy: 'id_projet')]
-    private Collection $consulters;
-
-    /** 
      * @var Collection<int, Utiliser>
      */
-    #[ORM\OneToMany(targetEntity: Utiliser::class, mappedBy: 'id_projet')]
+    #[ORM\OneToMany(targetEntity: Utiliser::class, mappedBy: 'projet')]
     private Collection $utilisers;
 
-    #[ORM\OneToOne(targetEntity: Tutoriel::class, cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Tutoriel $id_tutoriel = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $image = null;
 
+    #[ORM\OneToOne(targetEntity: Tutoriel::class, cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Tutoriel $tutoriel = null;
+
+    /**
+     * @var Collection<int, Consulter>
+     */
+    #[ORM\OneToMany(targetEntity: Consulter::class, mappedBy: 'projet')]
+    private Collection $consulters;
+
     public function __construct()
     {
-        $this->consulters = new ArrayCollection();
         $this->utilisers = new ArrayCollection();
+        $this->consulters = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -92,35 +93,6 @@ class Projet
         return $this;
     }
 
-
-    /**
-     * @return Collection<int, Consulter>
-     */
-    public function getConsulters(): Collection
-    {
-        return $this->consulters;
-    }
-
-    public function addConsulter(Consulter $consulter): static
-    {
-        if (!$this->consulters->contains($consulter)) {
-            $this->consulters->add($consulter);
-            $consulter->setIdProjet($this);
-        }
-        return $this;
-    }
-
-    public function removeConsulter(Consulter $consulter): static
-    {
-        if ($this->consulters->removeElement($consulter)) {
-            // set the owning side to null (unless already changed)
-            if ($consulter->getIdProjet() === $this) {
-                $consulter->setIdProjet(null);
-            }
-        }
-        return $this;
-    }
-
     /**
      * @return Collection<int, Utiliser>
      */
@@ -149,17 +121,6 @@ class Projet
         return $this;
     }
 
-    public function getIdTutoriel(): ?Tutoriel
-    {
-        return $this->id_tutoriel;
-    }
-
-    public function setIdTutoriel(Tutoriel $id_tutoriel): static
-    {
-        $this->id_tutoriel = $id_tutoriel;
-
-        return $this;
-    }
 
     public function getImage(): ?string
     {
@@ -169,6 +130,48 @@ class Projet
     public function setImage(string $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getTutoriel(): ?Tutoriel
+    {
+        return $this->tutoriel;
+    }
+
+    public function setTutoriel(Tutoriel $tutoriel): static
+    {
+        $this->tutoriel = $tutoriel;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Consulter>
+     */
+    public function getConsulters(): Collection
+    {
+        return $this->consulters;
+    }
+
+    public function addConsulter(Consulter $consulter): static
+    {
+        if (!$this->consulters->contains($consulter)) {
+            $this->consulters->add($consulter);
+            $consulter->setProjet($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConsulter(Consulter $consulter): static
+    {
+        if ($this->consulters->removeElement($consulter)) {
+            // set the owning side to null (unless already changed)
+            if ($consulter->getProjet() === $this) {
+                $consulter->setProjet(null);
+            }
+        }
 
         return $this;
     }

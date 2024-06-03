@@ -32,7 +32,7 @@ class Equipement
 
     #[ORM\ManyToOne(targetEntity: Projet::class,inversedBy: 'equipements')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?projet $projet = null;
+    private ?Projet $projet = null;
 
 
 
@@ -91,12 +91,12 @@ class Equipement
         return $this;
     }
 
-    public function getProjet(): ?projet
+    public function getProjet(): ?Projet
     {
         return $this->projet;
     }
 
-    public function setProjet(?projet $projet): static
+    public function setProjet(?Projet $projet): static
     {
         $this->projet = $projet;
 

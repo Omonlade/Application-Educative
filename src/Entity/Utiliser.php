@@ -19,11 +19,11 @@ class Utiliser
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date_utiliser = null;
 
-    #[ORM\ManyToOne(inversedBy: 'utilisers')]
+    #[ORM\ManyToOne(targetEntity: Projet::class, inversedBy: 'utilisers')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Projet $projet = null;
 
-    #[ORM\ManyToOne(inversedBy: 'utilisers')]
+    #[ORM\ManyToOne(targetEntity: Eleve::class, inversedBy: 'utilisers')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Eleve $eleve = null;
 
@@ -44,24 +44,24 @@ class Utiliser
         return $this;
     }
 
-    public function getProjet(): ?projet
+    public function getProjet(): ?Projet
     {
         return $this->projet;
     }
 
-    public function setProjet(?projet $projet): static
+    public function setProjet(?Projet $projet): static
     {
         $this->projet = $projet;
 
         return $this;
     }
 
-    public function getEleve(): ?eleve
+    public function getEleve(): ?Eleve
     {
         return $this->eleve;
     }
 
-    public function setEleve(?eleve $eleve): static
+    public function setEleve(?Eleve $eleve): static
     {
         $this->eleve = $eleve;
 

@@ -16,55 +16,36 @@ class Jouer
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(targetEntity: Eleve::class, inversedBy: 'jouers')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?eleve $id_eleve = null;
 
-    #[ORM\ManyToOne(targetEntity: Quiz::class, inversedBy: 'jouers')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?quiz $id_quiz = null;
 
     #[ORM\Column]
-    private ?int $score = null;
+    private ?string $score = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date_jeu = null;
+
+    #[ORM\ManyToOne(targetEntity: Quiz::class, inversedBy: 'jouers')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Quiz $quiz = null;
+
+    #[ORM\ManyToOne(targetEntity: Eleve::class, inversedBy: 'jouers')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Eleve $eleve = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIdEleve(): ?eleve
-    {
-        return $this->id_eleve;
-    }
 
-    public function setIdEleve(?eleve $id_eleve): static
-    {
-        $this->id_eleve = $id_eleve;
 
-        return $this;
-    }
 
-    public function getIdQuiz(): ?quiz
-    {
-        return $this->id_quiz;
-    }
-
-    public function setIdQuiz(?quiz $id_quiz): static
-    {
-        $this->id_quiz = $id_quiz;
-
-        return $this;
-    }
-
-    public function getScore(): ?int
+    public function getScore(): ?string
     {
         return $this->score;
     }
 
-    public function setScore(int $score): static
+    public function setScore(?string $score): static
     {
         $this->score = $score;
 
@@ -79,6 +60,30 @@ class Jouer
     public function setDateJeu(\DateTimeInterface $date_jeu): static
     {
         $this->date_jeu = $date_jeu;
+
+        return $this;
+    }
+
+    public function getQuiz(): ?Quiz
+    {
+        return $this->quiz;
+    }
+
+    public function setQuiz(?Quiz $quiz): static
+    {
+        $this->quiz = $quiz;
+
+        return $this;
+    }
+
+    public function getEleve(): ?Eleve
+    {
+        return $this->eleve;
+    }
+
+    public function setEleve(?Eleve $eleve): static
+    {
+        $this->eleve = $eleve;
 
         return $this;
     }

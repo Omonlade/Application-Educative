@@ -27,16 +27,17 @@ class Quiz
     #[ORM\OneToMany(targetEntity: Question::class, mappedBy: 'id_quiz')]
     private Collection $questions;
 
+
     /**
      * @var Collection<int, Jouer>
      */
-    #[ORM\OneToMany(targetEntity: Jouer::class, mappedBy: 'id_quiz')]
+    #[ORM\OneToMany(targetEntity: Jouer::class, mappedBy: 'quiz')]
     private Collection $jouers;
 
     /**
      * @var Collection<int, Creer>
      */
-    #[ORM\OneToMany(targetEntity: Creer::class, mappedBy: 'id_quiz')]
+    #[ORM\OneToMany(targetEntity: Creer::class, mappedBy: 'quiz')]
     private Collection $creers;
 
     public function __construct()
@@ -93,6 +94,14 @@ class Quiz
         return $this;
     }
 
+
+
+    public function __toString(): string
+    {
+        // Utilisez la propriété $libelle pour représenter l'objet Quiz sous forme de chaîne.
+        return $this->libelle?? '';
+    }
+
     /**
      * @return Collection<int, Jouer>
      */
@@ -105,7 +114,7 @@ class Quiz
     {
         if (!$this->jouers->contains($jouer)) {
             $this->jouers->add($jouer);
-            $jouer->setIdQuiz($this);
+            $jouer->setQuiz($this);
         }
 
         return $this;
@@ -115,8 +124,8 @@ class Quiz
     {
         if ($this->jouers->removeElement($jouer)) {
             // set the owning side to null (unless already changed)
-            if ($jouer->getIdQuiz() === $this) {
-                $jouer->setIdQuiz(null);
+            if ($jouer->getQuiz() === $this) {
+                $jouer->setQuiz(null);
             }
         }
 
@@ -135,7 +144,7 @@ class Quiz
     {
         if (!$this->creers->contains($creer)) {
             $this->creers->add($creer);
-            $creer->setIdQuiz($this);
+            $creer->setQuiz($this);
         }
 
         return $this;
@@ -145,17 +154,11 @@ class Quiz
     {
         if ($this->creers->removeElement($creer)) {
             // set the owning side to null (unless already changed)
-            if ($creer->getIdQuiz() === $this) {
-                $creer->setIdQuiz(null);
+            if ($creer->getQuiz() === $this) {
+                $creer->setQuiz(null);
             }
         }
 
         return $this;
-    }
-
-    public function __toString(): string
-    {
-        // Utilisez la propriété $libelle pour représenter l'objet Quiz sous forme de chaîne.
-        return $this->libelle?? '';
     }
 }

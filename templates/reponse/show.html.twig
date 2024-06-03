@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Reponse{% endblock %}
+{% block title %}Reponse
+{% endblock %}
 
 {% block body %}
 
 
-
-    <div
+	<div
 		class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
 
@@ -77,18 +77,22 @@
 									<div class="table-responsive">
 										<table class="table table-striped">
 											<tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ reponse.id }}</td>
-            </tr>
-            <tr>
-                <th>Contenu</th>
-                <td>{{ reponse.contenu }}</td>
-            </tr>
-            <tr>
-                <th>Est_correcte</th>
-                <td>{{ reponse.estCorrecte ? 'Yes' : 'No' }}</td>
-            </tr>
+												<tr>
+													<th>Id</th>
+													<td>{{ reponse.id }}</td>
+												</tr>
+												<tr>
+													<th>Question</th>
+													<td>{{ reponse.question.questionnaire }}</td>
+												</tr>
+												<tr>
+													<th>Reponse</th>
+													<td>{{ reponse.contenu }}</td>
+												</tr>
+												<tr>
+													<th>Est_correcte ?</th>
+													<td>{{ reponse.estCorrecte ? 'Yes' : 'No' }}</td>
+												</tr>
 											</tbody>
 										</table>
 
@@ -139,4 +143,5 @@
 			<!-- page-body-wrapper ends -->
 		</div>
 		<!-- container-scroller -->
-{% endblock %}
+	{% endblock %}
+
