@@ -19,12 +19,12 @@ class Utiliser
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date_utiliser = null;
 
-    #[ORM\ManyToOne(targetEntity: Projet::class, inversedBy: 'utilisers')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(targetEntity: Projet::class, inversedBy: 'utilisers',cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false, onDelete: "CASCADE")]
     private ?Projet $projet = null;
 
-    #[ORM\ManyToOne(targetEntity: Eleve::class, inversedBy: 'utilisers')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(targetEntity: Eleve::class, inversedBy: 'utilisers',cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false, onDelete: "CASCADE")]
     private ?Eleve $eleve = null;
 
     public function getId(): ?int

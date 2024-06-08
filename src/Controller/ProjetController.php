@@ -74,7 +74,7 @@ class ProjetController extends AbstractController
                 return $this->render('projet/new.html.twig', [
                     'projet' => $projet,
                     'form' => $form,
-                    'error' => 'Une erreur inattendue est survenue, Un Tutoriel pour Un et un seul Projet: '. $e->getMessage(),
+                    'error' => 'Une erreur inattendue est survenue, Un tutoriel pour un et un seul projet: '. $e->getMessage(),
                     'nom_prenom_user' => $nomPrenomUser,
                 ]);
             }
@@ -147,15 +147,30 @@ class ProjetController extends AbstractController
             'nom_prenom_user' => $nomPrenomUser,
         ]);
     }
-
+   
+   
+   
     #[Route('/{id}', name: 'app_projet_delete', methods: ['POST'])]
     public function delete(Request $request, Projet $projet, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$projet->getId(), $request->getPayload()->get('_token'))) {
+        // Vérification du token CSRF
+        if ($this->isCsrfTokenValid('delete'.$projet->getId(), $request->getPayload()->get('_token')))
+        {
+        
+            // Si le Projet est associé à un Tutoriel, déconnecter le Projet du Tutoriel avant de le supprimer
+            if ($projet->getTutoriel()) {
+                $projet->setTutoriel(null);
+            }
+        
             $entityManager->remove($projet);
             $entityManager->flush();
         }
-
+    
         return $this->redirectToRoute('app_projet_index', [], Response::HTTP_SEE_OTHER);
     }
+    
+    
+    
+    
+    
 }

@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class TutorielType extends AbstractType
 {
@@ -31,20 +32,20 @@ class TutorielType extends AbstractType
                 ]
             ])
 
-            ->add('description', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de saisir une description',
                     ]),
                 ],
                 'attr' => [
-                    'class' => 'form-control form-group ', // Ajoutez vos classes CSS ici
-                    'style' => 'background-color: #f0f0f0;' // Ajoutez du style CSS directement
+                    'class' => 'form-control form-group', // Assurez-vous que vos classes CSS sont correctes
+                    'style' => 'background-color: #f0f0f0;', // Vous pouvez ajouter du style CSS directement ici
+                    'rows' => 5, // Nombre de lignes dans le textarea
                 ]
             ])
-            
             ->add('video', FileType::class,[
-                "required" =>false,
+                "required" =>true,
                 "attr" =>[
                     "class" => "form-control file-upload-info",
                 ],
@@ -52,8 +53,8 @@ class TutorielType extends AbstractType
                     'maxSize' => '2048M',  // Assurez-vous que cette valeur est suffisamment grande
                     "mimeTypes" => [
                         'video/mp4',
-                        'video/avi', 
-                        'video/mpeg', 
+                        'video/avi',
+                        'video/mpeg',
                         'video/quicktime',
                     ],
                     "mimeTypesMessage" => "Seules les video mp4, avi, mpeg, quicktime sont autorisées"

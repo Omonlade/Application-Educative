@@ -54,7 +54,6 @@
 										<table class="table table-striped">
 											<thead>
 												<tr>
-													<th>Id</th>
 													<th>Nom Administrateur</th>
 													<th>Titre du quiz</th>
 													<th>Date_creation</th>
@@ -65,7 +64,6 @@
 											<tbody>
 												{% for creer in creers %}
 													<tr>
-														<td>{{ creer.id }}</td>
 														<td>{{ creer.user.nom }} {{ creer.user.prenom }}</td>
 														<td>{{ creer.quiz.libelle }}</td>
 														<td>{{ creer.dateCreation ? creer.dateCreation|date('Y-m-d') : '' }}</td>

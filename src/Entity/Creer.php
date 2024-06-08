@@ -23,11 +23,11 @@ class Creer
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date_creation = null;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'creers')]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'creers',)]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\ManyToOne(targetEntity: Quiz::class, inversedBy: 'creers')]
+    #[ORM\ManyToOne(targetEntity: Quiz::class, inversedBy: 'creers',cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Quiz $quiz = null;
 

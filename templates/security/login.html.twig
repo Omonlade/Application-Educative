@@ -14,10 +14,14 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <h1 class="text-center text-info">Kidsparklabs</h1>
-                <br>
+<div class="navbar-brand">
+    <a class="navbar-brand brand-logo text-center" href="#" style="display: flex; justify-content: center; align-items: center;">
+        <img src="{{ asset('assets/images/KidSpark_Lab.jpeg')}}" alt="logo"/>
+    </a>
+</div>
+
               </div>
-              <h4 class="text-center">Bienvenue.</h4>
+              <h4 class="text-center">Bienvenue</h4>
               <h6 class="font-weight-light text-center">Connectez-vous pour continuer.</h6>
               <form class="pt-3" method="post" action="{{ path('app_login') }}">
                   {% if error %}
@@ -53,7 +57,6 @@
                       Se souvenir de moi
                     </label>
                   </div>
-                  <a href="#" class="auth-link text-black">Password oublier?</a>
                 </div>
 
               </form>

@@ -28,8 +28,7 @@
 							<div class="d-flex justify-content-between flex-wrap">
 								<div class="d-flex align-items-end flex-wrap">
 									<div class="mr-md-3 mr-xl-5">
-										<h2>Bienvenue
-											{{ nom_prenom_user }}</h2>
+										<h2>Bienvenue {{ nom_prenom_user }}</h2>
 										<!-- <p class="mb-md-0">Your analytics dashboard template.</p> -->
 									</div>
 									<div class="d-flex">
@@ -61,7 +60,6 @@
 										<table class="table table-striped">
 											<thead>
 												<tr>
-													<th>Id</th>
 													<th>Questionnaire</th>
 													<th>Quiz</th>
 													<th>Actions</th>
@@ -71,7 +69,6 @@
 											<tbody>
 												{% for question in questions %}
 													<tr>
-														<td>{{ question.id }}</td>
 														<td>{{ question.questionnaire }}</td>
 														<td>{{ question.quiz.libelle }}</td>
 														<td>

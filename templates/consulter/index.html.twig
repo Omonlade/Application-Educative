@@ -54,7 +54,6 @@
 										<table class="table table-striped">
 											<thead>
 												<tr>
-													<th>Id</th>
 													<th>Eleve</th>
 													<th>Projet</th>
 													<th>Date</th>
@@ -65,7 +64,6 @@
 											<tbody>
 												{% for consulter in consulters %}
 													<tr>
-														<td>{{ consulter.id }}</td>
 														<td>{{ consulter.eleve.nom }}
 															{{ consulter.eleve.prenom }}</td>
 														<td>{{ consulter.projet.nom }}</td>
@@ -75,7 +73,6 @@
 															<a href="{{ path('app_consulter_show', {'id': consulter.id}) }}">
 																<button type="button" class="btn btn-secondary">Voir</button>
 															</a>
-															
 														</td>
 													</tr>
 												{% else %}

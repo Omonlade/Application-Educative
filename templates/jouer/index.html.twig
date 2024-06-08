@@ -54,7 +54,6 @@
 										<table class="table table-striped">
 											<thead>
 												<tr>
-													<th>Id</th>
 													<th>Nom de l'élève</th>
 													<th>Nom du quiz</th>
 													<th>Score</th>
@@ -66,7 +65,6 @@
 											<tbody>
 												{% for jouer in jouers %}
 													<tr>
-														<td>{{ jouer.id }}</td>
 														<td>{{ jouer.eleve.nom }}</td>
 														<td>{{ jouer.quiz.libelle }}</td>
 														<td>{{ jouer.score }}</td>

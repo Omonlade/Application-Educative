@@ -145,16 +145,16 @@
             <div class="collapse {% if isActive %} show {% endif %}" id="ui-basic-historique">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link {% if app.request.attributes.get('_route') in ['app_jouer_index', 'app_jouer_new', 'app_jouer_show', 'app_jouer_edit', 'app_jouer_delete'] %} active {% endif %}" href="{{ path('app_jouer_index') }}">JOUER</a>
+                  <a class="nav-link {% if app.request.attributes.get('_route') in ['app_jouer_index', 'app_jouer_new', 'app_jouer_show', 'app_jouer_edit', 'app_jouer_delete'] %} active {% endif %}" href="{{ path('app_jouer_index') }}">JEUX</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {% if app.request.attributes.get('_route') in ['app_creer_index', 'app_creer_new', 'app_creer_show', 'app_creer_edit', 'app_creer_delete'] %} active {% endif %}" href="{{ path('app_creer_index') }}">CREER</a>
+                  <a class="nav-link {% if app.request.attributes.get('_route') in ['app_creer_index', 'app_creer_new', 'app_creer_show', 'app_creer_edit', 'app_creer_delete'] %} active {% endif %}" href="{{ path('app_creer_index') }}">CREATION</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {% if app.request.attributes.get('_route') in ['app_utiliser_index', 'app_utiliser_new', 'app_utiliser_show', 'app_utiliser_edit', 'app_utiliser_delete'] %} active {% endif %}" href="{{ path('app_utiliser_index') }}">UTILISER</a>
+                  <a class="nav-link {% if app.request.attributes.get('_route') in ['app_utiliser_index', 'app_utiliser_new', 'app_utiliser_show', 'app_utiliser_edit', 'app_utiliser_delete'] %} active {% endif %}" href="{{ path('app_utiliser_index') }}">UTILISATION</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {% if app.request.attributes.get('_route') in ['app_consulter_index', 'app_consulter_new', 'app_consulter_show', 'app_consulter_edit', 'app_consulter_delete'] %} active {% endif %}" href="{{ path('app_consulter_index') }}">CONSULTER</a>
+                  <a class="nav-link {% if app.request.attributes.get('_route') in ['app_consulter_index', 'app_consulter_new', 'app_consulter_show', 'app_consulter_edit', 'app_consulter_delete'] %} active {% endif %}" href="{{ path('app_consulter_index') }}">CONSULTATION</a>
                 </li>
               </ul>
             </div>

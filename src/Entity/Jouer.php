@@ -24,11 +24,11 @@ class Jouer
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date_jeu = null;
 
-    #[ORM\ManyToOne(targetEntity: Quiz::class, inversedBy: 'jouers')]
+    #[ORM\ManyToOne(targetEntity: Quiz::class, inversedBy: 'jouers',cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Quiz $quiz = null;
 
-    #[ORM\ManyToOne(targetEntity: Eleve::class, inversedBy: 'jouers')]
+    #[ORM\ManyToOne(targetEntity: Eleve::class, inversedBy: 'jouers',cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Eleve $eleve = null;
 

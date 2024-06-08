@@ -62,21 +62,19 @@
 										<table class="table table-striped">
 											<thead>
 												<tr>
-													<th>Id</th>
 													<th>Nom</th>
 													<th>Prenom</th>
 													<th>Pseudo</th>
 													<th>Date_naissance</th>
 													<th>Sexe</th>
 													<th>Mot_de_passe</th>
-													<th>actions</th>
+													<th>Actions</th>
 												</tr>
 											</thead>
 
 											<tbody>
 												{% for eleve in eleves %}
 													<tr>
-														<td>{{ eleve.id }}</td>
 														<td>{{ eleve.nom }}</td>
 														<td>{{ eleve.prenom }}</td>
 														<td>{{ eleve.pseudo }}</td>

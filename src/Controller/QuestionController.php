@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-use Symfony\Component\HttpFoundation\Session\SessionInterface; 
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 // C'est ce qui permet d'utiliser les variables de SESSIONS
 #[Route('/question')]
 class QuestionController extends AbstractController
@@ -21,7 +21,6 @@ class QuestionController extends AbstractController
     {
          // Récupérez la variable de session
          $nomPrenomUser = $session->get('nom_prenom_user');
-         
         return $this->render('question/index.html.twig', [
             'questions' => $questionRepository->findAll(),
             'nom_prenom_user' => $nomPrenomUser,

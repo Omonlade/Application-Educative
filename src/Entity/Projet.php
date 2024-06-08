@@ -29,24 +29,25 @@ class Projet
 
 
 
-    /** 
+    /**
      * @var Collection<int, Utiliser>
      */
-    #[ORM\OneToMany(targetEntity: Utiliser::class, mappedBy: 'projet')]
+    #[ORM\OneToMany(targetEntity: Utiliser::class, mappedBy: 'projet',cascade: ['persist', 'remove'])]
     private Collection $utilisers;
 
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $image = null;
 
-    #[ORM\OneToOne(targetEntity: Tutoriel::class, cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
+
+    #[ORM\OneToOne(targetEntity: Tutoriel::class, cascade: ['persist', 'remove'], orphanRemoval: true)]
+    #[ORM\JoinColumn(nullable: true, onDelete: "CASCADE")]
     private ?Tutoriel $tutoriel = null;
 
     /**
      * @var Collection<int, Consulter>
      */
-    #[ORM\OneToMany(targetEntity: Consulter::class, mappedBy: 'projet')]
+    #[ORM\OneToMany(targetEntity: Consulter::class, mappedBy: 'projet', cascade: ['persist', 'remove'])]
     private Collection $consulters;
 
     public function __construct()
@@ -139,10 +140,10 @@ class Projet
         return $this->tutoriel;
     }
 
-    public function setTutoriel(Tutoriel $tutoriel): static
+    public function setTutoriel(?Tutoriel $tutoriel = null): self
     {
         $this->tutoriel = $tutoriel;
-
+    
         return $this;
     }
 

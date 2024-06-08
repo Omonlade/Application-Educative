@@ -50,7 +50,7 @@ class ProjetType extends AbstractType
                 ]
             ])
             ->add('image', FileType::class,[
-                "required" =>false,
+                "required" =>true,
                 "attr" =>[
                     "class" => "form-control file-upload-info",
                     "id" =>"validatedCustomFile"
@@ -83,7 +83,7 @@ class ProjetType extends AbstractType
             ->add('tutoriel', EntityType::class, [
                 'class' => Tutoriel::class,
                 'choice_label' => function (Tutoriel $tutoriel) {
-                    return 'TITRE: ' . $tutoriel->getTitre() . '  ||  DESCRIPTION: ' . $tutoriel->getDescription();
+                    return 'TITRE: ' . $tutoriel->getTitre() ;
                 },
                 'attr' => [
                     'class' => 'form-control form-group',
@@ -92,7 +92,7 @@ class ProjetType extends AbstractType
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('tutoriel')
                         ->leftJoin('App\Entity\Projet', 'projet', 'WITH', 'projet.tutoriel = tutoriel')
-                        ->where('projet.tutoriel IS NULL')
+                        ->where('projet.tutoriel IS  NULL')
                         ->orderBy('tutoriel.id', 'DESC');
                 }
             ])

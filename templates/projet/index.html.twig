@@ -5,6 +5,7 @@
 
 {% block body %}
 
+
 	<div
 		class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
@@ -22,6 +23,16 @@
 			<!-- partial -->
 			<div class="main-panel">
 				<div class="content-wrapper">
+
+
+{% for message in app.session.flashbag.get('success') %}
+    <div class="alert alert-success">{{ message }}</div>
+{% endfor %}
+
+{% for message in app.session.flashbag.get('error') %}
+    <div class="alert alert-danger">{{ message }}</div>
+{% endfor %}
+
 
 					<div class="row">
 						<div class="col-md-12 grid-margin">
@@ -60,7 +71,6 @@
 										<table class="table table-striped">
 											<thead>
 												<tr>
-													<th>Id</th>
 													<th>Nom</th>
 													<th>Description</th>
 													<th>Image</th>
@@ -73,7 +83,6 @@
 											<tbody>
 												{% for projet in projets %}
 													<tr>
-														<td>{{ projet.id }}</td>
 														<td>{{ projet.nom }}</td>
 														<td>{{ projet.description }}</td>
 														<td>

@@ -21,14 +21,14 @@ class Question
     #[ORM\Column(type: Types::TEXT)]
     private ?string $questionnaire = null;
 
-    #[ORM\ManyToOne(targetEntity: Quiz::class, inversedBy: 'questions')]
+    #[ORM\ManyToOne(targetEntity: Quiz::class, inversedBy: 'questions',cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Quiz $quiz = null;
 
     /**
      * @var Collection<int, Reponse>
      */
-    #[ORM\OneToMany(targetEntity: Reponse::class, mappedBy: 'question')]
+    #[ORM\OneToMany(targetEntity: Reponse::class, mappedBy: 'question',cascade: ['persist', 'remove'])]
     private Collection $reponses;
 
     public function __construct()

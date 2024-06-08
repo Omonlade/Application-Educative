@@ -40,7 +40,7 @@ class EquipementType extends AbstractType
             ])
 
             ->add('image', FileType::class,[
-                "required" =>false,
+                "required" =>true,
                 "attr" =>[
                     "class" => "form-control file-upload-info",
                     "id" =>"validatedCustomFile"

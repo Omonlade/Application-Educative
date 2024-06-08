@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route; // Assurez-vous que c'est la bonne annotation importée
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-use Symfony\Component\HttpFoundation\Session\SessionInterface; 
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 // C'est ce qui permet d'utiliser les variables de SESSIONS
 #[Route('/eleve')]
 class EleveController extends AbstractController

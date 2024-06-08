@@ -22,7 +22,7 @@ class Reponse
     #[ORM\Column]
     private ?bool $est_correcte = null;
 
-    #[ORM\ManyToOne(targetEntity: Question::class, inversedBy: 'reponses')]
+    #[ORM\ManyToOne(targetEntity: Question::class, inversedBy: 'reponses',cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Question $question = null;
 

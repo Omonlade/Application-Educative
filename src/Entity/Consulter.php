@@ -24,12 +24,12 @@ class Consulter
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date_consulter = null;
 
-    #[ORM\ManyToOne(targetEntity: Eleve::class, inversedBy: 'consulters')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(targetEntity: Eleve::class, inversedBy: 'consulters',cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false, onDelete: "CASCADE")]
     private ?Eleve $eleve = null;
 
-    #[ORM\ManyToOne(targetEntity: Projet::class, inversedBy: 'consulters')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(targetEntity: Projet::class, inversedBy: 'consulters',cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false, onDelete: "CASCADE")]
     private ?Projet $projet = null;
 
     public function getId(): ?int

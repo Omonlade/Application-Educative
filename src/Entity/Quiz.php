@@ -24,20 +24,20 @@ class Quiz
     /**
      * @var Collection<int, Question>
      */
-    #[ORM\OneToMany(targetEntity: Question::class, mappedBy: 'id_quiz')]
+    #[ORM\OneToMany(targetEntity: Question::class, mappedBy: 'quiz',cascade: ['persist', 'remove'])]
     private Collection $questions;
 
 
     /**
      * @var Collection<int, Jouer>
      */
-    #[ORM\OneToMany(targetEntity: Jouer::class, mappedBy: 'quiz')]
+    #[ORM\OneToMany(targetEntity: Jouer::class, mappedBy: 'quiz',cascade: ['persist', 'remove'])]
     private Collection $jouers;
 
     /**
      * @var Collection<int, Creer>
      */
-    #[ORM\OneToMany(targetEntity: Creer::class, mappedBy: 'quiz')]
+    #[ORM\OneToMany(targetEntity: Creer::class, mappedBy: 'quiz',cascade: ['persist', 'remove'])]
     private Collection $creers;
 
     public function __construct()

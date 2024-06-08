@@ -55,7 +55,6 @@
 										<table class="table table-striped">
 											<thead>
 												<tr>
-													<th>Id</th>
 													<th>Eleve</th>
 													<th>Projet</th>
 													<th>Date d'utilisation</th>
@@ -66,7 +65,6 @@
 											<tbody>
 												{% for utiliser in utilisers %}
 													<tr>
-														<td>{{ utiliser.id }}</td>
 														<td>{{ utiliser.eleve.nom }} {{ utiliser.eleve.prenom }}</td>
 														<td>{{ utiliser.projet.nom }}</td>
 														<td>{{ utiliser.dateUtiliser ? utiliser.dateUtiliser|date('Y-m-d') : '' }}</td>

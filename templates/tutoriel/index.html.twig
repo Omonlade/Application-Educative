@@ -24,6 +24,13 @@
 			<div class="main-panel">
 				<div class="content-wrapper">
 
+{% for message in app.session.flashbag.get('success') %}
+    <div class="alert alert-success">{{ message }}</div>
+{% endfor %}
+{% for message in app.session.flashbag.get('error') %}
+    <div class="alert alert-danger">{{ message }}</div>
+{% endfor %}
+
 					<div class="row">
 						<div class="col-md-12 grid-margin">
 							<div class="d-flex justify-content-between flex-wrap">
@@ -62,7 +69,6 @@
 										<table class="table table-striped">
 											<thead>
 												<tr>
-													<th>Id</th>
 													<th>Titre</th>
 													<th>Description</th>
 													<th>Video</th>
@@ -74,7 +80,6 @@
 											<tbody>
 												{% for tutoriel in tutoriels %}
 													<tr>
-														<td>{{ tutoriel.id }}</td>
 														<td>{{ tutoriel.titre }}</td>
 														<td>{{ tutoriel.description }}</td>
 

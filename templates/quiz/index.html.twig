@@ -60,7 +60,6 @@
 										<table class="table table-striped">
 											<thead>
 			 <tr>
-                <th>Id</th>
                 <th>Titre du quiz</th>
                 <th>Actions</th>
             </tr>
@@ -69,7 +68,6 @@
 											<tbody>
 											 {% for quiz in quizzes %}
             <tr>
-                <td>{{ quiz.id }}</td>
                 <td>{{ quiz.libelle }}</td>
                 <td>
                     <a href="{{ path('app_quiz_show', {'id': quiz.id}) }}">

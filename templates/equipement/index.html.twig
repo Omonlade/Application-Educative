@@ -62,7 +62,6 @@
 										<table class="table table-striped">
 											<thead>
 												<tr>
-													<th>Id</th>
 													<th>Nom</th>
 													<th>Image</th>
 													<th>Description</th>
@@ -75,7 +74,6 @@
 											<tbody>
 												{% for equipement in equipements %}
 													<tr>
-														<td>{{ equipement.id }}</td>
 														<td>{{ equipement.nom }}</td>
 														<td>
 															<img src="{{ asset('Uploaded-Image/' ~ equipement.image) }}" alt="Image Equipement" style="width: 100px; height: 100px;">

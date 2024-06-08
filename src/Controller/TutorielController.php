@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Projet;
 use App\Entity\Tutoriel;
 use App\Form\TutorielType;
 use App\Repository\TutorielRepository;
@@ -148,23 +149,38 @@ class TutorielController extends AbstractController
         ]);
     }
 
+    
+
     #[Route('/{id}', name: 'app_tutoriel_delete', methods: ['POST'])]
     public function delete(Request $request, Tutoriel $tutoriel, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $tutoriel->getId(), $request->getPayload()->get('_token'))) {
-            try {
-                $entityManager->remove($tutoriel);
-                $entityManager->flush();
 
-                // Ajoutez le paramètre 'deleteSuccess' pour indiquer la réussite de la suppression
-                return $this->redirectToRoute('app_tutoriel_index', ['deleteSuccess' => true], Response::HTTP_SEE_OTHER);
-            } catch (\Exception $e) {
-                // En cas d'échec de la suppression, afficher un message d'erreur
-                // Ajoutez le paramètre 'deleteError' pour indiquer l'échec de la suppression
-                return $this->redirectToRoute('app_tutoriel_index', ['deleteError' => true], Response::HTTP_SEE_OTHER);
+        if ($this->isCsrfTokenValid('delete'.$tutoriel->getId(), $request->getPayload()->get('_token')))
+        {
+            // Récupération de l'entité Tutoriel depuis la requête
+            $tutoriel = $entityManager->getRepository(Tutoriel::class)->find($tutoriel->getId());
+
+            if (!$tutoriel) {
+                throw $this->createNotFoundException('No tutoriel found for id '.$tutoriel->getId());
             }
+
+            // Si le Tutoriel est associé à un Projet, déconnecter le Tutoriel du Projet avant de le supprimer
+            if ($tutoriel->getProjet()) {
+                $tutoriel->setProjet(null);
+            }
+
+            $entityManager->remove($tutoriel);
+            $entityManager->flush();
         }
 
         return $this->redirectToRoute('app_tutoriel_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    
+     
+    
+    
+    
+    
+    
 }

@@ -61,7 +61,6 @@
 										<table class="table table-striped">
 											<thead>
 												<tr>
-													<th>Id</th>
 													<th>Question</th>
 													<th>Reponse</th>
 													<th>Est correct ?</th>
@@ -72,7 +71,6 @@
 											<tbody>
 												{% for reponse in reponses %}
 													<tr>
-														<td>{{ reponse.id }}</td>
 														<td>{{ reponse.question.questionnaire }}</td>
 														<td>{{ reponse.contenu }}</td>
 														<td>{{ reponse.estCorrecte ? 'Yes' : 'No' }}</td>

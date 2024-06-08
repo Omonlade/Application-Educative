@@ -45,7 +45,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var Collection<int, Creer>
      */
-    #[ORM\OneToMany(targetEntity: Creer::class, mappedBy: 'user')]
+    #[ORM\OneToMany(targetEntity: Creer::class, mappedBy: 'user',)]
     private Collection $creers;
 
     public function __construct()

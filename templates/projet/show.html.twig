@@ -57,12 +57,11 @@
 								{% endif %}
 
 								{# Affichage de l'alerte d'erreur si le paramètre 'deleteError' est défini et est vrai #}
-								{% if deleteError is defined and deleteError %}
-									<div class="alert alert-danger" role="alert">
-										Error deleting projet. Please try again.
-									</div>
-								{% endif %}
-
+								    {% if deleteError is defined and deleteError %}
+        <div class="alert alert-danger">
+            Une erreur est survenue lors de la suppression du projet. Veuillez supprimer d'abord les données en relation avant de supprimer ce projet.
+        </div>
+    {% endif %}
 								<div class="card-body">
 									<h4 class="card-title">Informations :</h4>
 

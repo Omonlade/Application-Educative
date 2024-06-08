@@ -49,19 +49,19 @@ class Eleve implements PasswordAuthenticatedUserInterface
     /**
      * @var Collection<int, Utiliser>
      */
-    #[ORM\OneToMany(targetEntity: Utiliser::class, mappedBy: 'eleve')]
+    #[ORM\OneToMany(targetEntity: Utiliser::class, mappedBy: 'eleve',cascade: ['persist', 'remove'])]
     private Collection $utilisers;
 
     /**
      * @var Collection<int, Jouer>
      */
-    #[ORM\OneToMany(targetEntity: Jouer::class, mappedBy: 'eleve')]
+    #[ORM\OneToMany(targetEntity: Jouer::class, mappedBy: 'eleve',cascade: ['persist', 'remove'])]
     private Collection $jouers;
 
     /**
      * @var Collection<int, Consulter>
      */
-    #[ORM\OneToMany(targetEntity: Consulter::class, mappedBy: 'eleve')]
+    #[ORM\OneToMany(targetEntity: Consulter::class, mappedBy: 'eleve',cascade: ['persist', 'remove'])]
     private Collection $consulters;
 
     public function __construct()
