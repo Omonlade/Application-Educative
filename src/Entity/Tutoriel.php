@@ -30,11 +30,11 @@ class Tutoriel
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date_ajout = null;
-    /**
-     * @ORM\OneToOne(targetEntity=Projet::class, mappedBy="tutoriel", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true, onDelete="SET_NULL")
-     */
-    private?Projet $projet = null;
+    
+    
+    #[ORM\ManyToOne(targetEntity: Projet::class, inversedBy: "tutoriels", cascade: ['persist', 'remove'])]
+    private ?Projet $projet = null;
+
 
     public function getId():?int
     {
@@ -92,17 +92,9 @@ class Tutoriel
         return $this->projet;
     }
 
-    public function setProjet(?Projet $projet): self
-    {
-        // Important: this line is needed to fix the relationship
-        // between Tutoriel and Projet entities.
-        // Without it, the relationship won't work correctly.
-        if ($projet === null) {
-            $this->projet = null;
-        } else {
-            $this->projet = $projet;
-            $projet->setTutoriel($this);
-        }
+    public function setProjet(?Projet $projet): self {
+        $this->projet = $projet;
+    
         return $this;
     }
 }
