@@ -30,8 +30,6 @@ class Tutoriel
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date_ajout = null;
-    
-    
     #[ORM\ManyToOne(targetEntity: Projet::class, inversedBy: "tutoriels", cascade: ['persist', 'remove'])]
     private ?Projet $projet = null;
 

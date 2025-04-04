@@ -25,7 +25,7 @@ Appllication mobile Kidsparklabs
 
 6 -> composer update
 
-7 -> Dans le terminal taper : symfony console make:entity
+7 -> Dans le terminal taper : 	
 		//-> INFORMATION A CE NIVEAU //-----------------------------------------------------------------------------
 		                                                                                                            |
 		<-> ON CREER D'ABORD LES TABLES QUI N'ONT PAS DE CLE SECONDAIRE D'ABORD                                     |

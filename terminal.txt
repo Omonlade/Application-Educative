@@ -134,7 +134,7 @@ What type of relationship is this?
  You can always add more fields later manually or by re-running this command.
 
  New property name (press <return> to stop adding fields):
- > id_user^C^C^C^C^C^C^C
+ > id_user
 (cpu_env) gbado@gbado-lnx:~/WORKSPACE/Kenneth Almeida symfony app/apiSymphony$ symfony console make:entity
 jouer
  Class name of the entity to create or update (e.g. TinyGnome):

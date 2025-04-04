@@ -1,0 +1,505 @@
+    1  cat /etc/os-release 
+    2  shutdown now
+    3  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    4  clean
+    5  sudo dpkg -i code_1.84.2-1699528352_amd64.deb
+    6  clean
+    7  exit
+    8  sudo apt update
+    9  clean
+   10  sudo apt upgrade
+   11  clean
+   12  sudo dpkg -i code_1.84.2-1699528352_amd64.deb
+   13  sudo dpkg -i google-chrome-stable_current_amd64.deb
+   14  sudo dpkg -i opera-stable_97.0.4719.83_amd64.deb
+   15  sudo dpkg -i code_1.91.1-1720564633_amd64.deb
+   16  exit
+   17  sudo apt upgrade
+   18  sudo apt update
+   19  clean
+   20  apt list --upgradable
+   21  clean
+   22  sudo apt sudo apt install docker.io
+   23  clear
+   24  sudo apt update
+   25  sudo apt install language-pack-fr
+   26  sudo apt install language-pack-gnome-fr
+   27  sudo apt upgrade
+   28  sudo apt --fix-broken install
+   29  sudo apt install language-pack-fr
+   30  sudo apt install language-pack-gnome-fr
+   31  php -v
+   32  sudo apt install php8.1-cli
+   33  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+   34  php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+   35  php -v
+   36  sudo apt update -y
+   37  php -v
+   38  php composer-setup.php
+   39  composer -v
+   40  sudo apt install composer
+   41  composer -v
+   42  sudo apt upgrade -y
+   43  composer -v
+   44  composer self-update
+   45  composer update
+   46  composer self-update
+   47  sudo composer self-update
+   48  clear
+   49  composer  -v
+   50  sudo apt upgrade php
+   51  php -v
+   52  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+   53  php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+   54  php -r "unlink('composer-setup.php');"
+   55  php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+   56  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+   57  php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+   58  composer -v
+   59  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+   60  php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+   61  php composer-setup.php
+   62  composer -v
+   63  php -r "if (hash_file('sha384', 'composer-setup.php') === 'aab940cd53d285a54c50465820a2080fcb7182a4ba1e5f795abfb10414a4b4be ') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+   64  php composer-setup.php
+   65  php -r "if (hash_file('sha384', 'composer-setup.php') === 'aab940cd53d285a54c50465820a2080fcb7182a4ba1e5f795abfb10414a4b4be ') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+   66  php composer-setup.php
+   67  composer -v
+   68  clear
+   69  sudo apt update
+   70  sudo apt install language-pack-fr
+   71  sudo apt install language-pack-gnome-fr
+   72  sudo update-locale LANG=fr_FR.UTF-8
+   73  sudo apt install libreoffice-l10n-fr
+   74  sudo apt install libreoffice-help-fr
+   75  clear
+   76  sudo systemctl start mysql
+   77  sudo apt install mysql-server
+   78  sudo systemctl start mysql
+   79  sudo systemctl restart mysql
+   80  sudo systemctl reload mysql
+   81  mysql --version
+   82  sudo mysql
+   83  mysql -u root -D votre_base -p
+   84  sudo mysql
+   85  sudo apt update
+   86  clear
+   87  exit
+   88  sudo apt install openjdk-18-jdk
+   89  exit
+   90  which bash file mkdir rm which
+   91  sudo apt-get update -y && sudo apt-get upgrade -y;
+   92  sudo apt-get install -y curl git unzip xz-utils zip libglu1-mesa
+   93  sudo apt-get install     libc6:amd64 libstdc++6:amd64     libbz2-1.0:amd64 libncurses5:amd64
+   94  tar -xf ~/Téléchargements/flutter_linux_3.22.2-stable.tar.xz -C /usr/bin/
+   95  clear
+   96  exit
+   97  tar -xf ~/Downloads/flutter_linux_3.22.2-stable.tar.xz -C /usr/bin/
+   98  tar -xf ~/Téléchargements/flutter_linux_3.22.2-stable.tar.xz -C /usr/bin/
+   99  which bash file mkdir rm which
+  100  /bin/bash
+  101  /usr/bin/file
+  102  /bin/mkdir
+  103  /bin/rm
+  104  which: shell built-in command
+  105  sudo apt-get install zeal-y
+  106  sudo apt-get install zeal -y
+  107  clear
+  108  exit
+  109  cd ..
+  110  clear
+  111  cd ..
+  112  clear
+  113  sudo apt-get update && sudo apt-get install apt-transport-https
+  114  wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub   | sudo gpg  --dearmor -o /usr/share/keyrings/dart.gpg
+  115  echo 'deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main'   | sudo tee /etc/apt/sources.list.d/dart_stable.list
+  116  sudo apt-get update && sudo apt-get install dart
+  117  sudo dpkg -i dart_3.4.0-1_amd64.deb
+  118  which dart
+  119  clear
+  120  sudo apt-get update && sudo apt-get install apt-transport-https
+  121  wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub   | sudo gpg  --dearmor -o /usr/share/keyrings/dart.gpg
+  122  sudo apt-get update && sudo apt-get install dart
+  123  clear
+  124  exit
+  125  tar -xf ~/flutter_linux_3.22.2-stable.tar.xz -C /usr/bin/
+  126  tar -xf ~/Téléchargements/flutter_linux_3.22.2-stable.tar.xz -C /usr/bin/
+  127  clear
+  128  tar xf flutter_linux_3.22.2-stable.tar.xz
+  129  echo $SHELL
+  130  echo $0
+  131  echo 'export PATH="/usr/bin/flutter/bin:$PATH"' >> ~/.bash_profile
+  132  echo 'export PATH="/usr/bin/flutter/bin:$PATH"' >> ~/.zshenv
+  133  fish_add_path -g -p /usr/bin/flutter/bin
+  134  echo 'setenv PATH "/usr/bin/flutter/bin:$PATH"' >> ~/.cshrc
+  135  echo 'setenv PATH "/usr/bin/flutter/bin:$PATH"' >> ~/.tcshrc
+  136  echo 'export PATH="/usr/bin/flutter/bin:$PATH"' >> ~/.profile
+  137  flutter doctor
+  138  flutter doctor --android-licenses
+  139  export PATH="$PATH:`pwd`/flutter/bin"
+  140  source ~/.bashrc
+  141  cd ..
+  142  flutter doctor
+  143  flutter doctor --android-licenses
+  144  flutter doctor
+  145  flutter doctor -v
+  146  clear
+  147  sudo apt update
+  148  sudo apt install clang
+  149  sudo apt install cmake
+  150  sudo apt install ninja-build
+  151  sudo apt install pkg-config
+  152  flutter doctor -v
+  153  sudo apt install libgtk-3-dev
+  154  flutter doctor -v
+  155  clear
+  156  which sdk dart
+  157  which sdk
+  158  ls
+  159  echo $PATH
+  160  printenv PATH
+  161  which flutter
+  162  exit
+  163  /studio.sh
+  164  ./studio.sh
+  165  code .
+  166  wget https://get.symfony.com/cli/installer -O - | bash
+  167  curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash
+  168  sudo apt update
+  169  curl -sS https://get.symfony.com/cli/installer | bash
+  170  brew install symfony-cli/tap/symfony-cli
+  171  sudo apt install symfony-cli
+  172  curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash
+  173  sudo apt install symfony-cli
+  174  symfony
+  175  clear
+  176  wget https://get.symfony.com/cli/installer -O - | bash
+  177  curl -sS https://get.symfony.com/cli/installer | bash
+  178  curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash
+  179  brew install symfony-cli/tap/symfony-cli
+  180  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  181  brew install symfony-cli/tap/symfony-cli
+  182  export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+  183  brew install symfony-cli/tap/symfony-cli
+  184  curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash
+  185  sudo apt install symfony-cli
+  186  clear
+  187  sudo apt-get update
+  188  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 24A1004B1F11DCC9
+  189  sudo apt-get update
+  190  curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash
+  191  sudo apt install symfony-cli
+  192  symfony -v
+  193  php -v
+  194  clear
+  195  sudo apt-get update
+  196  sudo apt-get install php8.2
+  197  sudo apt-get install php8.2
+  198  composer update --with-all-dependencies
+  199  php -v
+  200  composer -v
+  201  clear
+  202  sudo apt update
+  203  sudo apt upgrade
+  204  sudo apt install php8.3 libapache2-mod-php8.3
+  205  php -v
+  206  clear
+  207  code .
+  208  symfony serve
+  209  sudo apt update
+  210  clear
+  211  sud shutdown -h now
+  212  sudo shutdown -h now
+  213  sudo apt install mysql-server
+  214  sudo systemctl start mysql
+  215  sudo systemctl restart mysql
+  216  sudo systemctl reload mysql
+  217  clear
+  218  sudo apt update
+  219  sudo apt-get install mysql-server
+  220  mysql --version
+  221  mysql -u root -p
+  222  sudo mysql -u root -p
+  223  sudo apt update
+  224  clear
+  225  mysql --version
+  226  clear
+  227  exit
+  228  sudo apt-get update
+  229  sudo apt-get install software-properties-common
+  230  sudo add-apt-repository ppa:ondrej/php
+  231  sudo apt-get install apache2
+  232  sudo apt-get install php libapache2-mod-php
+  233  sudo apt-get install php-mysql mysql-server -y
+  234  sudo apt-get install phpmyadmin - y
+  235  php -v
+  236  apache -v
+  237  clear
+  238  sudo apt-get install apache2
+  239  sudo apt-get install php libapache2-mod-php
+  240  sudo apt-get install php-mysql mysql-server -y
+  241  sudo apt-get install phpmyadmin -y
+  242  clear
+  243  sudo service apache2 restart
+  244  clear
+  245  exit
+  246  mysql -h 127.0.0.1 -P 3306 -u kennett -p'kennerie2528' --ssl-mode=DISABLED  phpmyadmin
+  247  code .
+  248  exit
+  249  mysqli -v
+  250  exit
+  251  sudo mysql
+  252  symfony serve
+  253  symfony console doctrine:database:create
+  254  symfony console doctrine:migration:migrate
+  255  sudo apt update
+  256  php -m | grep mysqli
+  257  which php.ini
+  258  which php
+  259  /etc/php.ini
+  260  php -v
+  261  clear
+  262  exit
+  263  php -m | grep mysqli
+  264  exit
+  265  ls
+  266  cd Documents/
+  267  mkdir JavaScript Debutant
+  268  ls
+  269  mkdir JavaScriptDebutant
+  270  ls
+  271  cd JavaScriptDebutant/
+  272  code .
+  273  systemctl restart httpd.service
+  274  clear
+  275  sudo gearry /etc/php/php.ini
+  276  clear
+  277  sudo geany  /etc/php/php.ini
+  278  clear
+  279  sudo service apache2 restart
+  280  which php
+  281  sudo apt-get install php8.3-mysqli
+  282  sudo service apache reload
+  283  sudo service apache2 reload
+  284  sudo apt update
+  285  sudo apt list --upgradable
+  286  sudo apt upgrade --y
+  287  sudo apt upgrade -y
+  288  sudo apt update
+  289  clear
+  290  mysql -h 127.0.0.1 -P 3306 -u kennett -p'kennerie2528' --ssl-mode=DISABLED
+  291  mysql -h 127.0.0.1 -P 3306 -u kennett -p'kennerie2528' --ssl-mode=DISABLED
+  292  mysql -h 127.0.0.1 -P 3306 -u kennett -p'kennerie2528' --ssl-mode=DISABLED  Universite
+  293  mysql -h 127.0.0.1 -P 3306 -u kennett -p'kennerie2528' --ssl-mode=DISABLED  Universite
+  294  clear
+  295  mysql
+  296  mysql -u kennett -p
+  297  mysql -h 127.0.0.1 -P 3306 -u kennett -p'kennerie2528' --ssl-mode=DISABLED  Universite
+  298  sudo apt update
+  299  sudo apt-get upgrade -y
+  300  clear
+  301  mysql
+  302  clear
+  303  mysql -h 127.0.0.1 -P 3306 -u kennett -p'kennerie2528' --ssl-mode=DISABLED  Kidsparklabs_db
+  304  sudo reboot
+  305  sudo apt update
+  306  sudo apt-get install -f
+  307  clear
+  308  mysqli
+  309  clear
+  310  history > historiques.txt
+  311  sudo mysql -u root -p
+  312  exit
+  313  mysql --version
+  314  sudo dpkg-reconfigure phpmyadmin
+  315  mysql -v
+  316  mysql --version
+  317  sudo service mysql stop
+  318  mysql --version
+  319  sudo yum remove mysql mysql-server
+  320  sudo apt remove mysql mysql-server
+  321  mysql --version
+  322  sudo service mysql stop
+  323  sudo killall -KILL mysql mysqld_safe mysqld
+  324  sudo apt-get remove --purge mysql*
+  325  mysql --version
+  326  php -v
+  327  clear
+  328  Sudo apt-get update
+  329  sudo apt-get update
+  330  sudo apt-get install software-properties-common
+  331  sudo add-apt-repository ppa:ondrej/php
+  332  sudo apt-get install apache2
+  333  sudo apt-get install php libapache2-mod-php
+  334  sudo apt-get install php-mysql mysql-server -y
+  335  sudo apt-get install phpmyadmin - y
+  336  sudo apt-get install phpmyadmin -y
+  337  mysql -v
+  338  mysql --version
+  339  sudo apt-get remove --purge mysql*
+  340  which mysql
+  341  mysql -v
+  342  php -v
+  343  sudo apt-get purge php*.*
+  344  sudo apt-get autoremove
+  345  php -v
+  346  sudo apt-get autoclean
+  347  php -v
+  348  symfony -v
+  349  php -v
+  350  apache2 -v
+  351  sudo service apache2 stop
+  352  sudo apt-get purge apache2 apache2-utils apache2-bin apache2.2-common
+  353  sudo apt-get autoremove
+  354  whereis apache2
+  355  sudo rm -rf /etc/apache2
+  356  whereis apache2
+  357  apache2 -v
+  358  apache2 --version
+  359  php -v
+  360  whereis php
+  361  symfony
+  362  sudo apt-get update
+  363  sudo apt-get install software-properties-common
+  364  sudo add-apt-repository ppa:ondrej/php
+  365  sudo apt-get install apache2
+  366  sudo apt-get install php libapache2-mod-php
+  367  sudo apt-get install php-mysql mysql-server -y
+  368  sudo apt-get install phpmyadmin -y
+  369  php -v
+  370  apache2 -v
+  371  composer -v
+  372  sudo apt install composer
+  373  composer -v
+  374  symfony -v
+  375  clear
+  376  mysql -h 127.0.0.1 -P 3306 -u kennett -p'kennerie2528' --ssl-mode=DISABLED  Kidsparklabs_db
+  377  sudo dpkg -r google-chrome-stable
+  378  sudo dpkg -i google-chrome-stable_current_amd64.deb
+  379  exit
+  380  tar xf flutter_linux_3.22.2-stable.tar.xz
+  381  export PATH="$PATH:`pwd`/flutter/bin"
+  382  source ~/.bashrc
+  383  cd ..
+  384  export PATH="$PATH:`pwd`/flutter/bin"
+  385  source ~/.bashrc
+  386  flutter doctor --android-licenses
+  387  sudo apt-get update
+  388  sudo apt-get install dart
+  389  sudo apt-get update && sudo apt-get install apt-transport-https
+  390  wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub   | sudo gpg  --dearmor -o /usr/share/keyrings/dart.gpg
+  391  echo 'deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main'   | sudo tee /etc/apt/sources.list.d/dart_stable.list
+  392  sudo tee /etc/apt/sources.list.d/dart_stable.list
+  393  deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main
+  394  flutter doctor -v
+  395  flutter doctor
+  396  sudo snap install flutter
+  397  flutter -v
+  398  clear
+  399  which flutter
+  400  whereis flutter
+  401  which flutter
+  402  clear
+  403  sudo apt update
+  404  exit
+  405  ./ studio.sh
+  406  ./studio.sh
+  407  code .
+  408  ./studio.sh
+  409  tar -xf ~/Téléchargements/flutter_linux_3.22.3-stable.tar.xz -C /usr/bin/
+  410  tar -xf ~/flutter_linux_3.22.3-stable.tar.xz -C /usr/bin/clea
+  411  tar -xf ~/Téléchargements/flutter_linux_3.22.2-stable.tar.xz -C /usr/bin/
+  412  tar -xf ~/flutter_linux_3.22.2-stable.tar.xz -C /usr/bin/
+  413  tar -xf ~flutter_linux_3.22.2-stable.tar.xz -C /usr/bin/
+  414  tar -xf ~/Downloads/flutter_linux_3.22.3-stable.tar.xz -C /usr/bin/
+  415  tar -xf ~/Downloads/flutter_linux_3.22.2-stable.tar.xz -C /usr/bin/
+  416  sudo snap install flutter --classic
+  417  mkdir ~/flutter_temp && tar -xf flutter_linux_3.22.2-stable.tar.xz -C ~/flutter_temp
+  418  clear
+  419  cd ..
+  420  rm -rf /home/kennett/snap/flutter/common/flutter/*
+  421  cp -r ~/flutter_temp/flutter/* /home/kennett/snap/flutter/common/flutter/
+  422  flutter doctor
+  423  flutter doctor -v
+  424  flutter doctor --android-licenses
+  425  echo $SHELL
+  426  echo $0
+  427  echo 'export PATH="/usr/bin/flutter/bin:$PATH"' >> ~/.bash_profile
+  428  echo 'export PATH="/usr/bin/flutter/bin:$PATH"' >> ~/.zshenv
+  429  fish_add_path -g -p /usr/bin/flutter/bin
+  430  echo 'setenv PATH "/usr/bin/flutter/bin:$PATH"' >> ~/.cshrc
+  431  echo 'setenv PATH "/usr/bin/flutter/bin:$PATH"' >> ~/.tcshrc
+  432  echo 'export PATH="/usr/bin/flutter/bin:$PATH"' >> ~/.profile
+  433  flutter doctor --android-licenses
+  434  clear
+  435  exit
+  436  cd ..
+  437  clear
+  438  flutter doctor
+  439  sudo snap install flutter
+  440  clear
+  441  exit
+  442  code .
+  443  exit
+  444  which bash
+  445  which curl
+  446  sudo apt install curl
+  447  which git
+  448  sudo apt install git
+  449  sudo apt install mkdir
+  450  sudo apt install file
+  451  sudo apt install zip
+  452  sudo apt install unzip
+  453  clear
+  454  pwd
+  455  cd
+  456  clear
+  457  code .
+  458  exit
+  459  code .
+  460  exit
+  461  sudo apt update
+  462  exit
+  463  php -S localhost:8000
+  464  clear
+  465  php -S localhost:8000
+  466  code .
+  467  code .
+  468  ls /root
+  469  please ls /root
+  470  history
+  471  sudo shutdown
+  472  sudo shutdown -c
+  473  clear
+  474  php -S localhost:8000
+  475  sudo apt update
+  476  code .
+  477  sudo apt update
+  478  exit
+  479  code .
+  480  exit
+  481  symfony serve
+  482  clear
+  483  sudo apt update
+  484  clear
+  485  exit
+  486  symfony -v
+  487  clear
+  488  cd ..
+  489  clear
+  490  which symfony
+  491  clear
+  492  composer -v
+  493  clear
+  494  composer create-project symfony/skeleton:"6.4.*" projetcrud
+  495  clear
+  496  composer create-project symfony/skeleton:"6.4.*" projetcrud
+  497  code .
+  498  cd projetcrud/
+  499  code .
+  500  composer require webapp
+  501  code .
+  502  exit
+  503  code .
+  504  history
+  505  history > history.txt

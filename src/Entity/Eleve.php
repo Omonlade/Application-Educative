@@ -14,9 +14,8 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: EleveRepository::class)]
 #[ApiResource()]
-class Eleve implements PasswordAuthenticatedUserInterface 
+class Eleve implements PasswordAuthenticatedUserInterface
 {
-    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
